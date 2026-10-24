@@ -31,6 +31,9 @@ class OpenBMIApp:
         root.configure(bg="#f3f7f8")
         
         self.font_size = 11
+        self.ui_scale = 1.0
+        self._resize_job = None
+        self._last_window_size = None
         self.events = queue.Queue()
         self.stop_event = threading.Event()
         self.worker = None
@@ -55,6 +58,10 @@ class OpenBMIApp:
         
         self.init_styles()
         self.build()
+        self._spacing = []
+        self.capture_spacing(self.root)
+        root.bind("<Configure>", self.schedule_resize, add="+")
+        self.root.after_idle(self.resize_layout)
         
         root.bind("<F11>", self.toggle_fullscreen)
         root.bind("<Escape>", self.exit_fullscreen)
@@ -63,7 +70,8 @@ class OpenBMIApp:
 
     def init_styles(self):
         """极简风格与宋体全局样式配置"""
-        size = self.font_size
+        # 使用像素字号，避免窗口缩放与 Windows DPI 缩放重复叠加。
+        size = -max(11, round(self.font_size * 4 / 3))
         font_family = "宋体"
         
         self.root.option_add("*TCombobox*Listbox.font", (font_family, size))
@@ -72,21 +80,24 @@ class OpenBMIApp:
         self.style.configure("TLabel", background="#f3f7f8", foreground="#24464d")
         
         # 极简按钮与下拉框统一样式优化，避免丑陋的系统高亮灰
-        self.style.configure("TButton", padding=(12, 6), font=(font_family, size), relief="flat", background="#e8f0f2")
+        self.style.configure("TButton", padding=(round(12*self.ui_scale), round(6*self.ui_scale)), font=(font_family, size), relief="flat", background="#e8f0f2")
+        self.style.configure("TEntry", font=(font_family, size))
+        self.style.configure("TCombobox", font=(font_family, size), arrowsize=max(10, round(14*self.ui_scale)))
         self.style.map("TButton", background=[('active', '#d0dfe2'), ('pressed', '#c2d5d8')])
         
         # 主标题使用与看板一致的核心主题色 (#25857c)
-        self.style.configure("Title.TLabel", font=(font_family, size + 6, "bold"), foreground="#25857c")
+        self.style.configure("Title.TLabel", font=(font_family, -round(23*self.ui_scale), "bold"), foreground="#25857c")
         # 正在准备 / 核心状态识别统一颜色
-        self.style.configure("Result.TLabel", font=(font_family, size + 4, "bold"), foreground="#25857c")
-        self.style.configure("Hint.TLabel", font=(font_family, max(9, size - 1)), foreground="#688188")
+        self.style.configure("Result.TLabel", font=(font_family, -round(20*self.ui_scale), "bold"), foreground="#25857c")
+        self.style.configure("Hint.TLabel", font=(font_family, -max(10, round(13*self.ui_scale))), foreground="#688188")
         
-        self.style.configure("Treeview", rowheight=28, font=(font_family, size), background="#ffffff", fieldbackground="#ffffff")
+        self.style.configure("Treeview", rowheight=round(28*self.ui_scale), font=(font_family, size), background="#ffffff", fieldbackground="#ffffff")
         self.style.configure("Treeview.Heading", font=(font_family, size, "bold"), background="#e8f0f2", foreground="#24464d")
 
     def build(self):
         # 主容器：采用宽松的极简留白
         main_container = ttk.Frame(self.root, padding=24)
+        self.main_container = main_container
         main_container.pack(fill="both", expand=True)
         main_container.columnconfigure(0, weight=1)
         
@@ -119,7 +130,7 @@ class OpenBMIApp:
 
         # 参数控制行
         params = ttk.Frame(form)
-        params.grid(row=2, column=0, columnspan=3, sticky="w", pady=(10, 0))
+        params.grid(row=2, column=0, columnspan=3, sticky="ew", pady=(10, 0))
         
         ttk.Label(params, text="运行方式").pack(side="left", padx=(0, 6))
         ttk.Combobox(params, textvariable=self.mode, values=["本地文件回放", "网络接收"], width=11, state="readonly").pack(side="left", padx=(0, 20))
@@ -134,6 +145,16 @@ class OpenBMIApp:
         ttk.Entry(params, textvariable=self.host, width=12).pack(side="left", padx=(0, 10))
         ttk.Label(params, text="端口").pack(side="left", padx=(0, 4))
         ttk.Entry(params, textvariable=self.port, width=6).pack(side="left")
+        # 保持原来的单行顺序，让输入框共同分配横向空间。
+        parameter_widgets = [(widget, widget.pack_info())
+                             for widget in params.winfo_children()]
+        # 必须先移除所有 pack 控件，才能在同一父容器中使用 grid。
+        for widget, _ in parameter_widgets:
+            widget.pack_forget()
+        for column, (widget, options) in enumerate(parameter_widgets):
+            widget.grid(row=0, column=column, sticky="ew", padx=options.get("padx", 0))
+            if isinstance(widget, (ttk.Entry, ttk.Combobox)):
+                params.columnconfigure(column, weight=int(widget.cget("width")))
 
         # 3. 控制与实时看板区（识别动作与真实动作同行显示，字号风格统一）
         ctrl_board = ttk.Frame(main_container)
@@ -151,11 +172,17 @@ class OpenBMIApp:
         
         # 同行展示区域
         row_line1 = ttk.Frame(info_group)
+        self.info_group = info_group
         row_line1.pack(anchor="w", fill="x")
-        ttk.Label(row_line1, textvariable=self.result, style="Result.TLabel").pack(side="left", padx=(0, 20))
-        ttk.Label(row_line1, textvariable=self.detail, style="TLabel").pack(side="left", padx=(0, 0))
+        row_line1.columnconfigure(1, weight=1)
+        self.result_label = ttk.Label(row_line1, textvariable=self.result, style="Result.TLabel")
+        self.result_label.grid(row=0, column=0, sticky="w", padx=(0, 20))
+        self.detail_label = ttk.Label(row_line1, textvariable=self.detail, style="TLabel")
+        self.detail_label.grid(row=0, column=1, sticky="ew")
         
-        ttk.Label(info_group, textvariable=self.status, style="Hint.TLabel").pack(anchor="w", pady=(4, 0))
+        self.status_label = ttk.Label(info_group, textvariable=self.status, style="Hint.TLabel")
+        self.status_label.pack(anchor="w", fill="x", pady=(4, 0))
+        info_group.bind("<Configure>", self.wrap_info, add="+")
 
         # 4. 脑电波形展示窗口（高清抗锯齿渲染）
         plot_container = ttk.Frame(main_container)
@@ -169,6 +196,8 @@ class OpenBMIApp:
         
         self.canvas = FigureCanvasTkAgg(self.figure, master=plot_container)
         self.canvas.get_tk_widget().grid(row=0, column=0, sticky="nsew")
+        self.canvas.get_tk_widget().configure(width=1, height=1)
+        self.canvas.get_tk_widget().bind("<Configure>", self.resize_plot, add="+")
         
         for ax, name in zip(self.axes, ["C3", "Cz", "C4"]):
             ax.set_facecolor("#ffffff")
@@ -189,12 +218,78 @@ class OpenBMIApp:
                                   show="headings", height=3)
         for name, title in zip(self.table["columns"], ["试次", "真实动作", "识别动作", "预测置信度", "推理耗时"]):
             self.table.heading(name, text=title)
-            self.table.column(name, width=140, anchor="center")
+            self.table.column(name, width=140, minwidth=40, stretch=True, anchor="center")
         self.table.grid(row=0, column=0, sticky="nsew")
         
         scrollbar = ttk.Scrollbar(history_frame, orient="vertical", command=self.table.yview)
         scrollbar.grid(row=0, column=1, sticky="ns")
         self.table.configure(yscrollcommand=scrollbar.set)
+        self.table.bind("<Configure>", self.resize_table, add="+")
+
+    def capture_spacing(self, parent):
+        """保存原始间距；每次从基准缩放，不累计误差。"""
+        for widget in parent.winfo_children():
+            manager = widget.winfo_manager()
+            if manager in ("pack", "grid"):
+                info = getattr(widget, manager + "_info")()
+                pads = {key: tuple(int(float(v)) for v in self.root.tk.splitlist(info[key])
+                                   ) if isinstance(info[key], (str, tuple, list)) else (int(info[key]),)
+                        for key in ("padx", "pady") if key in info}
+                self._spacing.append((widget, manager, pads))
+            self.capture_spacing(widget)
+
+    def schedule_resize(self, event):
+        if event.widget is not self.root:
+            return
+        if self._resize_job is not None:
+            self.root.after_cancel(self._resize_job)
+        self._resize_job = self.root.after(60, self.resize_layout)
+
+    def resize_layout(self):
+        self._resize_job = None
+        dimensions = (self.root.winfo_width(), self.root.winfo_height())
+        if min(dimensions) <= 1 or dimensions == self._last_window_size:
+            return
+        self._last_window_size = dimensions
+        self.ui_scale = max(0.75, min(dimensions[0] / 1280, dimensions[1] / 900))
+        self.font_size = 11 * self.ui_scale
+        self.init_styles()
+        self.main_container.configure(padding=round(24*self.ui_scale))
+        for widget, manager, pads in self._spacing:
+            getattr(widget, manager + "_configure")(**{
+                key: tuple(round(value*self.ui_scale) for value in values)
+                for key, values in pads.items()})
+            if isinstance(widget, (ttk.Entry, ttk.Combobox)):
+                widget.configure(font=("宋体", -max(11, round(self.font_size*4/3))))
+        self.root.after_idle(self.wrap_info)
+        self.root.after_idle(self.resize_plot)
+
+    def wrap_info(self, event=None):
+        available = max(100, self.info_group.winfo_width())
+        self.status_label.configure(wraplength=available)
+        self.detail_label.configure(wraplength=max(
+            80, available - self.result_label.winfo_reqwidth() - round(20*self.ui_scale)))
+
+    def resize_table(self, event):
+        available = max(1, event.width - 4)
+        columns = self.table["columns"]
+        for column in columns:
+            self.table.column(column, width=available // len(columns),
+                              minwidth=max(30, round(40*self.ui_scale)))
+
+    def resize_plot(self, event=None):
+        # Matplotlib 字号单位是点，按画布 DPI 换算为与控件一致的像素大小。
+        width = max(1, self.canvas.get_tk_widget().winfo_width())
+        height = max(1, self.canvas.get_tk_widget().winfo_height())
+        size = 12 * self.ui_scale * 72 / self.figure.dpi
+        for ax in self.axes:
+            ax.yaxis.label.set_size(size)
+            ax.tick_params(labelsize=size * 0.9)
+        self.axes[-1].xaxis.label.set_size(size)
+        self.figure.subplots_adjust(
+            left=min(0.22, 76*self.ui_scale/width), right=0.98,
+            top=0.96, bottom=min(0.30, 42*self.ui_scale/height), hspace=0.20)
+        self.canvas.draw_idle()
 
 
     def toggle_fullscreen(self, event=None):
@@ -313,7 +408,7 @@ class OpenBMIApp:
             for spine in ax.spines.values():
                 spine.set_color("#d0dfe2")
         self.axes[-1].set_xlabel("Time (s)", fontname="SimSun", fontsize=9, color="#24464d")
-        self.canvas.draw_idle()
+        self.resize_plot()
 
     def stop(self):
         self.stop_event.set()
@@ -325,6 +420,8 @@ class OpenBMIApp:
                 pass
 
     def close(self):
+        if self._resize_job is not None:
+            self.root.after_cancel(self._resize_job)
         self.stop()
         self.root.destroy()
 
