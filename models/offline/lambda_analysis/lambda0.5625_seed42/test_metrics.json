@@ -1,0 +1,12 @@
+{
+  "seed": 42,
+  "sampling": "mixed",
+  "use_distillation": true,
+  "effective_mix_lambda": 0.5625,
+  "trial_accuracy": 0.7154545454545455,
+  "subject_macro_accuracy": 0.7154545454545456,
+  "group_subject_macro_accuracy": {
+    "normal": 0.7262500000000001,
+    "bci_blind": 0.7092857142857143
+  }
+}

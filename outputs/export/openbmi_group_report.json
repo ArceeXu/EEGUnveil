@@ -1,0 +1,2657 @@
+{
+  "config": {
+    "split_dir": "Data\\OpenBMI\\splits\\official_250hz_full",
+    "output_dir": "Data\\OpenBMI\\groups\\csp70_20",
+    "threshold": 0.7,
+    "folds": 5,
+    "seed": 42,
+    "components": 4,
+    "low": 8.0,
+    "high": 30.0,
+    "group_unit": "subject",
+    "aggregation": "arithmetic mean of session 1 and session 2 CV accuracies",
+    "required_sessions": [
+      1,
+      2
+    ],
+    "boundary": "mean accuracy < threshold => bci_blind",
+    "channels": [
+      "FC5",
+      "FC3",
+      "FC1",
+      "FC2",
+      "FC4",
+      "FC6",
+      "C5",
+      "C3",
+      "C1",
+      "Cz",
+      "C2",
+      "C4",
+      "C6",
+      "CP5",
+      "CP3",
+      "CP1",
+      "CPz",
+      "CP2",
+      "CP4",
+      "CP6"
+    ],
+    "tmin": 1.0,
+    "tmax": 3.5,
+    "filter": "trialwise Butterworth order 5 sosfiltfilt, then crop",
+    "filter_order": 5,
+    "csp_component_order": "alternate",
+    "exported_X": "unchanged input; motor channels and time window apply to scoring only",
+    "csp_reg": 0.1,
+    "csp_rank": "full",
+    "lda": "lsqr, shrinkage=auto",
+    "versions": {
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.1",
+      "mne": "1.13.2"
+    }
+  },
+  "status": "complete",
+  "subjects": [
+    {
+      "subject_id": 1,
+      "session1_cv_accuracy": 0.6,
+      "session2_cv_accuracy": 0.7,
+      "mean_cv_accuracy": 0.6499999999999999,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 2,
+      "session1_cv_accuracy": 0.88,
+      "session2_cv_accuracy": 0.83,
+      "mean_cv_accuracy": 0.855,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 3,
+      "session1_cv_accuracy": 0.8,
+      "session2_cv_accuracy": 0.95,
+      "mean_cv_accuracy": 0.875,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 4,
+      "session1_cv_accuracy": 0.63,
+      "session2_cv_accuracy": 0.61,
+      "mean_cv_accuracy": 0.62,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 5,
+      "session1_cv_accuracy": 0.89,
+      "session2_cv_accuracy": 0.77,
+      "mean_cv_accuracy": 0.8300000000000001,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 6,
+      "session1_cv_accuracy": 0.53,
+      "session2_cv_accuracy": 0.76,
+      "mean_cv_accuracy": 0.645,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 7,
+      "session1_cv_accuracy": 0.57,
+      "session2_cv_accuracy": 0.67,
+      "mean_cv_accuracy": 0.62,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 8,
+      "session1_cv_accuracy": 0.58,
+      "session2_cv_accuracy": 0.53,
+      "mean_cv_accuracy": 0.5549999999999999,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 9,
+      "session1_cv_accuracy": 0.8,
+      "session2_cv_accuracy": 0.84,
+      "mean_cv_accuracy": 0.8200000000000001,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 10,
+      "session1_cv_accuracy": 0.66,
+      "session2_cv_accuracy": 0.68,
+      "mean_cv_accuracy": 0.67,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 11,
+      "session1_cv_accuracy": 0.53,
+      "session2_cv_accuracy": 0.61,
+      "mean_cv_accuracy": 0.5700000000000001,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 12,
+      "session1_cv_accuracy": 0.68,
+      "session2_cv_accuracy": 0.68,
+      "mean_cv_accuracy": 0.68,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 13,
+      "session1_cv_accuracy": 0.61,
+      "session2_cv_accuracy": 0.65,
+      "mean_cv_accuracy": 0.63,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 14,
+      "session1_cv_accuracy": 0.64,
+      "session2_cv_accuracy": 0.63,
+      "mean_cv_accuracy": 0.635,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 15,
+      "session1_cv_accuracy": 0.63,
+      "session2_cv_accuracy": 0.73,
+      "mean_cv_accuracy": 0.6799999999999999,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 16,
+      "session1_cv_accuracy": 0.59,
+      "session2_cv_accuracy": 0.53,
+      "mean_cv_accuracy": 0.56,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 17,
+      "session1_cv_accuracy": 0.69,
+      "session2_cv_accuracy": 0.68,
+      "mean_cv_accuracy": 0.685,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 18,
+      "session1_cv_accuracy": 0.94,
+      "session2_cv_accuracy": 0.89,
+      "mean_cv_accuracy": 0.915,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 19,
+      "session1_cv_accuracy": 0.81,
+      "session2_cv_accuracy": 0.72,
+      "mean_cv_accuracy": 0.765,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 20,
+      "session1_cv_accuracy": 0.66,
+      "session2_cv_accuracy": 0.58,
+      "mean_cv_accuracy": 0.62,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 21,
+      "session1_cv_accuracy": 0.95,
+      "session2_cv_accuracy": 0.97,
+      "mean_cv_accuracy": 0.96,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 22,
+      "session1_cv_accuracy": 0.65,
+      "session2_cv_accuracy": 0.57,
+      "mean_cv_accuracy": 0.61,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 23,
+      "session1_cv_accuracy": 0.87,
+      "session2_cv_accuracy": 0.84,
+      "mean_cv_accuracy": 0.855,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 24,
+      "session1_cv_accuracy": 0.64,
+      "session2_cv_accuracy": 0.62,
+      "mean_cv_accuracy": 0.63,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 25,
+      "session1_cv_accuracy": 0.49,
+      "session2_cv_accuracy": 0.56,
+      "mean_cv_accuracy": 0.525,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 26,
+      "session1_cv_accuracy": 0.52,
+      "session2_cv_accuracy": 0.41,
+      "mean_cv_accuracy": 0.46499999999999997,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 27,
+      "session1_cv_accuracy": 0.53,
+      "session2_cv_accuracy": 0.53,
+      "mean_cv_accuracy": 0.53,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 28,
+      "session1_cv_accuracy": 0.77,
+      "session2_cv_accuracy": 0.8,
+      "mean_cv_accuracy": 0.785,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 29,
+      "session1_cv_accuracy": 0.81,
+      "session2_cv_accuracy": 0.96,
+      "mean_cv_accuracy": 0.885,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 30,
+      "session1_cv_accuracy": 0.66,
+      "session2_cv_accuracy": 0.46,
+      "mean_cv_accuracy": 0.56,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 31,
+      "session1_cv_accuracy": 0.57,
+      "session2_cv_accuracy": 0.61,
+      "mean_cv_accuracy": 0.59,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 32,
+      "session1_cv_accuracy": 0.98,
+      "session2_cv_accuracy": 0.98,
+      "mean_cv_accuracy": 0.98,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 33,
+      "session1_cv_accuracy": 0.9,
+      "session2_cv_accuracy": 0.77,
+      "mean_cv_accuracy": 0.835,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 34,
+      "session1_cv_accuracy": 0.53,
+      "session2_cv_accuracy": 0.55,
+      "mean_cv_accuracy": 0.54,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 35,
+      "session1_cv_accuracy": 0.56,
+      "session2_cv_accuracy": 0.69,
+      "mean_cv_accuracy": 0.625,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 36,
+      "session1_cv_accuracy": 0.95,
+      "session2_cv_accuracy": 1.0,
+      "mean_cv_accuracy": 0.975,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 37,
+      "session1_cv_accuracy": 0.93,
+      "session2_cv_accuracy": 0.97,
+      "mean_cv_accuracy": 0.95,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 38,
+      "session1_cv_accuracy": 0.57,
+      "session2_cv_accuracy": 0.53,
+      "mean_cv_accuracy": 0.55,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 39,
+      "session1_cv_accuracy": 0.69,
+      "session2_cv_accuracy": 0.6,
+      "mean_cv_accuracy": 0.645,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 40,
+      "session1_cv_accuracy": 0.59,
+      "session2_cv_accuracy": 0.6,
+      "mean_cv_accuracy": 0.595,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 41,
+      "session1_cv_accuracy": 0.57,
+      "session2_cv_accuracy": 0.63,
+      "mean_cv_accuracy": 0.6,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 42,
+      "session1_cv_accuracy": 0.66,
+      "session2_cv_accuracy": 0.58,
+      "mean_cv_accuracy": 0.62,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 43,
+      "session1_cv_accuracy": 0.73,
+      "session2_cv_accuracy": 0.72,
+      "mean_cv_accuracy": 0.725,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 44,
+      "session1_cv_accuracy": 0.88,
+      "session2_cv_accuracy": 0.93,
+      "mean_cv_accuracy": 0.905,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 45,
+      "session1_cv_accuracy": 0.84,
+      "session2_cv_accuracy": 0.89,
+      "mean_cv_accuracy": 0.865,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 46,
+      "session1_cv_accuracy": 0.58,
+      "session2_cv_accuracy": 0.53,
+      "mean_cv_accuracy": 0.5549999999999999,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 47,
+      "session1_cv_accuracy": 0.51,
+      "session2_cv_accuracy": 0.69,
+      "mean_cv_accuracy": 0.6,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 48,
+      "session1_cv_accuracy": 0.62,
+      "session2_cv_accuracy": 0.58,
+      "mean_cv_accuracy": 0.6,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 49,
+      "session1_cv_accuracy": 0.77,
+      "session2_cv_accuracy": 0.7,
+      "mean_cv_accuracy": 0.735,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 50,
+      "session1_cv_accuracy": 0.56,
+      "session2_cv_accuracy": 0.5,
+      "mean_cv_accuracy": 0.53,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 51,
+      "session1_cv_accuracy": 0.53,
+      "session2_cv_accuracy": 0.61,
+      "mean_cv_accuracy": 0.5700000000000001,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 52,
+      "session1_cv_accuracy": 0.73,
+      "session2_cv_accuracy": 0.68,
+      "mean_cv_accuracy": 0.7050000000000001,
+      "group": "normal",
+      "trials": 200
+    },
+    {
+      "subject_id": 53,
+      "session1_cv_accuracy": 0.61,
+      "session2_cv_accuracy": 0.54,
+      "mean_cv_accuracy": 0.575,
+      "group": "bci_blind",
+      "trials": 200
+    },
+    {
+      "subject_id": 54,
+      "session1_cv_accuracy": 0.47,
+      "session2_cv_accuracy": 0.53,
+      "mean_cv_accuracy": 0.5,
+      "group": "bci_blind",
+      "trials": 200
+    }
+  ],
+  "sessions": [
+    {
+      "subject_id": 1,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.6,
+      "subject_cv_accuracy": 0.6499999999999999,
+      "fold_accuracies": [
+        0.55,
+        0.35,
+        0.7,
+        0.75,
+        0.65
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-01\\ses-01\\train.npz",
+      "source_sha256": "e3fced2f59fa5035ee6bc2175612eeffc91ac42c33c62d8f2fe0766e9246a0ba",
+      "grouped_train": "bci_blind\\sub-01\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 1,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.7,
+      "subject_cv_accuracy": 0.6499999999999999,
+      "fold_accuracies": [
+        0.65,
+        0.7,
+        0.8,
+        0.6,
+        0.75
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-01\\ses-02\\train.npz",
+      "source_sha256": "ed27741ea0b3b1ae1349b7a8c0e4b05f6923b809d6b4e0371e997102b1118e86",
+      "grouped_train": "bci_blind\\sub-01\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 2,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.88,
+      "subject_cv_accuracy": 0.855,
+      "fold_accuracies": [
+        0.95,
+        0.8,
+        0.8,
+        0.9,
+        0.95
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-02\\ses-01\\train.npz",
+      "source_sha256": "3e29cccbab401b955e765ffbd7fb6d20e8313de2945cce7aeb2df1a11d2dae16",
+      "grouped_train": "normal\\sub-02\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 2,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.83,
+      "subject_cv_accuracy": 0.855,
+      "fold_accuracies": [
+        0.8,
+        0.75,
+        0.85,
+        0.9,
+        0.85
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-02\\ses-02\\train.npz",
+      "source_sha256": "97a4029d089f7a23b24934c617aae290a1a84555c7c4d179f5075ef0ea990252",
+      "grouped_train": "normal\\sub-02\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 3,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.8,
+      "subject_cv_accuracy": 0.875,
+      "fold_accuracies": [
+        0.75,
+        0.8,
+        0.75,
+        0.9,
+        0.8
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-03\\ses-01\\train.npz",
+      "source_sha256": "f6238d4158639c8bcf4cdc436632d108e3d1cd4c29c94ff712c89b4e2332f603",
+      "grouped_train": "normal\\sub-03\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 3,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.95,
+      "subject_cv_accuracy": 0.875,
+      "fold_accuracies": [
+        0.95,
+        0.95,
+        0.95,
+        0.9,
+        1.0
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-03\\ses-02\\train.npz",
+      "source_sha256": "98c288dcfeca53e8b9705937cf054c2877e5cbe6604320b837d6cd9355324662",
+      "grouped_train": "normal\\sub-03\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 4,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.63,
+      "subject_cv_accuracy": 0.62,
+      "fold_accuracies": [
+        0.55,
+        0.65,
+        0.6,
+        0.8,
+        0.55
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-04\\ses-01\\train.npz",
+      "source_sha256": "54d026456fc449d62e7c08bb6c5c359bdb03ac9f028d4ec68d8cf1845054f4eb",
+      "grouped_train": "bci_blind\\sub-04\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 4,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.61,
+      "subject_cv_accuracy": 0.62,
+      "fold_accuracies": [
+        0.65,
+        0.45,
+        0.6,
+        0.7,
+        0.65
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-04\\ses-02\\train.npz",
+      "source_sha256": "f6f25040f6df0c6d0e8c7ef968f1c7fb62c4a49a62df4aa079309bfb0c7bbd8b",
+      "grouped_train": "bci_blind\\sub-04\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 5,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.89,
+      "subject_cv_accuracy": 0.8300000000000001,
+      "fold_accuracies": [
+        0.9,
+        0.85,
+        0.85,
+        0.9,
+        0.95
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-05\\ses-01\\train.npz",
+      "source_sha256": "f81549260d2c76cbc5eb1068754ec170c8145422fc8085da057b4a2edd81fadf",
+      "grouped_train": "normal\\sub-05\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 5,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.77,
+      "subject_cv_accuracy": 0.8300000000000001,
+      "fold_accuracies": [
+        0.65,
+        0.9,
+        0.75,
+        0.75,
+        0.8
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-05\\ses-02\\train.npz",
+      "source_sha256": "79d7275dc0190712f7f3b0ecb716d3c8c3eb1d8408ed51775c4a11246aa5025f",
+      "grouped_train": "normal\\sub-05\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 6,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.53,
+      "subject_cv_accuracy": 0.645,
+      "fold_accuracies": [
+        0.65,
+        0.45,
+        0.55,
+        0.4,
+        0.6
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-06\\ses-01\\train.npz",
+      "source_sha256": "9d0e32c21588f3d216c1a23a6be29d296edb2b69f7d97693a2c26305b3bd5aca",
+      "grouped_train": "bci_blind\\sub-06\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 6,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.76,
+      "subject_cv_accuracy": 0.645,
+      "fold_accuracies": [
+        0.75,
+        0.9,
+        0.65,
+        0.7,
+        0.8
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-06\\ses-02\\train.npz",
+      "source_sha256": "17ebb8b3dd14a8894a620cd89701b30653f0714e6f111ff6821f0083a7c81f27",
+      "grouped_train": "bci_blind\\sub-06\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 7,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.57,
+      "subject_cv_accuracy": 0.62,
+      "fold_accuracies": [
+        0.7,
+        0.6,
+        0.65,
+        0.4,
+        0.5
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-07\\ses-01\\train.npz",
+      "source_sha256": "0b2c78ab72ec0b8d9b559500ba3ef117fc3077ae61f4fc52793e0a6fcfb4217c",
+      "grouped_train": "bci_blind\\sub-07\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 7,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.67,
+      "subject_cv_accuracy": 0.62,
+      "fold_accuracies": [
+        0.45,
+        0.75,
+        0.7,
+        0.8,
+        0.65
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-07\\ses-02\\train.npz",
+      "source_sha256": "a1d8b76dc551ab143a12bc87d1f491459a656212c894d373cb562b99fe8bd842",
+      "grouped_train": "bci_blind\\sub-07\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 8,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.58,
+      "subject_cv_accuracy": 0.5549999999999999,
+      "fold_accuracies": [
+        0.55,
+        0.65,
+        0.5,
+        0.65,
+        0.55
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-08\\ses-01\\train.npz",
+      "source_sha256": "ca6b28a07063501b39db9e4de6eebfdbd3de3da8408583f4d09025748fefd530",
+      "grouped_train": "bci_blind\\sub-08\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 8,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.53,
+      "subject_cv_accuracy": 0.5549999999999999,
+      "fold_accuracies": [
+        0.55,
+        0.45,
+        0.65,
+        0.55,
+        0.45
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-08\\ses-02\\train.npz",
+      "source_sha256": "d0ad9c5a3bbf0257cf84a4be37f37d00cb81e080edbf75d16a276d0b9140765d",
+      "grouped_train": "bci_blind\\sub-08\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 9,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.8,
+      "subject_cv_accuracy": 0.8200000000000001,
+      "fold_accuracies": [
+        0.8,
+        0.7,
+        0.85,
+        0.8,
+        0.85
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-09\\ses-01\\train.npz",
+      "source_sha256": "c372792103522b90ea26032bbd2b94142c268406a520e7c7a483ad41c58b5c3b",
+      "grouped_train": "normal\\sub-09\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 9,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.84,
+      "subject_cv_accuracy": 0.8200000000000001,
+      "fold_accuracies": [
+        0.8,
+        0.9,
+        0.9,
+        0.8,
+        0.8
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-09\\ses-02\\train.npz",
+      "source_sha256": "17e340cf16895557a5dec2293daeed4d00e5ddaed2414dd8c7513cdf6abd618c",
+      "grouped_train": "normal\\sub-09\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 10,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.66,
+      "subject_cv_accuracy": 0.67,
+      "fold_accuracies": [
+        0.8,
+        0.6,
+        0.65,
+        0.6,
+        0.65
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-10\\ses-01\\train.npz",
+      "source_sha256": "e4f30876d85e5e36f48dfbee07c0a2e02b8913a6cfec60ac7ba1bf0bc4614f74",
+      "grouped_train": "bci_blind\\sub-10\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 10,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.68,
+      "subject_cv_accuracy": 0.67,
+      "fold_accuracies": [
+        0.6,
+        0.55,
+        0.8,
+        0.75,
+        0.7
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-10\\ses-02\\train.npz",
+      "source_sha256": "e504fb21c78f248c8d58b5155c0b91128453f39112999633cf034f499e85d73b",
+      "grouped_train": "bci_blind\\sub-10\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 11,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.53,
+      "subject_cv_accuracy": 0.5700000000000001,
+      "fold_accuracies": [
+        0.7,
+        0.45,
+        0.45,
+        0.55,
+        0.5
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-11\\ses-01\\train.npz",
+      "source_sha256": "22d1e97bdf770cee16980ce88d3fed7a3afe5772b1a6bdd204ba335a1147bc53",
+      "grouped_train": "bci_blind\\sub-11\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 11,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.61,
+      "subject_cv_accuracy": 0.5700000000000001,
+      "fold_accuracies": [
+        0.45,
+        0.8,
+        0.6,
+        0.65,
+        0.55
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-11\\ses-02\\train.npz",
+      "source_sha256": "3c64d33182f9c9fda4ef4b3fb42c4bdf4d912df884b551b52ff45a9536b35bf6",
+      "grouped_train": "bci_blind\\sub-11\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 12,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.68,
+      "subject_cv_accuracy": 0.68,
+      "fold_accuracies": [
+        0.8,
+        0.7,
+        0.6,
+        0.75,
+        0.55
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-12\\ses-01\\train.npz",
+      "source_sha256": "9f6ee645c765d44520cd38888a92f5b183bcbeaeb76e1cd0898eed088b5d2de0",
+      "grouped_train": "bci_blind\\sub-12\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 12,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.68,
+      "subject_cv_accuracy": 0.68,
+      "fold_accuracies": [
+        0.7,
+        0.65,
+        0.7,
+        0.75,
+        0.6
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-12\\ses-02\\train.npz",
+      "source_sha256": "385265e129b612239443c44eb06bf990d9339999292567005b9db3478530a7d0",
+      "grouped_train": "bci_blind\\sub-12\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 13,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.61,
+      "subject_cv_accuracy": 0.63,
+      "fold_accuracies": [
+        0.55,
+        0.55,
+        0.65,
+        0.65,
+        0.65
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-13\\ses-01\\train.npz",
+      "source_sha256": "cfdb463d8a214baacf7cc45892a6c63249f20c4c5c1169e98171790d691e21a1",
+      "grouped_train": "bci_blind\\sub-13\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 13,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.65,
+      "subject_cv_accuracy": 0.63,
+      "fold_accuracies": [
+        0.55,
+        0.7,
+        0.5,
+        0.7,
+        0.8
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-13\\ses-02\\train.npz",
+      "source_sha256": "522a8f84f732c25faf8bab020db949f9d36e675e169cb1ceb5b5f8823ca2a842",
+      "grouped_train": "bci_blind\\sub-13\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 14,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.64,
+      "subject_cv_accuracy": 0.635,
+      "fold_accuracies": [
+        0.75,
+        0.65,
+        0.5,
+        0.55,
+        0.75
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-14\\ses-01\\train.npz",
+      "source_sha256": "4e242b3a17178d54c5b80be22a13b7e823a574ecbecf2fa9c5e0811116aabde8",
+      "grouped_train": "bci_blind\\sub-14\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 14,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.63,
+      "subject_cv_accuracy": 0.635,
+      "fold_accuracies": [
+        0.55,
+        0.7,
+        0.7,
+        0.45,
+        0.75
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-14\\ses-02\\train.npz",
+      "source_sha256": "42b0acafcd926f986f5a76e996cecf9a1e1ba10bae69aaa14078de57c663cc30",
+      "grouped_train": "bci_blind\\sub-14\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 15,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.63,
+      "subject_cv_accuracy": 0.6799999999999999,
+      "fold_accuracies": [
+        0.75,
+        0.6,
+        0.5,
+        0.75,
+        0.55
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-15\\ses-01\\train.npz",
+      "source_sha256": "5424b26bd633b2dbddada8707b480c4362d9402ef860c7e8812bdba2feecad18",
+      "grouped_train": "bci_blind\\sub-15\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 15,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.73,
+      "subject_cv_accuracy": 0.6799999999999999,
+      "fold_accuracies": [
+        0.7,
+        0.8,
+        0.85,
+        0.7,
+        0.6
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-15\\ses-02\\train.npz",
+      "source_sha256": "2788643037c732900c4dbd6610a3562e2747524dc2b416aff99dd7bbfd15bc00",
+      "grouped_train": "bci_blind\\sub-15\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 16,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.59,
+      "subject_cv_accuracy": 0.56,
+      "fold_accuracies": [
+        0.55,
+        0.7,
+        0.45,
+        0.6,
+        0.65
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-16\\ses-01\\train.npz",
+      "source_sha256": "3762c94d9d7321ab3c558ad9644672ff3bf28e8d1d0f6d424ac90e2072fc45ff",
+      "grouped_train": "bci_blind\\sub-16\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 16,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.53,
+      "subject_cv_accuracy": 0.56,
+      "fold_accuracies": [
+        0.5,
+        0.5,
+        0.7,
+        0.5,
+        0.45
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-16\\ses-02\\train.npz",
+      "source_sha256": "2876c71721b0498d5736492f920cbde9bc5ee386993b6717ebf882e919b2845b",
+      "grouped_train": "bci_blind\\sub-16\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 17,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.69,
+      "subject_cv_accuracy": 0.685,
+      "fold_accuracies": [
+        0.7,
+        0.75,
+        0.55,
+        0.65,
+        0.8
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-17\\ses-01\\train.npz",
+      "source_sha256": "8d46bad707e26cbb129d7e8bdf669e8ab28c36759b98dc5c5126e8f95297ce96",
+      "grouped_train": "bci_blind\\sub-17\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 17,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.68,
+      "subject_cv_accuracy": 0.685,
+      "fold_accuracies": [
+        0.65,
+        0.55,
+        0.8,
+        0.7,
+        0.7
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-17\\ses-02\\train.npz",
+      "source_sha256": "a008265aa9e325099e7ff1d660e7791aa2950490d322babaee9658cfbca89451",
+      "grouped_train": "bci_blind\\sub-17\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 18,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.94,
+      "subject_cv_accuracy": 0.915,
+      "fold_accuracies": [
+        0.85,
+        0.95,
+        1.0,
+        0.9,
+        1.0
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-18\\ses-01\\train.npz",
+      "source_sha256": "c5bd90e8d3fb459c568e2747d17a49fe6161597b136faf3a84207c086d90a157",
+      "grouped_train": "normal\\sub-18\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 18,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.89,
+      "subject_cv_accuracy": 0.915,
+      "fold_accuracies": [
+        0.9,
+        0.9,
+        0.85,
+        0.8,
+        1.0
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-18\\ses-02\\train.npz",
+      "source_sha256": "09560bcfc5c74d3789eed5accf251ea466bfea76582a54448e4b0ec5a42f2aa4",
+      "grouped_train": "normal\\sub-18\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 19,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.81,
+      "subject_cv_accuracy": 0.765,
+      "fold_accuracies": [
+        0.9,
+        0.7,
+        0.8,
+        0.85,
+        0.8
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-19\\ses-01\\train.npz",
+      "source_sha256": "7b82168fcf5e9dce9abadc1268ed58d741f989ee3c90bdac9f9467f3c545f28d",
+      "grouped_train": "normal\\sub-19\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 19,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.72,
+      "subject_cv_accuracy": 0.765,
+      "fold_accuracies": [
+        0.85,
+        0.65,
+        0.55,
+        0.8,
+        0.75
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-19\\ses-02\\train.npz",
+      "source_sha256": "9fef4e4d5e356843fd986c56d388c63d1a75b42a36d153b3accbe95c56023c6b",
+      "grouped_train": "normal\\sub-19\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 20,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.66,
+      "subject_cv_accuracy": 0.62,
+      "fold_accuracies": [
+        0.6,
+        0.7,
+        0.6,
+        0.7,
+        0.7
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-20\\ses-01\\train.npz",
+      "source_sha256": "1686d30f23b9d56cab7760cf014458bcc0953f896be3376f99ea005ae4c3677b",
+      "grouped_train": "bci_blind\\sub-20\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 20,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.58,
+      "subject_cv_accuracy": 0.62,
+      "fold_accuracies": [
+        0.55,
+        0.6,
+        0.55,
+        0.7,
+        0.5
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-20\\ses-02\\train.npz",
+      "source_sha256": "dde32bff70cc5e269d3715940080f1542d9de4b8048ef9552643f84e3a89effe",
+      "grouped_train": "bci_blind\\sub-20\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 21,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.95,
+      "subject_cv_accuracy": 0.96,
+      "fold_accuracies": [
+        0.9,
+        1.0,
+        0.95,
+        0.9,
+        1.0
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-21\\ses-01\\train.npz",
+      "source_sha256": "d6727c206f04fdc0f7d9a39b6ef609c7c0d10d86927b9e561a955ca054d16a77",
+      "grouped_train": "normal\\sub-21\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 21,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.97,
+      "subject_cv_accuracy": 0.96,
+      "fold_accuracies": [
+        0.95,
+        1.0,
+        1.0,
+        0.9,
+        1.0
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-21\\ses-02\\train.npz",
+      "source_sha256": "c043b417d50df0ef9cbe9a9060b576cc56699de15861466ae74991d196b57b47",
+      "grouped_train": "normal\\sub-21\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 22,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.65,
+      "subject_cv_accuracy": 0.61,
+      "fold_accuracies": [
+        0.75,
+        0.8,
+        0.7,
+        0.65,
+        0.35
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-22\\ses-01\\train.npz",
+      "source_sha256": "07e99340060e2e8cea028dc7ba866be16dea9463d7b2f34c63affbcb02794fa0",
+      "grouped_train": "bci_blind\\sub-22\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 22,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.57,
+      "subject_cv_accuracy": 0.61,
+      "fold_accuracies": [
+        0.5,
+        0.6,
+        0.6,
+        0.55,
+        0.6
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-22\\ses-02\\train.npz",
+      "source_sha256": "9603f94829a1edae360f23e04e21cc42ece55a54855193118db690d941bece0d",
+      "grouped_train": "bci_blind\\sub-22\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 23,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.87,
+      "subject_cv_accuracy": 0.855,
+      "fold_accuracies": [
+        0.85,
+        0.85,
+        0.85,
+        0.95,
+        0.85
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-23\\ses-01\\train.npz",
+      "source_sha256": "9be71378b43bb327aa479a3e56178ba338091c23c5b16dc33a418426b571bbaf",
+      "grouped_train": "normal\\sub-23\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 23,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.84,
+      "subject_cv_accuracy": 0.855,
+      "fold_accuracies": [
+        0.8,
+        0.8,
+        1.0,
+        0.7,
+        0.9
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-23\\ses-02\\train.npz",
+      "source_sha256": "c7cde896843b5c8c3e3fe8c81e9748d7ef13b3970698e5145bd4bd330008eaf6",
+      "grouped_train": "normal\\sub-23\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 24,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.64,
+      "subject_cv_accuracy": 0.63,
+      "fold_accuracies": [
+        0.7,
+        0.55,
+        0.8,
+        0.65,
+        0.5
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-24\\ses-01\\train.npz",
+      "source_sha256": "c035328569ceb5faca723926ddd825ef38d72dd9611855dea74bd75fdeb2199e",
+      "grouped_train": "bci_blind\\sub-24\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 24,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.62,
+      "subject_cv_accuracy": 0.63,
+      "fold_accuracies": [
+        0.55,
+        0.6,
+        0.65,
+        0.7,
+        0.6
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-24\\ses-02\\train.npz",
+      "source_sha256": "0441231c7a6ec0312ebeccb7d5413cdb6f43481445fa0830349f12846e40b918",
+      "grouped_train": "bci_blind\\sub-24\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 25,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.49,
+      "subject_cv_accuracy": 0.525,
+      "fold_accuracies": [
+        0.45,
+        0.45,
+        0.45,
+        0.55,
+        0.55
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-25\\ses-01\\train.npz",
+      "source_sha256": "eade6b7cc24cc32b255206ed4bb6c155a10a0fbc8f480690880459b5786772fc",
+      "grouped_train": "bci_blind\\sub-25\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 25,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.56,
+      "subject_cv_accuracy": 0.525,
+      "fold_accuracies": [
+        0.65,
+        0.45,
+        0.5,
+        0.65,
+        0.55
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-25\\ses-02\\train.npz",
+      "source_sha256": "ae3d4774937fb609582ec8e8b08714c0d695a60aa6b8325f7193942c37c461b5",
+      "grouped_train": "bci_blind\\sub-25\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 26,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.52,
+      "subject_cv_accuracy": 0.46499999999999997,
+      "fold_accuracies": [
+        0.7,
+        0.45,
+        0.45,
+        0.6,
+        0.4
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-26\\ses-01\\train.npz",
+      "source_sha256": "a3c2dc26e5d89f9d8fae50b3709aa0369b8089e2e1939a3bbef363e49d81dc23",
+      "grouped_train": "bci_blind\\sub-26\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 26,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.41,
+      "subject_cv_accuracy": 0.46499999999999997,
+      "fold_accuracies": [
+        0.35,
+        0.35,
+        0.4,
+        0.45,
+        0.5
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-26\\ses-02\\train.npz",
+      "source_sha256": "ca55b51c8861e2a08c29ae97bc60a262f3d04a7473293e134d8f1b489641b81b",
+      "grouped_train": "bci_blind\\sub-26\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 27,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.53,
+      "subject_cv_accuracy": 0.53,
+      "fold_accuracies": [
+        0.6,
+        0.35,
+        0.6,
+        0.6,
+        0.5
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-27\\ses-01\\train.npz",
+      "source_sha256": "409bcb1d52f708cd02ab66bcc04359e4d789463acd64085f8bd15073c98d0e7f",
+      "grouped_train": "bci_blind\\sub-27\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 27,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.53,
+      "subject_cv_accuracy": 0.53,
+      "fold_accuracies": [
+        0.65,
+        0.35,
+        0.5,
+        0.55,
+        0.6
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-27\\ses-02\\train.npz",
+      "source_sha256": "3b8f31c398e424159a0454e6d6138ac3eaa8f1cbea1881761f5d94a71016854c",
+      "grouped_train": "bci_blind\\sub-27\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 28,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.77,
+      "subject_cv_accuracy": 0.785,
+      "fold_accuracies": [
+        0.8,
+        0.8,
+        0.7,
+        0.8,
+        0.75
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-28\\ses-01\\train.npz",
+      "source_sha256": "1b3c4b33d380121989b3519099ef7da37b02bd41ec088b12b0360aac8251885e",
+      "grouped_train": "normal\\sub-28\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 28,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.8,
+      "subject_cv_accuracy": 0.785,
+      "fold_accuracies": [
+        0.85,
+        0.7,
+        0.9,
+        0.75,
+        0.8
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-28\\ses-02\\train.npz",
+      "source_sha256": "fedaf1db591aa633b497cf379b7365137d50a08d2c7f94cfd3a0762cf1858321",
+      "grouped_train": "normal\\sub-28\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 29,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.81,
+      "subject_cv_accuracy": 0.885,
+      "fold_accuracies": [
+        0.8,
+        0.8,
+        0.85,
+        0.75,
+        0.85
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-29\\ses-01\\train.npz",
+      "source_sha256": "fb9e4781581fc6a2b70e7bfdcc151d64a41567a66bdf0902c9db89295e3408b9",
+      "grouped_train": "normal\\sub-29\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 29,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.96,
+      "subject_cv_accuracy": 0.885,
+      "fold_accuracies": [
+        1.0,
+        0.9,
+        0.95,
+        0.95,
+        1.0
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-29\\ses-02\\train.npz",
+      "source_sha256": "4313930cf3b764c7ee713f9e0be4fda3562de98ee9be8bdd586f9729e40afa59",
+      "grouped_train": "normal\\sub-29\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 30,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.66,
+      "subject_cv_accuracy": 0.56,
+      "fold_accuracies": [
+        0.75,
+        0.6,
+        0.5,
+        0.65,
+        0.8
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-30\\ses-01\\train.npz",
+      "source_sha256": "d3d49df78e7be9545be9b2c9eb44d9d62f644cc4b97225855fc42472b19ac87d",
+      "grouped_train": "bci_blind\\sub-30\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 30,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.46,
+      "subject_cv_accuracy": 0.56,
+      "fold_accuracies": [
+        0.35,
+        0.35,
+        0.6,
+        0.6,
+        0.4
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-30\\ses-02\\train.npz",
+      "source_sha256": "13e13f2f94cb13cacdaeb692cb88a994ce7d6cbae0a899eea6130bd225359bc6",
+      "grouped_train": "bci_blind\\sub-30\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 31,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.57,
+      "subject_cv_accuracy": 0.59,
+      "fold_accuracies": [
+        0.6,
+        0.55,
+        0.5,
+        0.7,
+        0.5
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-31\\ses-01\\train.npz",
+      "source_sha256": "ed8342328fda045ca3134466b664e9860988c702940b73fedc1840b46bc9eb0d",
+      "grouped_train": "bci_blind\\sub-31\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 31,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.61,
+      "subject_cv_accuracy": 0.59,
+      "fold_accuracies": [
+        0.55,
+        0.6,
+        0.65,
+        0.6,
+        0.65
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-31\\ses-02\\train.npz",
+      "source_sha256": "10b50ce73c9896a091beaaed012eab7dbc02d5f6b286c44294853f1932107f3e",
+      "grouped_train": "bci_blind\\sub-31\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 32,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.98,
+      "subject_cv_accuracy": 0.98,
+      "fold_accuracies": [
+        0.95,
+        1.0,
+        1.0,
+        1.0,
+        0.95
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-32\\ses-01\\train.npz",
+      "source_sha256": "c077ed8514981b2d666c6f3d11951a4d1937c9b48963e415ec69d673913870ef",
+      "grouped_train": "normal\\sub-32\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 32,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.98,
+      "subject_cv_accuracy": 0.98,
+      "fold_accuracies": [
+        0.95,
+        0.95,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-32\\ses-02\\train.npz",
+      "source_sha256": "32fe7b52c0f4d7f0b0fb38e126a0e85d2b6b0947f04802822d13780fb5e1dd37",
+      "grouped_train": "normal\\sub-32\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 33,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.9,
+      "subject_cv_accuracy": 0.835,
+      "fold_accuracies": [
+        0.8,
+        0.9,
+        1.0,
+        0.9,
+        0.9
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-33\\ses-01\\train.npz",
+      "source_sha256": "82a398ad20260c1054ebe2a8adba345539fbe9e169dabd2b26dec6b5e96f1478",
+      "grouped_train": "normal\\sub-33\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 33,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.77,
+      "subject_cv_accuracy": 0.835,
+      "fold_accuracies": [
+        0.85,
+        0.75,
+        0.6,
+        0.8,
+        0.85
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-33\\ses-02\\train.npz",
+      "source_sha256": "97355a256cd54ad5b03d0bd06d2b72e5fc9655d321f3e63ce4ee916b9626532c",
+      "grouped_train": "normal\\sub-33\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 34,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.53,
+      "subject_cv_accuracy": 0.54,
+      "fold_accuracies": [
+        0.55,
+        0.5,
+        0.35,
+        0.5,
+        0.75
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-34\\ses-01\\train.npz",
+      "source_sha256": "3b33cd477c4710062d1eb3287779f00cdc19bedba58f773fcd0cc4414265d59c",
+      "grouped_train": "bci_blind\\sub-34\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 34,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.55,
+      "subject_cv_accuracy": 0.54,
+      "fold_accuracies": [
+        0.65,
+        0.55,
+        0.65,
+        0.4,
+        0.5
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-34\\ses-02\\train.npz",
+      "source_sha256": "8f74a66f479bae7e66c85d98032ec7594700c751f48c63b956c5b8d13e5d73d0",
+      "grouped_train": "bci_blind\\sub-34\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 35,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.56,
+      "subject_cv_accuracy": 0.625,
+      "fold_accuracies": [
+        0.45,
+        0.6,
+        0.6,
+        0.6,
+        0.55
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-35\\ses-01\\train.npz",
+      "source_sha256": "ece2f8e85c74f818403c926fb91894f05222682223afe537939e6140322f2d8f",
+      "grouped_train": "bci_blind\\sub-35\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 35,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.69,
+      "subject_cv_accuracy": 0.625,
+      "fold_accuracies": [
+        0.85,
+        0.65,
+        0.75,
+        0.55,
+        0.65
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-35\\ses-02\\train.npz",
+      "source_sha256": "80a2b709a50a68d822e743155e0c570e1c602ec9c0352fe039746953232309fc",
+      "grouped_train": "bci_blind\\sub-35\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 36,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.95,
+      "subject_cv_accuracy": 0.975,
+      "fold_accuracies": [
+        0.95,
+        0.95,
+        1.0,
+        0.9,
+        0.95
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-36\\ses-01\\train.npz",
+      "source_sha256": "fe0fdceb75107cdb3ffdd6bf1d96327e6ed32c0892b2d2d8944e676b74fb6aa5",
+      "grouped_train": "normal\\sub-36\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 36,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 1.0,
+      "subject_cv_accuracy": 0.975,
+      "fold_accuracies": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-36\\ses-02\\train.npz",
+      "source_sha256": "f3938719fc513cce413ce691d74d4c194889c125faf8212ec47c54ca3eb5b8a1",
+      "grouped_train": "normal\\sub-36\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 37,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.93,
+      "subject_cv_accuracy": 0.95,
+      "fold_accuracies": [
+        1.0,
+        0.95,
+        0.85,
+        0.95,
+        0.9
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-37\\ses-01\\train.npz",
+      "source_sha256": "59b314b13648f248a602dbd2b2d81d7f2b20a80272a1d325f78318c735897ab0",
+      "grouped_train": "normal\\sub-37\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 37,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.97,
+      "subject_cv_accuracy": 0.95,
+      "fold_accuracies": [
+        1.0,
+        0.95,
+        1.0,
+        0.95,
+        0.95
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-37\\ses-02\\train.npz",
+      "source_sha256": "3b006f2d8c07c74d5ec7c1ef3443bdc767b9299365888be0ec44df6436932326",
+      "grouped_train": "normal\\sub-37\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 38,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.57,
+      "subject_cv_accuracy": 0.55,
+      "fold_accuracies": [
+        0.5,
+        0.35,
+        0.5,
+        0.75,
+        0.75
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-38\\ses-01\\train.npz",
+      "source_sha256": "f11c10c30e7148d3d1ac5fd843b34b187a9a33c2a1b672a8715bfa8d0f7f9a0c",
+      "grouped_train": "bci_blind\\sub-38\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 38,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.53,
+      "subject_cv_accuracy": 0.55,
+      "fold_accuracies": [
+        0.6,
+        0.5,
+        0.6,
+        0.55,
+        0.4
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-38\\ses-02\\train.npz",
+      "source_sha256": "2d2b869a35d2f7d183f26526d76fcb779650a6238cee3fecde0365c2cd1af02e",
+      "grouped_train": "bci_blind\\sub-38\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 39,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.69,
+      "subject_cv_accuracy": 0.645,
+      "fold_accuracies": [
+        0.7,
+        0.65,
+        0.7,
+        0.75,
+        0.65
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-39\\ses-01\\train.npz",
+      "source_sha256": "324c5d4dc7ab7d67074b8a4f39b8e65f0f9874571a1bdfe6c27b1f5505a25fd0",
+      "grouped_train": "bci_blind\\sub-39\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 39,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.6,
+      "subject_cv_accuracy": 0.645,
+      "fold_accuracies": [
+        0.55,
+        0.6,
+        0.6,
+        0.55,
+        0.7
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-39\\ses-02\\train.npz",
+      "source_sha256": "712920ef6df5cd978055b650a798eeedcde399763799095bafe76c7fe4bee4b3",
+      "grouped_train": "bci_blind\\sub-39\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 40,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.59,
+      "subject_cv_accuracy": 0.595,
+      "fold_accuracies": [
+        0.75,
+        0.55,
+        0.55,
+        0.55,
+        0.55
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-40\\ses-01\\train.npz",
+      "source_sha256": "1308891902af429d935a67af119d19444cba8c0ae62c53971865e7902facff45",
+      "grouped_train": "bci_blind\\sub-40\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 40,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.6,
+      "subject_cv_accuracy": 0.595,
+      "fold_accuracies": [
+        0.6,
+        0.6,
+        0.65,
+        0.5,
+        0.65
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-40\\ses-02\\train.npz",
+      "source_sha256": "3df0492a3eef571676461a400410b0fd94c5f276bd279d55a6e586486eea0614",
+      "grouped_train": "bci_blind\\sub-40\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 41,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.57,
+      "subject_cv_accuracy": 0.6,
+      "fold_accuracies": [
+        0.5,
+        0.55,
+        0.55,
+        0.65,
+        0.6
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-41\\ses-01\\train.npz",
+      "source_sha256": "bc4e62253e0f7737535234fd1134d0c854257960c0231da9d54661f916fb6ce0",
+      "grouped_train": "bci_blind\\sub-41\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 41,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.63,
+      "subject_cv_accuracy": 0.6,
+      "fold_accuracies": [
+        0.55,
+        0.75,
+        0.6,
+        0.75,
+        0.5
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-41\\ses-02\\train.npz",
+      "source_sha256": "56241e4b7ea7eefe7b6691c0d721293808e37aac62f29e092eb7ad044dfb5c6b",
+      "grouped_train": "bci_blind\\sub-41\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 42,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.66,
+      "subject_cv_accuracy": 0.62,
+      "fold_accuracies": [
+        0.75,
+        0.55,
+        0.75,
+        0.7,
+        0.55
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-42\\ses-01\\train.npz",
+      "source_sha256": "49a914def6faaa44b8eee5f01d2f1e3e2b56e566ef3a484d84f2b4f0c8dd935a",
+      "grouped_train": "bci_blind\\sub-42\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 42,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.58,
+      "subject_cv_accuracy": 0.62,
+      "fold_accuracies": [
+        0.5,
+        0.65,
+        0.65,
+        0.65,
+        0.45
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-42\\ses-02\\train.npz",
+      "source_sha256": "e3ea3e79581a5d89409be9821254e0e1227385e96bd4f171e7ac6e7254bf28fc",
+      "grouped_train": "bci_blind\\sub-42\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 43,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.73,
+      "subject_cv_accuracy": 0.725,
+      "fold_accuracies": [
+        0.65,
+        0.6,
+        0.75,
+        0.8,
+        0.85
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-43\\ses-01\\train.npz",
+      "source_sha256": "8f37543431438920f9e2d4dd5a808c5aaa8a0e02ec1d9a9c9d5186f3ba64aa8f",
+      "grouped_train": "normal\\sub-43\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 43,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.72,
+      "subject_cv_accuracy": 0.725,
+      "fold_accuracies": [
+        0.75,
+        0.55,
+        0.75,
+        0.75,
+        0.8
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-43\\ses-02\\train.npz",
+      "source_sha256": "dac7f152ce8ea88fb15602bef0e2ff48d39f0f5e567ed21acc72f9b3c82a3d21",
+      "grouped_train": "normal\\sub-43\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 44,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.88,
+      "subject_cv_accuracy": 0.905,
+      "fold_accuracies": [
+        0.9,
+        0.9,
+        0.9,
+        0.8,
+        0.9
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-44\\ses-01\\train.npz",
+      "source_sha256": "f07ae6e05bf64295fc56945c1d7ed57bcd41ae50bcbe2011289b9847ae45d4cc",
+      "grouped_train": "normal\\sub-44\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 44,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.93,
+      "subject_cv_accuracy": 0.905,
+      "fold_accuracies": [
+        0.85,
+        0.9,
+        0.95,
+        1.0,
+        0.95
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-44\\ses-02\\train.npz",
+      "source_sha256": "39fcbad018c27fa492c3e607fe9482b44069588bd1fd14b9d821ea5cf8ce020f",
+      "grouped_train": "normal\\sub-44\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 45,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.84,
+      "subject_cv_accuracy": 0.865,
+      "fold_accuracies": [
+        0.85,
+        0.9,
+        0.7,
+        0.8,
+        0.95
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-45\\ses-01\\train.npz",
+      "source_sha256": "b6da26fe2abffd5c399b21e188110287d04f3052fbf727d04bbd749a2c8c82ba",
+      "grouped_train": "normal\\sub-45\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 45,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.89,
+      "subject_cv_accuracy": 0.865,
+      "fold_accuracies": [
+        0.95,
+        0.9,
+        0.85,
+        0.85,
+        0.9
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-45\\ses-02\\train.npz",
+      "source_sha256": "871d040977ed451b334e6c412d529ba88159b5755ba265ae20b739e638560989",
+      "grouped_train": "normal\\sub-45\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 46,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.58,
+      "subject_cv_accuracy": 0.5549999999999999,
+      "fold_accuracies": [
+        0.55,
+        0.6,
+        0.5,
+        0.65,
+        0.6
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-46\\ses-01\\train.npz",
+      "source_sha256": "2b2542a1b417a10cf98f2bb07287432c308479fe30d10d9370ced2fe86413492",
+      "grouped_train": "bci_blind\\sub-46\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 46,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.53,
+      "subject_cv_accuracy": 0.5549999999999999,
+      "fold_accuracies": [
+        0.4,
+        0.55,
+        0.5,
+        0.6,
+        0.6
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-46\\ses-02\\train.npz",
+      "source_sha256": "9aba2b33877cbf7e84c2a2131fbb0bb3d04b3983b7c3e9b8f293be12eadb3800",
+      "grouped_train": "bci_blind\\sub-46\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 47,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.51,
+      "subject_cv_accuracy": 0.6,
+      "fold_accuracies": [
+        0.5,
+        0.6,
+        0.55,
+        0.45,
+        0.45
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-47\\ses-01\\train.npz",
+      "source_sha256": "f885c32e80b012fda7bb2b1f5b9210994e9151c5efcb4b9af4e9172f47416ebe",
+      "grouped_train": "bci_blind\\sub-47\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 47,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.69,
+      "subject_cv_accuracy": 0.6,
+      "fold_accuracies": [
+        0.65,
+        0.65,
+        0.75,
+        0.7,
+        0.7
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-47\\ses-02\\train.npz",
+      "source_sha256": "4168105387cc1e8ada9f77dc8a7114c9799c75f95719114505295b7d613314d9",
+      "grouped_train": "bci_blind\\sub-47\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 48,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.62,
+      "subject_cv_accuracy": 0.6,
+      "fold_accuracies": [
+        0.6,
+        0.8,
+        0.55,
+        0.6,
+        0.55
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-48\\ses-01\\train.npz",
+      "source_sha256": "be6c29cd9baae441f879e491f0b1d6dab4fb23152f8ad6badd41c427838d7d2d",
+      "grouped_train": "bci_blind\\sub-48\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 48,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.58,
+      "subject_cv_accuracy": 0.6,
+      "fold_accuracies": [
+        0.7,
+        0.5,
+        0.55,
+        0.45,
+        0.7
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-48\\ses-02\\train.npz",
+      "source_sha256": "26f7dc109907005848b62a67091d9e92fc01ca40bc44b008c516a48c77ef2009",
+      "grouped_train": "bci_blind\\sub-48\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 49,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.77,
+      "subject_cv_accuracy": 0.735,
+      "fold_accuracies": [
+        0.85,
+        0.85,
+        0.65,
+        0.7,
+        0.8
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-49\\ses-01\\train.npz",
+      "source_sha256": "da4f72a2dad74ea3d27d18a032eecc6866ab773fc33a0248b0f1b859d71316b4",
+      "grouped_train": "normal\\sub-49\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 49,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.7,
+      "subject_cv_accuracy": 0.735,
+      "fold_accuracies": [
+        0.65,
+        0.8,
+        0.55,
+        0.6,
+        0.9
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-49\\ses-02\\train.npz",
+      "source_sha256": "85c989a8e72bcef6812f9cbf8fd520b0f797998c2603b173baec1bc0e286f427",
+      "grouped_train": "normal\\sub-49\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 50,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.56,
+      "subject_cv_accuracy": 0.53,
+      "fold_accuracies": [
+        0.55,
+        0.55,
+        0.6,
+        0.5,
+        0.6
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-50\\ses-01\\train.npz",
+      "source_sha256": "b45d7fa5bbe3645e5caea3ac8cc04bdb86e6075fa95f6c2cb6a8bb05261c95cb",
+      "grouped_train": "bci_blind\\sub-50\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 50,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.5,
+      "subject_cv_accuracy": 0.53,
+      "fold_accuracies": [
+        0.55,
+        0.65,
+        0.5,
+        0.3,
+        0.5
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-50\\ses-02\\train.npz",
+      "source_sha256": "a9aecd5ea695b8c065edb9c9576065b3f34a58098013643a23387f0092cec64a",
+      "grouped_train": "bci_blind\\sub-50\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 51,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.53,
+      "subject_cv_accuracy": 0.5700000000000001,
+      "fold_accuracies": [
+        0.55,
+        0.55,
+        0.5,
+        0.4,
+        0.65
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-51\\ses-01\\train.npz",
+      "source_sha256": "1329280bcf7c64798f0358d2b4d74e8e1d9fb61d6588d40f22d3e963abaf708f",
+      "grouped_train": "bci_blind\\sub-51\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 51,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.61,
+      "subject_cv_accuracy": 0.5700000000000001,
+      "fold_accuracies": [
+        0.65,
+        0.75,
+        0.55,
+        0.55,
+        0.55
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-51\\ses-02\\train.npz",
+      "source_sha256": "c4fff75db3ffea2e5f6ced6ccb64754e73e618fef24fd4746e39f0cab9db1c2b",
+      "grouped_train": "bci_blind\\sub-51\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 52,
+      "session_id": 1,
+      "group": "normal",
+      "cv_accuracy": 0.73,
+      "subject_cv_accuracy": 0.7050000000000001,
+      "fold_accuracies": [
+        0.75,
+        0.6,
+        0.85,
+        0.75,
+        0.7
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-52\\ses-01\\train.npz",
+      "source_sha256": "a5467792e9ddcacf7df2ed93bf0b522fd6a585116cfff95cc51b07264ddcc197",
+      "grouped_train": "normal\\sub-52\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 52,
+      "session_id": 2,
+      "group": "normal",
+      "cv_accuracy": 0.68,
+      "subject_cv_accuracy": 0.7050000000000001,
+      "fold_accuracies": [
+        0.75,
+        0.65,
+        0.6,
+        0.75,
+        0.65
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-52\\ses-02\\train.npz",
+      "source_sha256": "99e779b5acc313fe923d0ab099484876072ff933475ce52807de5c1dfa78dd2b",
+      "grouped_train": "normal\\sub-52\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 53,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.61,
+      "subject_cv_accuracy": 0.575,
+      "fold_accuracies": [
+        0.65,
+        0.55,
+        0.6,
+        0.65,
+        0.6
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-53\\ses-01\\train.npz",
+      "source_sha256": "76bab6ef829d2b06e36ca791a61638971ffc6e390fd2db92056deb5b8e872c14",
+      "grouped_train": "bci_blind\\sub-53\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 53,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.54,
+      "subject_cv_accuracy": 0.575,
+      "fold_accuracies": [
+        0.6,
+        0.45,
+        0.6,
+        0.45,
+        0.6
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-53\\ses-02\\train.npz",
+      "source_sha256": "afe98d63c81e99c390387c1df061b790b5bc607b129fc2f75ea3f9be3d76db19",
+      "grouped_train": "bci_blind\\sub-53\\ses-02\\train.npz"
+    },
+    {
+      "subject_id": 54,
+      "session_id": 1,
+      "group": "bci_blind",
+      "cv_accuracy": 0.47,
+      "subject_cv_accuracy": 0.5,
+      "fold_accuracies": [
+        0.65,
+        0.4,
+        0.3,
+        0.5,
+        0.5
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-54\\ses-01\\train.npz",
+      "source_sha256": "e6e9ec6fe326d1a557b640fa32f6deedf8c3603941f37475558dd4df9564a5dd",
+      "grouped_train": "bci_blind\\sub-54\\ses-01\\train.npz"
+    },
+    {
+      "subject_id": 54,
+      "session_id": 2,
+      "group": "bci_blind",
+      "cv_accuracy": 0.53,
+      "subject_cv_accuracy": 0.5,
+      "fold_accuracies": [
+        0.5,
+        0.55,
+        0.7,
+        0.5,
+        0.4
+      ],
+      "trials": 100,
+      "left": 50,
+      "right": 50,
+      "source_train": "D:\\TJFiles\\EEGNet\\Final-Version-BCI-Control-Car-1\\Data\\OpenBMI\\splits\\official_250hz_full\\sub-54\\ses-02\\train.npz",
+      "source_sha256": "4f4a4738fb3aeb6d1efce9fcf289226614893a99e47259325a3c7a17ff486634",
+      "grouped_train": "bci_blind\\sub-54\\ses-02\\train.npz"
+    }
+  ],
+  "counts": {
+    "normal": 19,
+    "bci_blind": 35
+  }
+}
