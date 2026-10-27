@@ -1,0 +1,13 @@
+固定受试者划分： {'split_seed': 2026, 'report_sha256': '7ccef98df882bca8f0c7b3b82edb0bd8c2093d9a7425bacc55c4ecd3c58b4c76', 'train': [1, 4, 6, 8, 9, 15, 16, 18, 19, 20, 23, 26, 27, 28, 31, 32, 33, 34, 35, 36, 38, 39, 41, 42, 44, 45, 46, 47, 48, 50, 52, 53], 'val': [3, 5, 10, 11, 13, 14, 21, 22, 25, 40, 43], 'test': [2, 7, 12, 17, 24, 29, 30, 37, 49, 51, 54]}
+{
+  "seed": 2024,
+  "sampling": "natural",
+  "use_distillation": false,
+  "effective_mix_lambda": 1.0,
+  "trial_accuracy": 0.6454545454545455,
+  "subject_macro_accuracy": 0.6454545454545454,
+  "group_subject_macro_accuracy": {
+    "normal": 0.7125,
+    "bci_blind": 0.6071428571428571
+  }
+}

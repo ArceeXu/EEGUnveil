@@ -1,0 +1,12 @@
+﻿subject_id,group,accuracy,n_trials
+2,normal,0.705,200
+7,bci_blind,0.85,200
+12,bci_blind,0.795,200
+17,bci_blind,0.66,200
+24,bci_blind,0.53,200
+29,normal,0.82,200
+30,bci_blind,0.705,200
+37,normal,0.69,200
+49,normal,0.76,200
+51,bci_blind,0.685,200
+54,bci_blind,0.65,200
