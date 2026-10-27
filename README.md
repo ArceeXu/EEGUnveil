@@ -1,4 +1,4 @@
-# EEGUnveil：面向BCI低表现者的运动想象解码与脑控小车辅助训练研究
+# EEGUnveil：面向BCI盲的脑控康复训练辅助系统
 
 EEGUnveil基于OpenBMI运动想象脑电数据，研究如何改善低表现者的左右手意图识别，并保留脑控小车的在线推理、信号收发与串口控制链路，为交互式辅助训练提供工程基础。
 
@@ -13,7 +13,7 @@ EEGUnveil基于OpenBMI运动想象脑电数据，研究如何改善低表现者�
 | **Gen1：基础模型** | 仅正常组参与参数训练，不使用蒸馏，建立基础对照 | `src/offline/`，对应N0 |
 | **Gen2：混合蒸馏** | 正常组与低表现组按固定比例混合，结合时空特征与同步教师—学生蒸馏 | `src/offline/`，对应M1 |
 | **Gen3：SDAD-Net** | 保留时空融合与蒸馏，在基础分类能力形成后加入高低组域对抗 | `sdad_integration/code/` |
-| **GUI回放** | 中文界面、本地MAT回放、网络试次回放、波形与分类显示 | `src/online/`，完整使用Xu原版 |
+| **GUI展示与回放** | 中文界面、本地MAT回放、网络试次回放、脑电波形与分类结果展示 | `src/online/`，完整保留原版 |
 | **小车硬件链路** | 原v50在线模型、TCP分块收发、串口指令与控制逻辑 | `hardware_legacy/` |
 
 SDAD-Net全称为 **Stage-wise Domain-Adversarial Distillation Network（分阶段域对抗蒸馏网络）**。训练时保留教师与辅助判别器，学生模型承担推理。
@@ -27,8 +27,8 @@ SDAD-Net全称为 **Stage-wise Domain-Adversarial Distillation Network（分阶�
 ├── project.py                         # 统一命令入口，自动切换各模块工作目录
 ├── requirements.txt                   # 核心功能依赖
 ├── src/
-│   ├── offline/                       # Xu模型、混合蒸馏、留受试者训练与λ搜索
-│   ├── online/                        # Xu原版GUI、OpenBMI推理和MAT网络回放
+│   ├── offline/                       # 原版模型、混合蒸馏、留受试者训练与λ搜索
+│   ├── online/                        # 原版GUI、OpenBMI推理和MAT网络回放
 │   └── tools/                         # 数据划分、CSP分组和结果绘图
 ├── sdad_integration/
 │   ├── code/                          # 后期DANN、A/B探索、消融与诊断
@@ -46,7 +46,7 @@ SDAD-Net全称为 **Stage-wise Domain-Adversarial Distillation Network（分阶�
 │   └── figures/                       # 已归档的指标、图表和部分结果记录
 ├── docs/                              # 数据、分组、训练、GUI与整合说明
 ├── tests/                             # 数据隔离、训练逻辑、原版GUI及通信检查
-└── run_*.sh                           # Xu保留的服务器批量实验脚本
+└── run_*.sh                           # 原版保留的服务器批量实验脚本
 ```
 
 仓库不包含原始EEG。部分模型和结果已提交，但不包含全部实验权重；资源就绪情况见第10节。
@@ -115,7 +115,7 @@ python src/tools/split_openbmi.py --data-dir Data/OpenBMI/raw --output-dir Data/
 python src/tools/group_openbmi_csp.py --split-dir Data/OpenBMI/splits/official_250hz_full --output-dir Data/OpenBMI/groups/csp70_20 --threshold 0.70
 ```
 
-Xu当前分组依据是两个session的**训练阶段**各自进行CSP+LDA交叉验证，再对准确率取均值；评分使用20个运动区通道。导出数据供网络使用的通道与分组评分通道不同，保存模型输入为62通道。受试者划分为32训练、11验证、11测试，固定划分种子2026。
+当前混合训练实验的分组依据是两个session的**训练阶段**各自进行CSP+LDA交叉验证，再对准确率取均值；评分使用20个运动区通道。导出数据供网络使用的通道与分组评分通道不同，保存模型输入为62通道。受试者划分为32训练、11验证、11测试，固定划分种子2026。
 
 复现实验需使用对应`report.json`及`outputs/splits/openbmi_subject_holdout.json`，不能任意重新生成名单后仍视为同一实验。详见[数据划分](docs/openbmi_split.md)和[CSP分组](docs/openbmi_csp_groups.md)。
 
@@ -130,7 +130,7 @@ Xu当前分组依据是两个session的**训练阶段**各自进行CSP+LDA交叉
 
 ## 5. Gen1 / Gen2训练、测试与对照
 
-Xu的四组对照使用相同留受试者划分：
+混合训练的四组对照使用相同留受试者划分：
 
 | 方法 | 参数训练人群 | 采样 | 蒸馏 | 用途 |
 |---|---|---|---|---|
@@ -182,11 +182,11 @@ python project.py run sdad43 -- --preflight --recipes control group --reference 
 
 确认预检查通过后，去掉`--preflight`并指定新的`--output-root`进行训练；测试用同次训练目录作为`--model-root`，另指定新的`--output-root`。`sdad43`默认还支持`subject`身份对抗分支，复现高低组配对时明确传入`--recipes control group`。
 
-初始化目录需要配套的`last.pt`、配置和预处理，准备数据目录需要`train.pt`、`validation.pt`及`preprocessing.joblib`。代码、数据指纹和原检查点必须匹配，不绕过校验。GUI保持Xu原版，不直接加载这些SDAD目录。
+初始化目录需要配套的`last.pt`、配置和预处理，准备数据目录需要`train.pt`、`validation.pt`及`preprocessing.joblib`。代码、数据指纹和原检查点必须匹配，不绕过校验。GUI保持原版，不直接加载这些SDAD目录。
 
 ## 7. 已有实验结果
 
-### 7.1 Xu留受试者实验
+### 7.1 混合训练留受试者实验
 
 在固定测试名单中的7名低表现者上，先按受试者等权平均，再对42、2024、3407三个训练种子平均：
 
@@ -215,7 +215,7 @@ M1相对N0提高7.45个百分点，相对N1提高13.26个百分点；该记录�
 
 ## 8. 小车在线模型与通信
 
-`hardware_legacy/`独立保留原在线链路，包含v50pro模型、CSP、标准化器、TCP分块收发、串口指令及刹车／转向控制。主GUI仍使用Xu原版，不发送小车指令。
+`hardware_legacy/`独立保留原在线链路，包含v50pro模型、CSP、标准化器、TCP分块收发、串口指令及刹车／转向控制。主GUI仍使用原版，不发送小车指令。
 
 先检查资源，不连接设备：
 
@@ -230,7 +230,7 @@ python project.py run hardware -- --help
 | `hardware -- receiver` | TCP接收、在线滤波、推理与波形显示 | 匹配的`--timeline`、服务端地址 |
 | `hardware -- car` | 接收推理后通过串口控制小车 | 上述参数及实际`--serial-port` |
 
-原硬件发送端与Xu的MAT发送端使用不同协议，不交叉连接。原v50pro是25通道、四分类在线模型，用于保留工程演示；它不是SDAD左右手二分类权重。二分类意图到小车动作的映射、真实设备通道顺序及串口联调仍需单独确认。详细命令和参数见[硬件模块说明](hardware_legacy/README.md)。
+原硬件发送端与OpenBMI的MAT发送端使用不同协议，不交叉连接。原v50pro是25通道、四分类在线模型，用于保留工程演示；它不是SDAD左右手二分类权重。二分类意图到小车动作的映射、真实设备通道顺序及串口联调仍需单独确认。详细命令和参数见[硬件模块说明](hardware_legacy/README.md)。
 
 ## 9. 批量实验、结果与历史探索
 
