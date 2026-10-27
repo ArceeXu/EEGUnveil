@@ -1,0 +1,5 @@
+{"gui_module_import": "PASS", "xu_real_checkpoint_load": "PASS", "synthetic_prediction_only": true, "channels": 62, "samples": 1000, "device": "cpu", "label": 1, "confidence": 0.8596749901771545}
+
+C:\Users\ysyys\anaconda3\envs\bci_car\lib\site-packages\sklearn\base.py:442: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.9.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(

@@ -7,7 +7,9 @@ from unittest.mock import patch
 
 import numpy as np
 
-from src.tools.group_openbmi_csp import group_name, load_training, process_file, score_training
+from src.tools.group_openbmi_csp import (
+    MOTOR_CHANNELS, group_name, load_training, process_subject, score_training,
+)
 
 
 class GroupTests(unittest.TestCase):
@@ -56,26 +58,41 @@ class GroupTests(unittest.TestCase):
     def test_export_preserves_data_and_never_reads_test(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            path = root / "train.npz"
-            # Invalid sibling file would fail if the grouping code tried loading it.
-            (root / "test.npz").write_bytes(b"must never be read")
-            X = np.random.default_rng(1).normal(size=(20, 4, 200)).astype(np.float32)
+            X = np.random.default_rng(1).normal(size=(20, 20, 400)).astype(np.float32)
             payload = dict(X=X, y=np.tile([0, 1], 10), sfreq=100,
                            subject_id=np.ones(20, dtype=int), session_id=np.ones(20, dtype=int),
                            trial_id=np.arange(20), source_run=np.full(20, "EEG_MI_train"),
-                           channel_names=np.array(["C3", "C4", "Cz", "FCz"]),
-                           metadata_json=json.dumps({"mode": "official"}))
-            np.savez(path, **payload)
+                           channel_names=np.array(MOTOR_CHANNELS),
+                           metadata_json=json.dumps({"mode": "official", "tmin": 0.0}))
+            paths = []
+            for session in (1, 2):
+                folder = root / f"ses-{session:02d}"
+                folder.mkdir()
+                (folder / "test.npz").write_bytes(b"must never be read")
+                path = folder / "train.npz"
+                np.savez(path, **dict(payload, session_id=np.full(20, session)))
+                paths.append(path)
             args = Namespace(folds=5, seed=42, components=2, low=8., high=30., threshold=.7)
-            row = process_file(path, root / "groups", args)
-            with np.load(root / "groups" / row["grouped_train"]) as grouped:
-                np.testing.assert_array_equal(grouped["X"], X)
-                np.testing.assert_array_equal(grouped["y"], payload["y"])
-                self.assertTrue(np.all(grouped["group_label"] == int(row["group"] == "bci_blind")))
+            predicted = payload["y"].copy()
+            with patch("src.tools.group_openbmi_csp.score_training", side_effect=[
+                (.6, [.6] * 5, predicted, np.repeat(np.arange(5), 4)),
+                (.8, [.8] * 5, predicted, np.repeat(np.arange(5), 4)),
+            ]):
+                subject, rows = process_subject(paths, root / "groups", args)
+            self.assertAlmostEqual(subject["mean_cv_accuracy"], .7)
+            self.assertEqual(subject["group"], "normal")
+            self.assertEqual(len(rows), 2)
+            for row in rows:
+                with np.load(root / "groups" / row["grouped_train"]) as grouped:
+                    np.testing.assert_array_equal(grouped["X"], X)
+                    np.testing.assert_array_equal(grouped["y"], payload["y"])
+                    self.assertTrue(np.all(grouped["group_label"] == 0))
+            with self.assertRaisesRegex(ValueError, "session 1"):
+                process_subject(paths[:1], root / "incomplete", args)
             payload["source_run"][0] = "EEG_MI_test"
-            np.savez(path, **payload)
+            np.savez(paths[0], **payload)
             with self.assertRaisesRegex(ValueError, "official training"):
-                load_training(path)
+                load_training(paths[0])
 
 
 if __name__ == "__main__":

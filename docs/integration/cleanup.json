@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-27",
+  "scope": "Local EEGUnveil-integration only; remote untouched",
+  "authorization": "User explicitly requested deletion of team-copy v50 weights and confirmed preserving Xu research while removing old car only.",
+  "deleted_weights": [],
+  "removed_unused_functions": [
+    "src/offline/train_v65_distill.py:find_event_map",
+    "src/offline/train_v65_distill.py:load_all_subjects",
+    "src/offline/train_v65_distill.py:load_bci_iv2a"
+  ],
+  "retained": [
+    "Xu 62-channel lambda0.5625 weights",
+    "Xu training, GUI, grouping and experiment results",
+    "All five root shell launchers",
+    "User SDAD research and diagnostics"
+  ],
+  "shell_scripts_executed": false,
+  "initial_deleted_weights": [
+    "models/online/v50pro/best_model.pth",
+    "models/online/v50pro/best_csp.pkl",
+    "models/online/v50pro/best_scalers.pkl",
+    "models/online/v50pro/model_config.json"
+  ],
+  "restored_weights_after_latest_user_request": [
+    "models/online/v50pro/best_model.pth",
+    "models/online/v50pro/best_csp.pkl",
+    "models/online/v50pro/best_scalers.pkl",
+    "models/online/v50pro/model_config.json"
+  ],
+  "hardware_module": "hardware_legacy/",
+  "hardware_devices_executed": false
+}

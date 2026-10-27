@@ -15,7 +15,6 @@ from scipy.signal import resample_poly
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DATA_DIR = PROJECT_ROOT / "Data" / "BCICIV_2a_gdf"
 ARTIFACTS_DIR = PROJECT_ROOT / "models" / "offline" / "v65_openbmi"
 SEED = 42
 N_CLASSES = 2
@@ -178,92 +177,8 @@ class MixedGroupBatchSampler(Sampler):
             yield indices.tolist()
 
 # ---------------- Utility: robust event mapping ----------------
-def find_event_map(event_id_dict, events_array):
-    target_codes = {'769':'left','770':'right','771':'foot','772':'tongue'}
-    mapping = {}
-    for k, v in event_id_dict.items():
-        ks = str(k).strip()
-        if ks in target_codes:
-            mapping[target_codes[ks]] = int(v)
-    if len(mapping) < 4:
-        for k, v in event_id_dict.items():
-            ks = str(k)
-            for tcode, tlabel in target_codes.items():
-                if tcode in ks and tlabel not in mapping:
-                    mapping[tlabel] = int(v)
-    present_codes = set(events_array[:,2]) if events_array is not None and len(events_array) else set()
-    for num_str, tlabel in target_codes.items():
-        num = int(num_str)
-        if num in present_codes and tlabel not in mapping:
-            mapping[tlabel] = num
-    return mapping
 
-# ---------------- Load one subject robustly (***OFFLINE, T=0.0s to 4.0s***) ----------------
-# [FIX] 1. 更新了 tmin 和 tmax 的默认参数值
-def load_bci_iv2a(path, tmin=0.0, tmax=4.0, pick_eeg=True): 
-    print(f"Reading {path} ...")
-    raw = mne.io.read_raw_gdf(path, preload=True, verbose=False)
-    try:
-        raw.pick_types(eeg=True, eog=False)
-    except Exception:
-        picks = mne.pick_types(raw.info, eeg=True, eog=False, meg=False)
-        raw.pick(picks)
-    
-    # *** 注意: MNE 的 raw.filter/notch_filter 默认使用 filtfilt (零相移/非因果) ***
-    raw.filter(0.5, 100., fir_design='firwin', verbose=False)
-    try: raw.notch_filter(50, verbose=False)
-    except: pass
 
-    events, event_id = mne.events_from_annotations(raw)
-    if events is None or len(events) == 0: raise ValueError("No annotations")
-    
-    events = events[events[:, 2] != 1023] # 排除伪迹
-    
-    present_codes = set(events[:, 2]) if len(events) > 0 else set()
-    filtered_event_id = {k: v for k, v in event_id.items() if int(v) in present_codes}
-    mapping = find_event_map(filtered_event_id if filtered_event_id else event_id, events)
-    
-    wanted = {label: code for label, code in mapping.items()}
-    # [FIX] 2. 更新了 epochs 的切片时间窗口
-    epochs = mne.Epochs(raw, events, event_id=wanted, tmin=tmin, tmax=tmax, baseline=None, preload=True, verbose=False)
-    
-    X = epochs.get_data()
-    label_order = ['left','right','foot','tongue']
-    code2idx = {}
-    for idx, lbl in enumerate(label_order):
-        if lbl in wanted: code2idx[wanted[lbl]] = idx
-    y = np.array([code2idx.get(code, -1) for code in epochs.events[:, -1]], dtype=np.int64)
-    valid_idx = np.where(y >= 0)[0]
-    if len(valid_idx) != len(y): X = X[valid_idx]; y = y[valid_idx]
-    
-    if len(np.unique(y)) < 4:
-        raise ValueError(f"Subject data only contains {len(np.unique(y))} classes. Skipping.")
-        
-    return X, y
-
-def load_all_subjects(data_dir):
-    X_list, y_list = [], []
-    print("\n[INFO] Starting data loading with OFFLINE filtering. Window T=0.0s to 4.0s (1001 points).")
-    for sid in range(1, 10):
-        fname = f"A0{sid}T.gdf"
-        path = os.path.join(data_dir, fname)
-        if not os.path.exists(path): continue
-        try:
-            X, y = load_bci_iv2a(path)
-            if X.size == 0: continue
-            print(f"    loaded: {fname} -> trials={X.shape[0]}")
-            X_list.append(X); y_list.append(y)
-        except Exception as e:
-            print(f"[FATAL ERROR] failed load {path}. Printing Traceback:")
-            traceback.print_exc()
-            
-    if not X_list:
-        raise RuntimeError("No data loaded from any subject.")
-        
-    X = np.concatenate(X_list, axis=0)
-    y = np.concatenate(y_list, axis=0)
-    print(f"\n[INFO] Total data loaded: {X.shape}, labels: {y.shape}")
-    return X, y
 
 # ---------------- Augmentations ----------------
 def eeg_jitter(x, sigma=0.003):

@@ -1,0 +1,12 @@
+{
+  "model": "legacy v50pro four-class",
+  "config": {
+    "n_channels": 25,
+    "n_times": 1001,
+    "csp_dim": 6
+  },
+  "files_checked": 13,
+  "errors": [],
+  "devices_opened": false
+}
+

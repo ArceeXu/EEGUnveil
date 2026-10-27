@@ -1,0 +1,12 @@
+# Functional dependencies; historical result reproduction needs original versions.
+# Verify the existing GPU PyTorch before installing anything on the server.
+torch>=2.3,<3
+numpy>=1.24,<3
+scipy>=1.10,<2
+scikit-learn>=1.3,<2
+mne>=1.6,<2
+joblib>=1.3,<2
+pandas
+matplotlib
+# tkinter is provided by Python/Conda, not this pip file.
+# The historical MOABB grouping script has separate optional dependencies.

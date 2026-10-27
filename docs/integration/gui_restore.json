@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-27",
+  "user_instruction": "Use Xu original GUI without SDAD adaptation",
+  "xu_commit": "ff684d83c3f3cd341d2e0669c8ee30ef96e2b79e",
+  "verified_original_files": [
+    "src/online/__pycache__/receiver.cpython-311.pyc",
+    "src/online/__pycache__/torch_bootstrap.cpython-311.pyc",
+    "src/online/evaluate_v50pro_stream.py",
+    "src/online/main_app.py",
+    "src/online/receiver.py",
+    "src/online/sender.py",
+    "src/online/torch_bootstrap.py",
+    "src/online/train_v50pro_online.py"
+  ],
+  "git_blob_sha256": {
+    "src/online/__pycache__/receiver.cpython-311.pyc": "ba1b70d459c1cbadd0841d7707f2616bb09fa623cd16e826f1ed3445c8883be0",
+    "src/online/__pycache__/torch_bootstrap.cpython-311.pyc": "25115cede225d5492a48a0d187cb6233af3a68609a08c2f3915db645246337a0",
+    "src/online/evaluate_v50pro_stream.py": "887904d4da440127e8be7304c854b510d3d80e1811fe9b127752071526cd2225",
+    "src/online/main_app.py": "ced45f78d00a5ec3f8194b1c27dd87142147b110fdfcf9f779d3ee9e6c874665",
+    "src/online/receiver.py": "c924f10d8637cbbe09c82f08151a752ca4f91849d7b5ffc2b7e5c3adf1d920e6",
+    "src/online/sender.py": "f91accb4b75da33e4f49c30a598dee52a6f79356b7a8c1ea2bfb702c80d80d43",
+    "src/online/torch_bootstrap.py": "c667839db8ad8ac59c147e9c774143a3f499d3d485d33946e1f75cce311e1769",
+    "src/online/train_v50pro_online.py": "20b3f0060c0d3e0a1e17b6321de64213e28ae7314634fbb56350184c67c54be8"
+  },
+  "removed_custom_files": [
+    "src/online/model_registry.py",
+    "integration/sdad_backend.py",
+    "integration/__init__.py",
+    "tests/test_integration_adapter.py"
+  ],
+  "sdad_training_and_hardware_preserved": true,
+  "remote_modified": false
+}

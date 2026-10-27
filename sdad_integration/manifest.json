@@ -1,0 +1,1381 @@
+{
+  "source_repository": "https://github.com/ysy664433/Final-Version-BCI-Control-Car.git",
+  "source_commit": "eba03a79819e8af013a9aa980c530487cc5a7f73",
+  "source_branch": "chore/sdad-cleanup",
+  "strategy": "SDAD integration copy; original-car-only files removed per user request; original SDAD sources retained",
+  "files": [
+    {
+      "original_path": ".gitignore",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "留在原仓库，不复制进代码包；不属于SDAD正式结果",
+      "bytes": 261,
+      "sha256": "ca601a0a8050e8b909863f38022c51c8c6dd9d54d4936c879fb3935dcd0734b1",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "README.md",
+      "package_path": "",
+      "category": "旧小车工程参考",
+      "description": "仅供溯源；GUI以Xu为准，不把旧模型作为三代模型权重",
+      "bytes": 3528,
+      "sha256": "3f56634fc57a948c559dd0ac16c0b0ac7c2bde1a0cec818ffe49fbf74fbcd2eb",
+      "cleanup_action": "replaced_legacy_project_description_or_dependencies"
+    },
+    {
+      "original_path": "archive/cue_timeline_backup/cue_timeline0tt.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2445,
+      "sha256": "48676ac0337714dcc9bfb74f14c1d424a16f5149fd52fa97deb42eacb082c351",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "archive/cue_timeline_backup/cue_timeline1.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2304,
+      "sha256": "d6509d5641b927f35007d9270645ca0452a0a6ae7687f0c87927ad8dfcc59e72",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "archive/cue_timeline_backup/cue_timeline2.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2295,
+      "sha256": "eaa57b5346bab53b1841e709e9dfd39e9c6a23dc0991197782a4e10cd3f46cba",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "archive/cue_timeline_backup/cue_timeline3.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2288,
+      "sha256": "4b57a2b70467e56ef28ad9d374a328b6e591b5103fc83efab217923ce7ca23b3",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "archive/cue_timeline_backup/cue_timeline3train.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 1184,
+      "sha256": "d30c30439fe0216fbed01d80977de339c36d6128dcae23305fd695108ebcb34a",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "archive/cue_timeline_backup/cue_timeline4.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2293,
+      "sha256": "60eb4aef3a6e24d0bbdfc9ed723f110eb1799446d739142281cf9ea0e4869e26",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "archive/cue_timeline_backup/cue_timeline5.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2303,
+      "sha256": "ae1b06f12892f2899b002dce5266724856cade8aff8e0fd9d6b5728b5b985b92",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "archive/cue_timeline_backup/cue_timeline6.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2297,
+      "sha256": "84327f8e86b987010866ae818b19b53a4cc37c9430bc64a84dbd1b8b73e61c96",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "archive/cue_timeline_backup/cue_timeline7.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2300,
+      "sha256": "9df6bde99d9f2255d389669532fe301a692ada30e15f4e854fca19576ef27fdc",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "archive/cue_timeline_backup/cue_timeline8.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2304,
+      "sha256": "07b221801bfe9c384c0548ff976fed3643526718ed9f3829195302a32eeb5a87",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "archive/cue_timeline_backup/cue_timeline9.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2301,
+      "sha256": "efad7090e11e4f8a79dce22092b21f38b8979b7f17265abbac7ed78dc9853d76",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "archive/cue_timeline_backup/txt notebook.py",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 1247,
+      "sha256": "c6456861130952da10b59677efc2b6a65f91622a116d4e3d20202839d690d1e7",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "assets/pyinstaller/main_app.spec",
+      "package_path": "",
+      "category": "旧小车工程参考",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 1346,
+      "sha256": "2ec9365218c87c572f8ef3789e2dc66a72add151b736395b7b8de23ee3c09a35",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "assets/slides/acc_data.pptx",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 289212,
+      "sha256": "2b1281fc8edde611cf610d5340358a131ee6dcbb0572c3ca45f06b30bca25d20",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "audit_branches.py",
+      "package_path": "code/audit_branches.py",
+      "category": "诊断与分析",
+      "description": "冻结时序／CSP分支的信息分析",
+      "bytes": 4505,
+      "sha256": "a14d3078971728adecc7a94358c3b707b22d4fa8ef404a2be51eb211bfd13cb5",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "audit_representation.py",
+      "package_path": "code/audit_representation.py",
+      "category": "诊断与分析",
+      "description": "冻结特征线性探针与泛化差距",
+      "bytes": 10336,
+      "sha256": "fbf078f3940490098a6b4c5291fe6f883af778cb6392ecd55d24350da4ec5526",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "compare_pooled_csp_lda.py",
+      "package_path": "code/compare_pooled_csp_lda.py",
+      "category": "正式训练与测试",
+      "description": "联合CSP+LDA传统参考；与分组用CSP+LDA区分",
+      "bytes": 6805,
+      "sha256": "af562065229802097e7850f60a450390c211bb569f06ce3e2fb1eae32adc9fbe",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "compare_thresholds.py",
+      "package_path": "code/compare_thresholds.py",
+      "category": "诊断与分析",
+      "description": "70%阈值跨越统计，核对输入属于验证还是测试",
+      "bytes": 3757,
+      "sha256": "51c8528c4cdf235d4104568307c58ee5b937b9eb96c7e8f40674638e67bd2738",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "diagnose_seed42.py",
+      "package_path": "code/diagnose_seed42.py",
+      "category": "诊断与分析",
+      "description": "seed42模型逐人诊断；也被其他诊断脚本导入",
+      "bytes": 6185,
+      "sha256": "0918b871555bf70e0cf1a5c166f7ec2126687c10e8f514be36a8c09020172142",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "docs/sdad/README.md",
+      "package_path": "docs/README.md",
+      "category": "项目文档",
+      "description": "用户已提交文档快照；包内路径以入口说明和文件索引为准",
+      "bytes": 2648,
+      "sha256": "237b6abfd1adf543719e9c98741b72f52b824eeb6dfc51cba71e10db56903642",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "evaluate/bci_illiteracy_evaluate.py",
+      "package_path": "code/evaluate/bci_illiteracy_evaluate.py",
+      "category": "历史OpenBMI分组分析",
+      "description": "用户OpenBMI/CSP+LDA分组历史脚本，保留但不用于正式session2结论",
+      "bytes": 3842,
+      "sha256": "eeac973ddefc57cdbb927bc022f8f384c160c88eb10e29873f9b25908303e4d5",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "evaluate_group_domain42.py",
+      "package_path": "code/evaluate_group_domain42.py",
+      "category": "正式训练与测试",
+      "description": "测试42／42配对模型",
+      "bytes": 6024,
+      "sha256": "b1520a7fc6f4a75b19185dc7b3d4216f588dd1a79819033046c344e96fb707ba",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "evaluate_group_domain44.py",
+      "package_path": "code/evaluate_group_domain44.py",
+      "category": "正式训练与测试",
+      "description": "测试43／44配对模型",
+      "bytes": 6072,
+      "sha256": "baa626372b919a2a8ffd0f0f7a3a4a4b30c6cb951376863febbbf098ce1be6d9",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "evaluate_late_classwise.py",
+      "package_path": "code/evaluate_late_classwise.py",
+      "category": "历史后期与消融",
+      "description": "后期类条件模型测试",
+      "bytes": 6012,
+      "sha256": "bc5432161557e618420981288b9b3a650c937a6f2cca742898971f559d3e38d8",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "evaluate_original_pair.py",
+      "package_path": "code/evaluate_original_pair.py",
+      "category": "历史后期与消融",
+      "description": "早期原基线与plan_a_domain003的固定session2测试；不是warm配对测试",
+      "bytes": 2691,
+      "sha256": "dbcf359f680bf33cb231b75f7dfef4ef0ad168f5190733910eea247545f7c533",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "evaluate_subject_domain.py",
+      "package_path": "code/evaluate_subject_domain.py",
+      "category": "正式训练与测试",
+      "description": "测试三种后期域定义",
+      "bytes": 6050,
+      "sha256": "fb9f38b7695e40a7b4e76d250e59207e5fd65b6d33f913e53783998646371740",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "inspect_training_steps.py",
+      "package_path": "code/inspect_training_steps.py",
+      "category": "诊断与分析",
+      "description": "优化器计数、AMP跳步和非有限值检查",
+      "bytes": 3289,
+      "sha256": "0832efa117ef756607bf4f7df021737a0763b5cb12e5783fe1fad6502b6e8570",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "late_classwise_dann.py",
+      "package_path": "code/late_classwise_dann.py",
+      "category": "历史后期与消融",
+      "description": "后期类条件DANN训练",
+      "bytes": 13595,
+      "sha256": "96f210c3520df4cbecc03b9acd1f2381c8675ba322a6fc53fb12820bfd8bbac4",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "late_subject_domain.py",
+      "package_path": "code/late_subject_domain.py",
+      "category": "正式训练与测试",
+      "description": "后期无对抗／高低组／受试者身份三分支，正式43起点实验",
+      "bytes": 16475,
+      "sha256": "4ef77ee60680595dcd82976ea76b32e25ad3ea02a2a5c7629b6c721c7b2e356e",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "models/offline/v42/best_csp.pkl",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 17315,
+      "sha256": "85343d032a1ce81ed35e60aaa0e8a1d1c5cad9ba5be2eda45de8eadc3beb4619",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "models/offline/v42/best_model.pth",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2257525,
+      "sha256": "768553efd48f892e870cc5b4b8f6d1a6800c64d48e0ae7ad78ce741ff651da36",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "models/offline/v42/best_scalers.pkl",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 606393,
+      "sha256": "cda82c246f9a97e02de9e6c57122b3418e9f19bbe7484ca0fcf2409e00a06bc4",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "models/offline/v42/fold_1_curves.png",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 64748,
+      "sha256": "a821ead4b64e3e8d4041f79f5a5fd1b808b64bb28365d489a93bd8898a7b93da",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "models/offline/v42/meta.json",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 141,
+      "sha256": "23daa3558bb6c25cd63c545ceb1b7b3eb477be4fa0e0623b269fca352912b21e",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "models/offline/v42/training_metrics.json",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 85221,
+      "sha256": "6119d9e924900f36a02890cfde5987bc51e8eaf921056fb124b926a985e6079d",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "models/offline/v65/best_csp.pkl",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 17315,
+      "sha256": "afe523f9b7b888e0b841896589316486355df818d4bfc41b81ec7a05966bacc4",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "models/offline/v65/best_model.pth",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2257525,
+      "sha256": "3261685bf83d643ad068754f22621e2e373ca0a8b6fd94f32725d9a78adf1988",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "models/offline/v65/best_scalers.pkl",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 606393,
+      "sha256": "2236242fa9ee1bc1e05f260987fc40caf04ec31d2829c1b071414b93ab30a072",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "models/offline/v65/model_config.json",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 49,
+      "sha256": "a113343242f8f9437472ffac83897423b657e648ce004deb238a05ec1c3c6ec9",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "models/online/v50pro/best_csp.pkl",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "按用户新要求保留在线模型或小车通信链路；团队版本位于hardware_legacy，用户副本恢复原路径",
+      "bytes": 17315,
+      "sha256": "93a866275af58c733f71fc0fe1f257b882bb33c95ebe8936cb69cf497a423efe",
+      "cleanup_action": "restored_online_or_car_resource_after_user_clarification"
+    },
+    {
+      "original_path": "models/online/v50pro/best_model.pth",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "按用户新要求保留在线模型或小车通信链路；团队版本位于hardware_legacy，用户副本恢复原路径",
+      "bytes": 2257525,
+      "sha256": "91dc7fa62ab6c96290e0b7521b4f6b815e5df1319ccd53b34cdc67254ba96b29",
+      "cleanup_action": "restored_online_or_car_resource_after_user_clarification"
+    },
+    {
+      "original_path": "models/online/v50pro/best_scalers.pkl",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "按用户新要求保留在线模型或小车通信链路；团队版本位于hardware_legacy，用户副本恢复原路径",
+      "bytes": 606393,
+      "sha256": "3bfa0eabaf6170af511233dbb50a7b2e2fb70420b10ccb32c08e99e8c345e6ee",
+      "cleanup_action": "restored_online_or_car_resource_after_user_clarification"
+    },
+    {
+      "original_path": "models/online/v50pro/model_config.json",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "按用户新要求保留在线模型或小车通信链路；团队版本位于hardware_legacy，用户副本恢复原路径",
+      "bytes": 49,
+      "sha256": "a113343242f8f9437472ffac83897423b657e648ce004deb238a05ec1c3c6ec9",
+      "cleanup_action": "restored_online_or_car_resource_after_user_clarification"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/Ee1.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 13078,
+      "sha256": "1894dd1a976ff5a5f798fe47e23a204ebd76d38d28a10d7ae5054e48d8e9c146",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/Ee2.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 13078,
+      "sha256": "6e30ca1321bf647f58afa2663e9b736c41d794cf1b1539836f71845720bcb974",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/Ee3.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 13078,
+      "sha256": "26e907519d3b58ca6165b3be731349e711ffd6e28935069e40b7298950c8adaa",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/Ee4.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 13078,
+      "sha256": "c05fd351aa6c30b83079bcb9c1afa8554690370464fbdb4d88dc877e1027cb80",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/Ee5.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 13078,
+      "sha256": "31a07f600413d52e0af5f73a794d91269d883c959cbb916ff23309bc3ef64426",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/Ee6.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 13078,
+      "sha256": "d01702da30dd8d9bacf50efd8cf6f27749e29b60ee69c59ccd5db98aa98f1cf5",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/Ee7.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 13078,
+      "sha256": "254ebfa9c10a983e57fc341212da60c6d03769f1777c12555b88757e78173df3",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/Ee8.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 13078,
+      "sha256": "0b19c2f4b20fadd39a862d3133219d94d7d8e1ce741eac7e719e119f14f321ff",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/Ee9.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 13078,
+      "sha256": "7d15a8867b6099df0afad342c4b7706a200308d1f91e6b51e5e471a6f2d19b9f",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/e1.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 24324,
+      "sha256": "96618511b333d9a8129d838e27f6a123994d5b4d6b81005bb8fd0e398f146e90",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/e2.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 24345,
+      "sha256": "8a8f4e866f34cbbe35d2592596fa8837746b66fcf9ba0b346b3695be4bac7cbd",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/e3.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 24298,
+      "sha256": "667c0300d3062d783508424643d12ac35cd50efcbb99eb440377ac81e9196cc0",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/e4.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 24272,
+      "sha256": "1cd4214e783e6f9364cedf891263e65d05fc14b53c5e01041275877ad5f17fed",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/e5.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 24269,
+      "sha256": "89a22f8962c765055dd08fe93dd16f3720397bc0dd0861922c64b1e6301e1758",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/e6.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 24327,
+      "sha256": "c7ba771799fed19b6ac5ae79546c31a8d755e375abe855842b1983f9432d9bb9",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/e7.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 24280,
+      "sha256": "e9c20ae9f14cee290ce58aa42bc06f6825ecf464bd4432879714538e4e552f5d",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/e8.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 24327,
+      "sha256": "6d89cd53fda1cf1409f60652a7fa1d6bbfc955743fe6bde8686bea07848a10ff",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/online_accuracy/e9.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 24320,
+      "sha256": "6697f5c068362bd657514ebc01cdb5a82f6ee74a4f249cbf9c13df33b1c32425",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/runtime/onlinev50prodata.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 80121,
+      "sha256": "3a31cbac1f329f1b421949e421139db1a600cbc6229239e100a9b6db33ce7f93",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/runtime/sequence.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 123,
+      "sha256": "eca67e23ca1ea2fb612ec4677fd45faebc29b969cc9f02b3c3e6f46ace857f21",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/logs/runtime/v65data.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 77052,
+      "sha256": "df0beb821bdb6562dadf3ff9537ada6cdc7ff1911420d04a10b9c95dd768083f",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/timelines/cue_timeline0tt.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "按用户新要求保留在线模型或小车通信链路；团队版本位于hardware_legacy，用户副本恢复原路径",
+      "bytes": 2445,
+      "sha256": "48676ac0337714dcc9bfb74f14c1d424a16f5149fd52fa97deb42eacb082c351",
+      "cleanup_action": "restored_online_or_car_resource_after_user_clarification"
+    },
+    {
+      "original_path": "outputs/timelines/cue_timeline1.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2304,
+      "sha256": "d6509d5641b927f35007d9270645ca0452a0a6ae7687f0c87927ad8dfcc59e72",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/timelines/cue_timeline2.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2295,
+      "sha256": "eaa57b5346bab53b1841e709e9dfd39e9c6a23dc0991197782a4e10cd3f46cba",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/timelines/cue_timeline3.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2288,
+      "sha256": "4b57a2b70467e56ef28ad9d374a328b6e591b5103fc83efab217923ce7ca23b3",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/timelines/cue_timeline3train.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 1184,
+      "sha256": "d30c30439fe0216fbed01d80977de339c36d6128dcae23305fd695108ebcb34a",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/timelines/cue_timeline4.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2293,
+      "sha256": "60eb4aef3a6e24d0bbdfc9ed723f110eb1799446d739142281cf9ea0e4869e26",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/timelines/cue_timeline5.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2303,
+      "sha256": "ae1b06f12892f2899b002dce5266724856cade8aff8e0fd9d6b5728b5b985b92",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/timelines/cue_timeline6.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2297,
+      "sha256": "84327f8e86b987010866ae818b19b53a4cc37c9430bc64a84dbd1b8b73e61c96",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/timelines/cue_timeline7.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2300,
+      "sha256": "9df6bde99d9f2255d389669532fe301a692ada30e15f4e854fca19576ef27fdc",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "outputs/timelines/cue_timeline8.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "按用户新要求保留在线模型或小车通信链路；团队版本位于hardware_legacy，用户副本恢复原路径",
+      "bytes": 2304,
+      "sha256": "07b221801bfe9c384c0548ff976fed3643526718ed9f3829195302a32eeb5a87",
+      "cleanup_action": "restored_online_or_car_resource_after_user_clarification"
+    },
+    {
+      "original_path": "outputs/timelines/cue_timeline9.txt",
+      "package_path": "",
+      "category": "原仓库历史资源",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2301,
+      "sha256": "efad7090e11e4f8a79dce22092b21f38b8979b7f17265abbac7ed78dc9853d76",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "parallel_experiments_v1/README_使用说明.md",
+      "package_path": "code/parallel_experiments_v1/README_使用说明.md",
+      "category": "历史批量实验",
+      "description": "队列入口及准备数据依赖",
+      "bytes": 5959,
+      "sha256": "449161a67dc0830f0991aef2579a3403b05255b313f7ffcb91e8b72aa98d37b0",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "parallel_experiments_v1/compare_thresholds.py",
+      "package_path": "code/parallel_experiments_v1/compare_thresholds.py",
+      "category": "历史批量实验",
+      "description": "队列入口及准备数据依赖",
+      "bytes": 3757,
+      "sha256": "51c8528c4cdf235d4104568307c58ee5b937b9eb96c7e8f40674638e67bd2738",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "parallel_experiments_v1/launch_experiments.py",
+      "package_path": "code/parallel_experiments_v1/launch_experiments.py",
+      "category": "历史批量实验",
+      "description": "队列入口及准备数据依赖",
+      "bytes": 14251,
+      "sha256": "9383b0f9948c7c263947de3080ca500060852356e2695ef0b31b52c1e9a0dc39",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "parallel_experiments_v1/parallel_experiments_v1/README_使用说明.md",
+      "package_path": "code/parallel_experiments_v1/parallel_experiments_v1/README_使用说明.md",
+      "category": "嵌套历史副本",
+      "description": "与上层同名文件字节一致，保留但不作为推荐入口",
+      "bytes": 5959,
+      "sha256": "449161a67dc0830f0991aef2579a3403b05255b313f7ffcb91e8b72aa98d37b0",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "parallel_experiments_v1/parallel_experiments_v1/compare_thresholds.py",
+      "package_path": "code/parallel_experiments_v1/parallel_experiments_v1/compare_thresholds.py",
+      "category": "嵌套历史副本",
+      "description": "与上层同名文件字节一致，保留但不作为推荐入口",
+      "bytes": 3757,
+      "sha256": "51c8528c4cdf235d4104568307c58ee5b937b9eb96c7e8f40674638e67bd2738",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "parallel_experiments_v1/parallel_experiments_v1/launch_experiments.py",
+      "package_path": "code/parallel_experiments_v1/parallel_experiments_v1/launch_experiments.py",
+      "category": "嵌套历史副本",
+      "description": "与上层同名文件字节一致，保留但不作为推荐入口",
+      "bytes": 14251,
+      "sha256": "9383b0f9948c7c263947de3080ca500060852356e2695ef0b31b52c1e9a0dc39",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "parallel_experiments_v1/parallel_experiments_v1/shared_data.py",
+      "package_path": "code/parallel_experiments_v1/parallel_experiments_v1/shared_data.py",
+      "category": "嵌套历史副本",
+      "description": "与上层同名文件字节一致，保留但不作为推荐入口",
+      "bytes": 3034,
+      "sha256": "38505e6c1ea6ddd02c379b31e5a42538ff970a661e112652da7993e6c6a8afe8",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "parallel_experiments_v1/parallel_experiments_v1/train_recipe.py",
+      "package_path": "code/parallel_experiments_v1/parallel_experiments_v1/train_recipe.py",
+      "category": "嵌套历史副本",
+      "description": "与上层同名文件字节一致，保留但不作为推荐入口",
+      "bytes": 6944,
+      "sha256": "7f631668d44d41dbeb9af424e5cb0d3f253c23e72caaf982163b837b2b20146a",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "parallel_experiments_v1/parallel_experiments_v1/train_subject_weighted.py",
+      "package_path": "code/parallel_experiments_v1/parallel_experiments_v1/train_subject_weighted.py",
+      "category": "嵌套历史副本",
+      "description": "与上层同名文件字节一致，保留但不作为推荐入口",
+      "bytes": 12734,
+      "sha256": "5ba08c887f40f586e0d87a0e3670d8d3ec5cb8204d1b3ac725caee97e46a5e45",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "parallel_experiments_v1/parallel_experiments_v1/候选清单.json",
+      "package_path": "code/parallel_experiments_v1/parallel_experiments_v1/候选清单.json",
+      "category": "嵌套历史副本",
+      "description": "与上层同名文件字节一致，保留但不作为推荐入口",
+      "bytes": 1435,
+      "sha256": "d55c05b9745ec702cf295d9654a9d98398b83e2f70fea930212fc78bb3d92638",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "parallel_experiments_v1/shared_data.py",
+      "package_path": "code/parallel_experiments_v1/shared_data.py",
+      "category": "历史批量实验",
+      "description": "队列入口及准备数据依赖",
+      "bytes": 3034,
+      "sha256": "38505e6c1ea6ddd02c379b31e5a42538ff970a661e112652da7993e6c6a8afe8",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "parallel_experiments_v1/train_recipe.py",
+      "package_path": "code/parallel_experiments_v1/train_recipe.py",
+      "category": "历史批量实验",
+      "description": "队列入口及准备数据依赖",
+      "bytes": 6944,
+      "sha256": "7f631668d44d41dbeb9af424e5cb0d3f253c23e72caaf982163b837b2b20146a",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "parallel_experiments_v1/train_subject_weighted.py",
+      "package_path": "code/parallel_experiments_v1/train_subject_weighted.py",
+      "category": "历史批量实验",
+      "description": "队列入口及准备数据依赖",
+      "bytes": 12734,
+      "sha256": "5ba08c887f40f586e0d87a0e3670d8d3ec5cb8204d1b3ac725caee97e46a5e45",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "parallel_experiments_v1/候选清单.json",
+      "package_path": "code/parallel_experiments_v1/候选清单.json",
+      "category": "历史批量实验",
+      "description": "队列入口及准备数据依赖",
+      "bytes": 1435,
+      "sha256": "d55c05b9745ec702cf295d9654a9d98398b83e2f70fea930212fc78bb3d92638",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "probe_augmentation.py",
+      "package_path": "code/probe_augmentation.py",
+      "category": "诊断与分析",
+      "description": "预测对增强的敏感性，不进行重新训练",
+      "bytes": 3174,
+      "sha256": "b2142831dcca5609aa924b66fe2c4ff1360610c97fc0640e26580fa6723adb48",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "probe_centering.py",
+      "package_path": "code/probe_centering.py",
+      "category": "诊断与分析",
+      "description": "中心化预测诊断",
+      "bytes": 3697,
+      "sha256": "6f8caa99bf7996cb1dd7fa71242dc9c57bf67fa553398976d4204bd97f58e1b3",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "probe_gradients.py",
+      "package_path": "code/probe_gradients.py",
+      "category": "诊断与分析",
+      "description": "损失梯度大小与方向诊断",
+      "bytes": 6800,
+      "sha256": "fdc3b129abf031c9f931936060a8db4dd06bff1a38dafd7d5ddeaa7b07c91bc0",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "probe_running_center.py",
+      "package_path": "code/probe_running_center.py",
+      "category": "诊断与分析",
+      "description": "运行式中心化诊断",
+      "bytes": 4352,
+      "sha256": "6971c1b5022d960c436b8a987395af22caf36c8cdb677ebbf7748e8d65a808a5",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "profile_session1_eeg.py",
+      "package_path": "code/profile_session1_eeg.py",
+      "category": "诊断与分析",
+      "description": "session1 EEG统计特征分析",
+      "bytes": 11929,
+      "sha256": "b0c01490755979727241977888b8468f351a70a622cbb3bdc46921d3b3711851",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "quick_screen.py",
+      "package_path": "code/quick_screen.py",
+      "category": "历史算法探索",
+      "description": "小规模快速筛选，对照未充分学习时不能判模块无效",
+      "bytes": 17669,
+      "sha256": "90cba4459b19d87d6d4f21218797ecc48944e4168c6dabbee45cabaaf928234a",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "repeat_dann_pair.py",
+      "package_path": "code/repeat_dann_pair.py",
+      "category": "历史算法探索",
+      "description": "从头训练的43／44基线与方案A",
+      "bytes": 7871,
+      "sha256": "7f2c24f5f078152f53d01a1bed539ca24cca24bf6323626dd80a242d4c79f4a4",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "repeat_group_domain42.py",
+      "package_path": "code/repeat_group_domain42.py",
+      "category": "正式训练与测试",
+      "description": "预训练42／后期42配对训练",
+      "bytes": 16730,
+      "sha256": "b2104c83f9c5db66f13bc630c12ee384d74ef42b0df53efaad181c18e2789c56",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "repeat_group_domain44.py",
+      "package_path": "code/repeat_group_domain44.py",
+      "category": "正式训练与测试",
+      "description": "预训练43／后期44配对训练，并非独立44预训练",
+      "bytes": 16840,
+      "sha256": "020b00c8a74687c2ffcd09c0f4d8bba932a70efabaa93ccc7f8e3b2711ae1b72",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "repeat_warm_dann_seed43.py",
+      "package_path": "code/repeat_warm_dann_seed43.py",
+      "category": "历史后期与消融",
+      "description": "初步后期DANN的43起点重复",
+      "bytes": 9146,
+      "sha256": "dd69f4a671a055bd46647d871d17c499f55d9e744f9986934a9ef5d83f7b2c71",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "requirements.txt",
+      "package_path": "",
+      "category": "旧小车工程参考",
+      "description": "仅供溯源；GUI以Xu为准，不把旧模型作为三代模型权重",
+      "bytes": 3052,
+      "sha256": "df9937f975d7b1cf8f79cc23384174c4b6ec97a52696ef2eb9bed6191b2524f4",
+      "cleanup_action": "replaced_legacy_project_description_or_dependencies"
+    },
+    {
+      "original_path": "src/offline/evaluate_v65_offline.py",
+      "package_path": "",
+      "category": "旧小车工程参考",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 11178,
+      "sha256": "40855b9ed9159b1c3e0042e90f012f47fe03dd672acdc4d2e1fc154d3fb06705",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "src/offline/train_v42.py",
+      "package_path": "",
+      "category": "旧小车工程参考",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 23152,
+      "sha256": "fcdb57bd21404125474f350054cd3396bb767dd6cf0f16ba6874d80dc467cfd3",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "src/offline/train_v65_distill.py",
+      "package_path": "",
+      "category": "旧小车工程参考",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 19925,
+      "sha256": "5cff97e7c69660ea64826c4f1080f2dfdf9619a85f44771cc7395e8ad48201aa",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "src/online/debug_dll_load.py",
+      "package_path": "",
+      "category": "旧小车工程参考",
+      "description": "按用户新要求保留在线模型或小车通信链路；团队版本位于hardware_legacy，用户副本恢复原路径",
+      "bytes": 2401,
+      "sha256": "247a426fd44803bf7d329a145b914c5779541bdb047647334f320788f7b4e180",
+      "cleanup_action": "restored_online_or_car_resource_after_user_clarification"
+    },
+    {
+      "original_path": "src/online/evaluate_v50pro_stream.py",
+      "package_path": "",
+      "category": "旧小车工程参考",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 11632,
+      "sha256": "60a235e8ee76d35ea7aa5f7734ec8cc0231ce907bf019ebd4563e42d0bb781c2",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "src/online/main_app.py",
+      "package_path": "",
+      "category": "旧小车工程参考",
+      "description": "按用户新要求保留在线模型或小车通信链路；团队版本位于hardware_legacy，用户副本恢复原路径",
+      "bytes": 13036,
+      "sha256": "069a6a26526e7e9a98047e81289f07f778d1b4d59d4d43ffc83b3dcde812cf36",
+      "cleanup_action": "restored_online_or_car_resource_after_user_clarification"
+    },
+    {
+      "original_path": "src/online/receive_control_utf8.py",
+      "package_path": "",
+      "category": "旧小车工程参考",
+      "description": "按用户新要求保留在线模型或小车通信链路；团队版本位于hardware_legacy，用户副本恢复原路径",
+      "bytes": 21556,
+      "sha256": "9d7ed7a1ef4a97bdd28c77c8a4fe4afaf76dedc8316c3f603ba158b99a184f35",
+      "cleanup_action": "restored_online_or_car_resource_after_user_clarification"
+    },
+    {
+      "original_path": "src/online/receiver.py",
+      "package_path": "",
+      "category": "旧小车工程参考",
+      "description": "按用户新要求保留在线模型或小车通信链路；团队版本位于hardware_legacy，用户副本恢复原路径",
+      "bytes": 13071,
+      "sha256": "ff80abd317fcfc01fa26bb5fd66c96b7f68881eb8ecae0d4a8c2c8202243d0d0",
+      "cleanup_action": "restored_online_or_car_resource_after_user_clarification"
+    },
+    {
+      "original_path": "src/online/sender.py",
+      "package_path": "",
+      "category": "旧小车工程参考",
+      "description": "按用户新要求保留在线模型或小车通信链路；团队版本位于hardware_legacy，用户副本恢复原路径",
+      "bytes": 4719,
+      "sha256": "2cdc70cdec9a3f9512de9c51a03907044c198a274d7f4ace34f487f6cf14550b",
+      "cleanup_action": "restored_online_or_car_resource_after_user_clarification"
+    },
+    {
+      "original_path": "src/online/torch_bootstrap.py",
+      "package_path": "",
+      "category": "旧小车工程参考",
+      "description": "按用户新要求保留在线模型或小车通信链路；团队版本位于hardware_legacy，用户副本恢复原路径",
+      "bytes": 882,
+      "sha256": "356b22bd8ec3c71d465583044929eaf45b1fe24e03432ebe690a6f1a5712a182",
+      "cleanup_action": "restored_online_or_car_resource_after_user_clarification"
+    },
+    {
+      "original_path": "src/online/train_v50pro_online.py",
+      "package_path": "",
+      "category": "旧小车工程参考",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 20169,
+      "sha256": "25e90c84234538c07fd5f393758d9143b0c124c8375112676e0882f9282c15cc",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "src/plan_a/__init__.py",
+      "package_path": "code/src/plan_a/__init__.py",
+      "category": "运行核心依赖",
+      "description": "保持原路径与文件字节，保留模型／预处理及旧方案B",
+      "bytes": 52,
+      "sha256": "93a2706f7b3745b339131647c6533ca2e7eeeee4926328b795c4343773940b5f",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "src/plan_a/data.py",
+      "package_path": "code/src/plan_a/data.py",
+      "category": "运行核心依赖",
+      "description": "保持原路径与文件字节，保留模型／预处理及旧方案B",
+      "bytes": 4676,
+      "sha256": "be4bd353784b4ab743d2814bb9b236c85bb1a64c1fc47089e1e2e45bce2536a6",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "src/plan_a/evaluate.py",
+      "package_path": "code/src/plan_a/evaluate.py",
+      "category": "运行核心依赖",
+      "description": "保持原路径与文件字节，保留模型／预处理及旧方案B",
+      "bytes": 9151,
+      "sha256": "a18bd287794a344534aed185c5cfc0a07edcee48b48bbe0886fc544e15a95db6",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "src/plan_a/inference.py",
+      "package_path": "code/src/plan_a/inference.py",
+      "category": "运行核心依赖",
+      "description": "保持原路径与文件字节，保留模型／预处理及旧方案B",
+      "bytes": 4850,
+      "sha256": "8a22ea30fd67daf79a058e211ff49fb855527621af8fd44fc7875ef89dd49d1a",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "src/plan_a/model.py",
+      "package_path": "code/src/plan_a/model.py",
+      "category": "运行核心依赖",
+      "description": "保持原路径与文件字节，保留模型／预处理及旧方案B",
+      "bytes": 3846,
+      "sha256": "b5d85ff0b1e37074c1e47c473a6e046e9f2416eaa2518e9bca80f45231cf58e3",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "src/plan_a/requirements.txt",
+      "package_path": "code/src/plan_a/requirements.txt",
+      "category": "运行核心依赖",
+      "description": "保持原路径与文件字节，保留模型／预处理及旧方案B",
+      "bytes": 98,
+      "sha256": "2d40f8b12785a5761173d4f7ebc9f3d43096f2ca62d5d4201512eb31b896934c",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "src/plan_a/train.py",
+      "package_path": "code/src/plan_a/train.py",
+      "category": "运行核心依赖",
+      "description": "保持原路径与文件字节，保留模型／预处理及旧方案B",
+      "bytes": 21387,
+      "sha256": "27cbe4a72411362c85a0873bbafad1d795fcb238416e85fbee591a2ac03dbc01",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "src/plan_b/__init__.py",
+      "package_path": "code/src/plan_b/__init__.py",
+      "category": "运行核心依赖",
+      "description": "保持原路径与文件字节，保留模型／预处理及旧方案B",
+      "bytes": 80,
+      "sha256": "b6e400dcec4efc4b467f1f7fc6f5d79c6c9660472fb12c1f40739f353aab6882",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "src/plan_b/augment.py",
+      "package_path": "code/src/plan_b/augment.py",
+      "category": "运行核心依赖",
+      "description": "保持原路径与文件字节，保留模型／预处理及旧方案B",
+      "bytes": 2696,
+      "sha256": "8a85405607c86f7654713d725d2113fc4e8572bf5a8f3879356646876e264d12",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "src/plan_b/evaluate.py",
+      "package_path": "code/src/plan_b/evaluate.py",
+      "category": "运行核心依赖",
+      "description": "保持原路径与文件字节，保留模型／预处理及旧方案B",
+      "bytes": 6320,
+      "sha256": "7b9bb6640cbd93366f74d157e66a86b499e6ab0d7dfe465203f132f3074706ea",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "src/plan_b/inference.py",
+      "package_path": "code/src/plan_b/inference.py",
+      "category": "运行核心依赖",
+      "description": "保持原路径与文件字节，保留模型／预处理及旧方案B",
+      "bytes": 1980,
+      "sha256": "2190cd22edb7c16c67a034ed2c03ce5ffcb1fd9aa82f3224b056168efa105157",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "src/plan_b/model.py",
+      "package_path": "code/src/plan_b/model.py",
+      "category": "运行核心依赖",
+      "description": "保持原路径与文件字节，保留模型／预处理及旧方案B",
+      "bytes": 2400,
+      "sha256": "1fa6ab9eeeb49b4b45fabd78f5cbeb268462e627d32e0eae825af979205ebd4b",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "src/plan_b/requirements.txt",
+      "package_path": "code/src/plan_b/requirements.txt",
+      "category": "运行核心依赖",
+      "description": "保持原路径与文件字节，保留模型／预处理及旧方案B",
+      "bytes": 31,
+      "sha256": "52589e918966362c593b20e9a8c5239d22329a74ec5784998fc47dd3954771c8",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "src/plan_b/train.py",
+      "package_path": "code/src/plan_b/train.py",
+      "category": "运行核心依赖",
+      "description": "保持原路径与文件字节，保留模型／预处理及旧方案B",
+      "bytes": 15434,
+      "sha256": "2129a6ac6c0169afff2b02e9bf0a86788813d06e59bc540008482e055a914048",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "src/tools/compare_logs.py",
+      "package_path": "",
+      "category": "旧小车工程参考",
+      "description": "经用户要求删除：原小车专用内容，与SDAD运行无依赖",
+      "bytes": 2958,
+      "sha256": "960235e70fa5d3ab7bed34e73c3c4de6f4bf13bb46ea2f8470c371084fbd97a8",
+      "cleanup_action": "deleted_legacy_file"
+    },
+    {
+      "original_path": "src/tools/compare_plan_ab.py",
+      "package_path": "code/src/tools/compare_plan_ab.py",
+      "category": "运行核心依赖",
+      "description": "保持原路径与文件字节，保留模型／预处理及旧方案B",
+      "bytes": 6386,
+      "sha256": "1b5c5501b226dc85f5abcea0be38767599c84c5324d10be377fa907b88eb3a15",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "src/tools/generate_cue_timeline.py",
+      "package_path": "",
+      "category": "旧小车工程参考",
+      "description": "按用户新要求保留在线模型或小车通信链路；团队版本位于hardware_legacy，用户副本恢复原路径",
+      "bytes": 1845,
+      "sha256": "4f239db9fad10edcadadc27ec35b155b557c032907a3161cb57fa9548cb76c91",
+      "cleanup_action": "restored_online_or_car_resource_after_user_clarification"
+    },
+    {
+      "original_path": "train_alignment.py",
+      "package_path": "code/train_alignment.py",
+      "category": "历史算法探索",
+      "description": "早期global／classwise对齐，历史运行曾中止",
+      "bytes": 17266,
+      "sha256": "a3c3fcb991059c1b42e5d8424d075c404fca210546fcf8ab349ecafcdb87c56a",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "train_classwise_original.py",
+      "package_path": "code/train_classwise_original.py",
+      "category": "历史算法探索",
+      "description": "原框架下类条件对齐",
+      "bytes": 12374,
+      "sha256": "9f0939c9e4ad8d6606661c936c2a5a7b40fc02915cae128920b507bc8e94fa8d",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "train_cross_subject_contrast.py",
+      "package_path": "code/train_cross_subject_contrast.py",
+      "category": "历史算法探索",
+      "description": "跨受试者对比学习探索",
+      "bytes": 9021,
+      "sha256": "57b715f0471a222deff020bc15ca66cb3eb6ca974ed8381469eb795643207ff7",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "train_subject_weighted.py",
+      "package_path": "code/train_subject_weighted.py",
+      "category": "历史算法探索",
+      "description": "受试者分类损失加权探索",
+      "bytes": 11840,
+      "sha256": "2d4b9ec658ae84190c3421b9fc8ab7e1e59f1d891a8de7be1b7d2db25dd48e99",
+      "cleanup_action": "retained_user_research"
+    },
+    {
+      "original_path": "warm_dann_pair.py",
+      "package_path": "code/warm_dann_pair.py",
+      "category": "历史后期与消融",
+      "description": "初步后期DANN配对，不与最终批次方案混算",
+      "bytes": 8674,
+      "sha256": "ff8448f5822f222e3d2879127915dd283126909ab7c260f4fdb6d3f3a270c68f",
+      "cleanup_action": "retained_user_research"
+    }
+  ],
+  "cleanup": {
+    "date": "2026-10-27",
+    "deleted_tracked_paths": [
+      "archive/cue_timeline_backup/cue_timeline0tt.txt",
+      "archive/cue_timeline_backup/cue_timeline1.txt",
+      "archive/cue_timeline_backup/cue_timeline2.txt",
+      "archive/cue_timeline_backup/cue_timeline3.txt",
+      "archive/cue_timeline_backup/cue_timeline3train.txt",
+      "archive/cue_timeline_backup/cue_timeline4.txt",
+      "archive/cue_timeline_backup/cue_timeline5.txt",
+      "archive/cue_timeline_backup/cue_timeline6.txt",
+      "archive/cue_timeline_backup/cue_timeline7.txt",
+      "archive/cue_timeline_backup/cue_timeline8.txt",
+      "archive/cue_timeline_backup/cue_timeline9.txt",
+      "archive/cue_timeline_backup/txt notebook.py",
+      "assets/pyinstaller/main_app.spec",
+      "assets/slides/acc_data.pptx",
+      "models/offline/v42/best_csp.pkl",
+      "models/offline/v42/best_model.pth",
+      "models/offline/v42/best_scalers.pkl",
+      "models/offline/v42/fold_1_curves.png",
+      "models/offline/v42/meta.json",
+      "models/offline/v42/training_metrics.json",
+      "models/offline/v65/best_csp.pkl",
+      "models/offline/v65/best_model.pth",
+      "models/offline/v65/best_scalers.pkl",
+      "models/offline/v65/model_config.json",
+      "outputs/logs/online_accuracy/Ee1.txt",
+      "outputs/logs/online_accuracy/Ee2.txt",
+      "outputs/logs/online_accuracy/Ee3.txt",
+      "outputs/logs/online_accuracy/Ee4.txt",
+      "outputs/logs/online_accuracy/Ee5.txt",
+      "outputs/logs/online_accuracy/Ee6.txt",
+      "outputs/logs/online_accuracy/Ee7.txt",
+      "outputs/logs/online_accuracy/Ee8.txt",
+      "outputs/logs/online_accuracy/Ee9.txt",
+      "outputs/logs/online_accuracy/e1.txt",
+      "outputs/logs/online_accuracy/e2.txt",
+      "outputs/logs/online_accuracy/e3.txt",
+      "outputs/logs/online_accuracy/e4.txt",
+      "outputs/logs/online_accuracy/e5.txt",
+      "outputs/logs/online_accuracy/e6.txt",
+      "outputs/logs/online_accuracy/e7.txt",
+      "outputs/logs/online_accuracy/e8.txt",
+      "outputs/logs/online_accuracy/e9.txt",
+      "outputs/logs/runtime/onlinev50prodata.txt",
+      "outputs/logs/runtime/sequence.txt",
+      "outputs/logs/runtime/v65data.txt",
+      "outputs/timelines/cue_timeline1.txt",
+      "outputs/timelines/cue_timeline2.txt",
+      "outputs/timelines/cue_timeline3.txt",
+      "outputs/timelines/cue_timeline3train.txt",
+      "outputs/timelines/cue_timeline4.txt",
+      "outputs/timelines/cue_timeline5.txt",
+      "outputs/timelines/cue_timeline6.txt",
+      "outputs/timelines/cue_timeline7.txt",
+      "outputs/timelines/cue_timeline9.txt",
+      "src/offline/evaluate_v65_offline.py",
+      "src/offline/train_v42.py",
+      "src/offline/train_v65_distill.py",
+      "src/online/evaluate_v50pro_stream.py",
+      "src/online/train_v50pro_online.py",
+      "src/tools/compare_logs.py"
+    ],
+    "removed_generated_directory": "legacy_reference/",
+    "retained_grouping_script": "code/evaluate/bci_illiteracy_evaluate.py",
+    "note": "Initial cleanup retained in history; original online/car resources restored per later user instruction. SHA256 values refer to original snapshot.",
+    "initial_deleted_tracked_paths": [
+      "archive/cue_timeline_backup/cue_timeline0tt.txt",
+      "archive/cue_timeline_backup/cue_timeline1.txt",
+      "archive/cue_timeline_backup/cue_timeline2.txt",
+      "archive/cue_timeline_backup/cue_timeline3.txt",
+      "archive/cue_timeline_backup/cue_timeline3train.txt",
+      "archive/cue_timeline_backup/cue_timeline4.txt",
+      "archive/cue_timeline_backup/cue_timeline5.txt",
+      "archive/cue_timeline_backup/cue_timeline6.txt",
+      "archive/cue_timeline_backup/cue_timeline7.txt",
+      "archive/cue_timeline_backup/cue_timeline8.txt",
+      "archive/cue_timeline_backup/cue_timeline9.txt",
+      "archive/cue_timeline_backup/txt notebook.py",
+      "assets/pyinstaller/main_app.spec",
+      "assets/slides/acc_data.pptx",
+      "models/offline/v42/best_csp.pkl",
+      "models/offline/v42/best_model.pth",
+      "models/offline/v42/best_scalers.pkl",
+      "models/offline/v42/fold_1_curves.png",
+      "models/offline/v42/meta.json",
+      "models/offline/v42/training_metrics.json",
+      "models/offline/v65/best_csp.pkl",
+      "models/offline/v65/best_model.pth",
+      "models/offline/v65/best_scalers.pkl",
+      "models/offline/v65/model_config.json",
+      "models/online/v50pro/best_csp.pkl",
+      "models/online/v50pro/best_model.pth",
+      "models/online/v50pro/best_scalers.pkl",
+      "models/online/v50pro/model_config.json",
+      "outputs/logs/online_accuracy/Ee1.txt",
+      "outputs/logs/online_accuracy/Ee2.txt",
+      "outputs/logs/online_accuracy/Ee3.txt",
+      "outputs/logs/online_accuracy/Ee4.txt",
+      "outputs/logs/online_accuracy/Ee5.txt",
+      "outputs/logs/online_accuracy/Ee6.txt",
+      "outputs/logs/online_accuracy/Ee7.txt",
+      "outputs/logs/online_accuracy/Ee8.txt",
+      "outputs/logs/online_accuracy/Ee9.txt",
+      "outputs/logs/online_accuracy/e1.txt",
+      "outputs/logs/online_accuracy/e2.txt",
+      "outputs/logs/online_accuracy/e3.txt",
+      "outputs/logs/online_accuracy/e4.txt",
+      "outputs/logs/online_accuracy/e5.txt",
+      "outputs/logs/online_accuracy/e6.txt",
+      "outputs/logs/online_accuracy/e7.txt",
+      "outputs/logs/online_accuracy/e8.txt",
+      "outputs/logs/online_accuracy/e9.txt",
+      "outputs/logs/runtime/onlinev50prodata.txt",
+      "outputs/logs/runtime/sequence.txt",
+      "outputs/logs/runtime/v65data.txt",
+      "outputs/timelines/cue_timeline0tt.txt",
+      "outputs/timelines/cue_timeline1.txt",
+      "outputs/timelines/cue_timeline2.txt",
+      "outputs/timelines/cue_timeline3.txt",
+      "outputs/timelines/cue_timeline3train.txt",
+      "outputs/timelines/cue_timeline4.txt",
+      "outputs/timelines/cue_timeline5.txt",
+      "outputs/timelines/cue_timeline6.txt",
+      "outputs/timelines/cue_timeline7.txt",
+      "outputs/timelines/cue_timeline8.txt",
+      "outputs/timelines/cue_timeline9.txt",
+      "src/offline/evaluate_v65_offline.py",
+      "src/offline/train_v42.py",
+      "src/offline/train_v65_distill.py",
+      "src/online/debug_dll_load.py",
+      "src/online/evaluate_v50pro_stream.py",
+      "src/online/main_app.py",
+      "src/online/receive_control_utf8.py",
+      "src/online/receiver.py",
+      "src/online/sender.py",
+      "src/online/torch_bootstrap.py",
+      "src/online/train_v50pro_online.py",
+      "src/tools/compare_logs.py",
+      "src/tools/generate_cue_timeline.py"
+    ],
+    "restored_after_user_clarification": [
+      "models/online/v50pro/best_csp.pkl",
+      "models/online/v50pro/best_model.pth",
+      "models/online/v50pro/best_scalers.pkl",
+      "models/online/v50pro/model_config.json",
+      "outputs/timelines/cue_timeline0tt.txt",
+      "outputs/timelines/cue_timeline8.txt",
+      "src/online/debug_dll_load.py",
+      "src/online/main_app.py",
+      "src/online/receive_control_utf8.py",
+      "src/online/receiver.py",
+      "src/online/sender.py",
+      "src/online/torch_bootstrap.py",
+      "src/tools/generate_cue_timeline.py"
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+Scoring sub-01/ses-01 ...
+  Session CV=60.00%
+Scoring sub-01/ses-02 ...
+  Session CV=80.00%
+Subject sub-01: mean CV=70.00%, group=normal
+Scoring sub-01/ses-01 ...
+  Session CV=65.00%
+[System] Loading Artifacts & Models...
+[System] Loaded 309 cues from E:\HuaweiMoveData\Users\ysyys\Documents\ChatGPT\bci_car 2\EEGUnveil-integration\hardware_legacy\outputs\timelines\cue_timeline0tt.txt
+等待原 C 组完成，不重复启动：baseline\C_seed42
+等待原 C 组完成，不重复启动：baseline\C_seed2024
+等待原 C 组完成，不重复启动：baseline\C_seed3407
+
+--- Fold 1 (Teacher: ShallowConvNet) ---
+Fold 1 Training data balanced. Samples per class: 12
+Natural sampling: normal fraction=0.333333
+Fold 1 Epoch 1/1 | Train Loss=0.7229 Acc=0.3333 | Val Loss=0.6918 Acc=0.5000 [NEW GLOBAL BEST!]
+Best-epoch validation group accuracy: {'normal': 0.5, 'bci_blind': 0.5}
+--- Fold 1 finished. Best val acc: 0.5000 ---
+
+--- Fold 1 (Teacher: ShallowConvNet) ---
+Fold 1 Training data balanced. Samples per class: 12
+Mixed batch: normal=6, blind=2; effective lambda=0.750000
+Fold 1 Epoch 1/1 | Train Loss=0.3496 Acc=0.4583 | Val Loss=0.6946 Acc=0.5000 [NEW GLOBAL BEST!]
+Best-epoch validation group accuracy: {'normal': 0.5, 'bci_blind': 0.5}
+--- Fold 1 finished. Best val acc: 0.5000 ---
+
+[Artifacts Saved] Fold 1, Acc: 0.5000
+
+test_each_fold_fits_only_its_training_trials (test_group_openbmi_csp.GroupTests) ... ok
+test_export_preserves_data_and_never_reads_test (test_group_openbmi_csp.GroupTests) ... ok
+test_real_pipeline_synthetic_separable_data (test_group_openbmi_csp.GroupTests) ... ok
+test_threshold_boundary (test_group_openbmi_csp.GroupTests) ... ok
+test_online_sources_match_xu_original_commit (test_gui_original.OriginalGuiTests) ... ok
+test_original_gui_uses_original_receiver (test_gui_original.OriginalGuiTests) ... ok
+test_car_command_mapping_uses_memory_serial_only (test_hardware_legacy.HardwareLegacyTests) ... ok
+test_real_v50_weights_load_and_synthetic_prediction (test_hardware_legacy.HardwareLegacyTests) ... ok
+test_dataset_reuses_arrays_but_does_not_mutate_input (test_openbmi_holdout.HoldoutTests) ... ok
+test_fixed_split_and_reject_overlap (test_openbmi_holdout.HoldoutTests) ... skipped 'Local group report not present'
+test_windows_source_remapped_to_mounted_data_root (test_openbmi_holdout.HoldoutTests) ... ok
+test_missing_baseline_is_never_scheduled (test_openbmi_lambda_search.LambdaSearchTests) ... ok
+test_missing_seed_is_not_silently_averaged (test_openbmi_lambda_search.LambdaSearchTests) ... ok
+test_protocol_or_split_mismatch_rejected (test_openbmi_lambda_search.LambdaSearchTests) ... ok
+test_selection_uses_seed_mean_and_predeclared_tie (test_openbmi_lambda_search.LambdaSearchTests) ... ok
+test_batches_preserve_majority_and_classes (test_openbmi_mixed_training.MixedTrainingTests) ... ok
+test_natural_without_distillation (test_openbmi_mixed_training.MixedTrainingTests) ... ok
+test_teacher_student_one_epoch (test_openbmi_mixed_training.MixedTrainingTests) ... ok
+test_bad_bounds_fail (test_split_openbmi.SplitTests) ... ok
+test_event_alignment_labels_and_units (test_split_openbmi.SplitTests) ... ok
+test_export_provenance_and_overwrite_protection (test_split_openbmi.SplitTests) ... ok
+test_partition_reproducible_complete_balanced (test_split_openbmi.SplitTests) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 7.028s
+
+OK (skipped=1)

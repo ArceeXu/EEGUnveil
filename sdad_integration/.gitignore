@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.venv/
+code/mne_data/
+code/Data/
+code/models/
+code/outputs/
+code/openbmi_bci_illiteracy_result.csv

@@ -1,0 +1,9 @@
+{
+  "python_files_parsed": 85,
+  "tests": "22 discovered, 21 passed, 1 external-data skip",
+  "xu_gui_original_files_verified": 8,
+  "gui_model_adaptation_removed": true,
+  "hardware_preserved": true,
+  "actual_devices_opened": false,
+  "remote_modified": false
+}

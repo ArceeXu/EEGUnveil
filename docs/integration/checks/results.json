@@ -1,0 +1,42 @@
+[
+  {
+    "command": "python -m unittest discover -s tests -v",
+    "exit_code": 0,
+    "log": "check_1.log"
+  },
+  {
+    "command": "python project.py list",
+    "exit_code": 0,
+    "log": "check_2.log"
+  },
+  {
+    "command": "python project.py run gen1 -- --help",
+    "exit_code": 0,
+    "log": "check_3.log"
+  },
+  {
+    "command": "python project.py run gen2 -- --help",
+    "exit_code": 0,
+    "log": "check_4.log"
+  },
+  {
+    "command": "python project.py run sdad43 -- --help",
+    "exit_code": 0,
+    "log": "check_5.log"
+  },
+  {
+    "command": "python sdad_integration/verify_package.py",
+    "exit_code": 0,
+    "log": "check_6.log"
+  },
+  {
+    "command": "python project.py run hardware -- check",
+    "exit_code": 0,
+    "log": "check_7.log"
+  },
+  {
+    "command": "python project.py run hardware -- --help",
+    "exit_code": 0,
+    "log": "check_8.log"
+  }
+]

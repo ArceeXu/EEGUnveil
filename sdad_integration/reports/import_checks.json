@@ -1,0 +1,57 @@
+[
+  {
+    "command": "python late_subject_domain.py --help",
+    "exit_code": 0,
+    "seconds": 5.47
+  },
+  {
+    "command": "python repeat_group_domain42.py --help",
+    "exit_code": 0,
+    "seconds": 3.39
+  },
+  {
+    "command": "python repeat_group_domain44.py --help",
+    "exit_code": 0,
+    "seconds": 3.45
+  },
+  {
+    "command": "python evaluate_subject_domain.py --help",
+    "exit_code": 0,
+    "seconds": 3.45
+  },
+  {
+    "command": "python evaluate_group_domain42.py --help",
+    "exit_code": 0,
+    "seconds": 3.41
+  },
+  {
+    "command": "python evaluate_group_domain44.py --help",
+    "exit_code": 0,
+    "seconds": 3.28
+  },
+  {
+    "command": "python compare_pooled_csp_lda.py --help",
+    "exit_code": 0,
+    "seconds": 4.42
+  },
+  {
+    "command": "python -m src.plan_a.train --help",
+    "exit_code": 0,
+    "seconds": 3.45
+  },
+  {
+    "command": "python -m src.plan_b.train --help",
+    "exit_code": 0,
+    "seconds": 3.36
+  },
+  {
+    "command": "python parallel_experiments_v1/launch_experiments.py --help",
+    "exit_code": 0,
+    "seconds": 0.11
+  },
+  {
+    "command": "python parallel_experiments_v1/shared_data.py --help",
+    "exit_code": 0,
+    "seconds": 3.56
+  }
+]

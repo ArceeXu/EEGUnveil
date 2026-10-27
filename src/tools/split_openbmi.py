@@ -40,6 +40,9 @@ def read_run(path, run, tmin=0.0, tmax=4.0, sfreq=None):
                for row in np.asarray(getattr(data, "class"))}
     a, b = round(tmin * fs), round(tmax * fs)
     starts, stops = events + a, events + b
+    if (b <= a or len(events) != len(labels) or len(events) == 0
+            or np.any(starts < 0) or np.any(stops > len(signal))):
+        raise ValueError("Trial bounds or event/label counts are invalid")
     X = np.stack([signal[start:stop].T for start, stop in zip(starts, stops)])
     X = X.astype(np.float32)
     X *= 1e-6  

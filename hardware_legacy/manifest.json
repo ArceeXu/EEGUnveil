@@ -1,0 +1,90 @@
+{
+  "restored_on": "2026-10-27",
+  "authorization": "User requested keeping original online model and car communication/signal sender-receiver modules.",
+  "source_repository": "https://github.com/ysy664433/Final-Version-BCI-Control-Car.git",
+  "source_commit": "eba03a79819e8af013a9aa980c530487cc5a7f73",
+  "files": [
+    {
+      "original_path": "models/online/v50pro/best_csp.pkl",
+      "hardware_path": "models/online/v50pro/best_csp.pkl",
+      "sha256": "93a866275af58c733f71fc0fe1f257b882bb33c95ebe8936cb69cf497a423efe",
+      "bytes": 17315
+    },
+    {
+      "original_path": "models/online/v50pro/best_model.pth",
+      "hardware_path": "models/online/v50pro/best_model.pth",
+      "sha256": "91dc7fa62ab6c96290e0b7521b4f6b815e5df1319ccd53b34cdc67254ba96b29",
+      "bytes": 2257525
+    },
+    {
+      "original_path": "models/online/v50pro/best_scalers.pkl",
+      "hardware_path": "models/online/v50pro/best_scalers.pkl",
+      "sha256": "3bfa0eabaf6170af511233dbb50a7b2e2fb70420b10ccb32c08e99e8c345e6ee",
+      "bytes": 606393
+    },
+    {
+      "original_path": "models/online/v50pro/model_config.json",
+      "hardware_path": "models/online/v50pro/model_config.json",
+      "sha256": "a113343242f8f9437472ffac83897423b657e648ce004deb238a05ec1c3c6ec9",
+      "bytes": 49
+    },
+    {
+      "original_path": "outputs/timelines/cue_timeline0tt.txt",
+      "hardware_path": "outputs/timelines/cue_timeline0tt.txt",
+      "sha256": "48676ac0337714dcc9bfb74f14c1d424a16f5149fd52fa97deb42eacb082c351",
+      "bytes": 2445
+    },
+    {
+      "original_path": "outputs/timelines/cue_timeline8.txt",
+      "hardware_path": "outputs/timelines/cue_timeline8.txt",
+      "sha256": "07b221801bfe9c384c0548ff976fed3643526718ed9f3829195302a32eeb5a87",
+      "bytes": 2304
+    },
+    {
+      "original_path": "src/online/debug_dll_load.py",
+      "hardware_path": "src/online/debug_dll_load.py",
+      "sha256": "247a426fd44803bf7d329a145b914c5779541bdb047647334f320788f7b4e180",
+      "bytes": 2401
+    },
+    {
+      "original_path": "src/online/main_app.py",
+      "hardware_path": "src/online/main_app.py",
+      "sha256": "069a6a26526e7e9a98047e81289f07f778d1b4d59d4d43ffc83b3dcde812cf36",
+      "bytes": 13036
+    },
+    {
+      "original_path": "src/online/receive_control_utf8.py",
+      "hardware_path": "src/online/receive_control_utf8.py",
+      "sha256": "9d7ed7a1ef4a97bdd28c77c8a4fe4afaf76dedc8316c3f603ba158b99a184f35",
+      "bytes": 21556
+    },
+    {
+      "original_path": "src/online/receiver.py",
+      "hardware_path": "src/online/receiver.py",
+      "sha256": "ff80abd317fcfc01fa26bb5fd66c96b7f68881eb8ecae0d4a8c2c8202243d0d0",
+      "bytes": 13071
+    },
+    {
+      "original_path": "src/online/sender.py",
+      "hardware_path": "src/online/sender.py",
+      "sha256": "2cdc70cdec9a3f9512de9c51a03907044c198a274d7f4ace34f487f6cf14550b",
+      "bytes": 4719
+    },
+    {
+      "original_path": "src/online/torch_bootstrap.py",
+      "hardware_path": "src/online/torch_bootstrap.py",
+      "sha256": "c667839db8ad8ac59c147e9c774143a3f499d3d485d33946e1f75cce311e1769",
+      "bytes": 856
+    },
+    {
+      "original_path": "src/tools/generate_cue_timeline.py",
+      "hardware_path": "src/tools/generate_cue_timeline.py",
+      "sha256": "7e8e22fda58c8b922b42d165f6c4bb939c3c69db60a865943296c9afdf945697",
+      "bytes": 1793
+    }
+  ],
+  "hardware_executed": false,
+  "serial_or_network_connections_opened": false,
+  "team_root_model_restored": true,
+  "own_original_paths_restored": true
+}

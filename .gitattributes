@@ -1,0 +1,4 @@
+# Keep archived source/checkpoint fingerprints identical across Windows and Linux.
+/sdad_integration/** -text
+/hardware_legacy/** -text
+/src/online/** -text
