@@ -6,6 +6,24 @@ EEGUnveil基于OpenBMI运动想象脑电数据，研究如何改善低表现者�
 
 > “BCI盲组／低表现组”是按规定解码表现和70%阈值定义的实验分组，不是医学诊断。当前结果来自公开数据实验，不代表已验证康复疗效。
 
+<!-- README_NAV_START -->
+## 内容导航
+
+- [1. 项目组成与三代方法](#project-methods)
+- [2. 项目目录结构](#project-structure)
+- [3. 环境与快速启动](#setup-and-start)
+  - [启动GUI](#start-gui)
+  - [OpenBMI网络回放](#network-replay)
+- [4. 数据准备与评估协议](#data-and-protocols)
+- [5. Gen1 / Gen2训练、测试与对照](#gen1-gen2-training)
+- [6. SDAD-Net：后期配对实验](#sdad-experiments)
+- [7. 已有实验结果](#experiment-results)
+- [8. 小车在线模型与通信](#car-communication)
+- [9. 批量实验、结果与历史探索](#batch-and-history)
+<!-- README_NAV_END -->
+
+<a id="project-methods"></a>
+
 ## 1. 项目组成与三代方法
 
 | 部分 | 核心思路 | 实现位置 |
@@ -17,6 +35,8 @@ EEGUnveil基于OpenBMI运动想象脑电数据，研究如何改善低表现者�
 | **小车硬件链路** | v50在线模型、TCP分块收发、串口指令与控制逻辑 | `hardware_legacy/` |
 
 SDAD-Net全称为 **Stage-wise Domain-Adversarial Distillation Network（分阶段域对抗蒸馏网络）**。训练时保留教师与辅助判别器，学生模型承担推理。
+
+<a id="project-structure"></a>
 
 ## 2. 目录导航
 
@@ -44,6 +64,8 @@ SDAD-Net全称为 **Stage-wise Domain-Adversarial Distillation Network（分阶�
 └── run_*.sh                           # 服务器批量实验脚本
 ```
 
+<a id="setup-and-start"></a>
+
 ## 3. 环境与快速启动
 
 主要依赖：PyTorch、NumPy、SciPy、scikit-learn、MNE、joblib、pandas、matplotlib；GUI还需要Python/Conda提供的Tkinter。
@@ -60,6 +82,8 @@ python -c "import torch; print(torch.__version__); print(torch.cuda.is_available
 python -m pip install numpy scipy scikit-learn mne joblib pandas matplotlib
 ```
 
+<a id="start-gui"></a>
+
 ### 启动GUI
 
 以下命令在仓库根目录执行：
@@ -75,6 +99,8 @@ python project.py run gui
 3. 选择“本地文件回放”，点击“开始回放”；首次整段滤波需要等待。
 4. 使用“字体＋／－”调整字号，F11全屏，Esc退出全屏。
 
+<a id="network-replay"></a>
+
 ### OpenBMI网络回放
 
 在另一终端运行发送端，再在GUI中选择网络回放和相同地址、端口：
@@ -82,6 +108,8 @@ python project.py run gui
 ```bash
 python src/online/sender.py --data /absolute/path/to/sess02_subj02_EEG_MI.mat --phase test --host 127.0.0.1 --port 65432
 ```
+
+<a id="data-and-protocols"></a>
 
 ## 4. 数据准备与评估协议
 
@@ -112,6 +140,8 @@ python src/tools/group_openbmi_csp.py --split-dir Data/OpenBMI/splits/official_2
 - session2的`EEG_MI_test`用于测试；达到70%的人数与均值共同报告。
 - 使用11通道、4秒／1000点输入及原因果预处理。
 
+<a id="gen1-gen2-training"></a>
+
 ## 5. Gen1 / Gen2训练、测试与对照
 
 混合训练的四组对照使用相同留受试者划分：
@@ -140,6 +170,8 @@ python src/offline/run_openbmi_holdout.py --stage test --groups-dir Data/OpenBMI
 
 输出包括`test_metrics.json`、`subject_metrics.csv`和`test_predictions.csv`。CSP与标准化只在训练数据拟合；验证集选择参数和检查点，测试阶段不重新拟合。关闭蒸馏也会改变原实现中硬标签损失的系数，不能把差异全部解释为教师知识的单独作用。
 
+<a id="sdad-experiments"></a>
+
 ## 6. SDAD-Net：后期配对实验
 
 后期实验从同一学生、教师检查点构建`control`和`group`两个分支：前者继续蒸馏，后者在相同分类训练规则上加入高低组DANN。保持初始化、批次构造和训练预算匹配，依据验证集选定检查点后再测试。
@@ -167,6 +199,8 @@ python project.py run sdad43 -- --preflight --recipes control group --reference 
 
 初始化目录需要配套的`last.pt`、配置和预处理，准备数据目录需要`train.pt`、`validation.pt`及`preprocessing.joblib`。
 
+<a id="experiment-results"></a>
+
 ## 7. 已有实验结果
 
 ### 7.1 混合训练留受试者实验
@@ -187,6 +221,8 @@ python project.py run sdad43 -- --preflight --recipes control group --reference 
 | 联合CSP+LDA固定参考 | 57.11% | 7/54 | 53.92% | 1/25 |
 | 后期DANN／SDAD-Net | **74.51%** | **36.00/54** | **72.77%** | **15.00/25** |
 
+<a id="car-communication"></a>
+
 ## 8. 小车在线模型与通信
 
 `hardware_legacy/`独立保留原在线链路，包含v50pro模型、CSP、标准化器、TCP分块收发、串口指令及刹车／转向控制。
@@ -203,6 +239,8 @@ python project.py run hardware -- --help
 | `hardware -- sender` | 从原GDF文件模拟发流 | `--data-dir`、受试者与监听地址 |
 | `hardware -- receiver` | TCP接收、在线滤波、推理与波形显示 | 匹配的`--timeline`、服务端地址 |
 | `hardware -- car` | 接收推理后通过串口控制小车 | 上述参数及实际`--serial-port` |
+
+<a id="batch-and-history"></a>
 
 ## 9. 批量实验、结果与历史探索
 
