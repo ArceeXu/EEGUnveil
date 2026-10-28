@@ -18,8 +18,6 @@ EEGUnveil基于OpenBMI运动想象脑电数据，研究如何改善低表现者�
 
 SDAD-Net全称为 **Stage-wise Domain-Adversarial Distillation Network（分阶段域对抗蒸馏网络）**。训练时保留教师与辅助判别器，学生模型承担推理。
 
-三代方法是项目的方法组织关系。现有Gen1/Gen2与SDAD实验在通道、分组和数据划分上不同，代码、配置和结果分别保留；不能直接互换权重。GUI不添加SDAD模型适配，SDAD通过独立入口运行。
-
 ## 2. 目录导航
 
 ```text
@@ -28,28 +26,25 @@ SDAD-Net全称为 **Stage-wise Domain-Adversarial Distillation Network（分阶�
 ├── requirements.txt                   # 核心功能依赖
 ├── src/
 │   ├── offline/                       # 原版模型、混合蒸馏、留受试者训练与λ搜索
-│   ├── online/                        # 原版GUI、OpenBMI推理和MAT网络回放
+│   ├── online/                        # GUI、OpenBMI推理和MAT网络回放
 │   └── tools/                         # 数据划分、CSP分组和结果绘图
 ├── sdad_integration/
 │   ├── code/                          # 后期DANN、A/B探索、消融与诊断
 │   │   ├── src/plan_a/                # SDAD历史模型、蒸馏与预处理依赖
-│   │   ├── src/plan_b/                # 历史对比学习方案
-│   │   └── parallel_experiments_v1/   # 历史候选实验队列
-│   ├── docs/                          # 方法、实验和逐文件说明
+│   │   ├── src/plan_b/                # 对比学习方案
+│   │   └── parallel_experiments_v1/   # 候选实验队列
+│   ├── docs/                          # 方法、实验
 │   └── reports/                       # 资源清单与整理检查记录
-├── hardware_legacy/                   # 原在线模型、小车通信与参数化启动入口
-├── models/offline/lambda_analysis/     # 已提交的λ=0.5625混合蒸馏模型
-├── models/online/v50pro/               # 保留的原四分类在线模型
+├── hardware_legacy/                   # 在线模型、小车通信与参数化启动入口
+├── models/offline/lambda_analysis/     # λ=0.5625混合蒸馏模型
+├── models/online/v50pro/               # 在线模型
 ├── outputs/
 │   ├── splits/                        # 固定受试者划分
 │   ├── export/                        # 分组报告与原服务器依赖快照
 │   └── figures/                       # 已归档的指标、图表和部分结果记录
-├── docs/                              # 数据、分组、训练、GUI与整合说明
 ├── tests/                             # 数据隔离、训练逻辑、原版GUI及通信检查
-└── run_*.sh                           # 原版保留的服务器批量实验脚本
+└── run_*.sh                           # 服务器批量实验脚本
 ```
-
-仓库不包含原始EEG。部分模型和结果已提交，但不包含全部实验权重；资源就绪情况见第10节。
 
 ## 3. 环境与快速启动
 
@@ -67,9 +62,7 @@ python -c "import torch; print(torch.__version__); print(torch.cuda.is_available
 python -m pip install numpy scipy scikit-learn mne joblib pandas matplotlib
 ```
 
-服务器应保留与CUDA兼容的PyTorch，不直接用CPU版替换。`outputs/export/requirements_server.txt`是历史环境快照；正式复现应匹配模型保存时的库版本，而不是把整份快照直接安装到所有平台。串口模块另需`pyserial`，保留的旧界面另需`pyxdf`。
-
-### 启动原版GUI
+### 启动GUI
 
 以下命令在仓库根目录执行：
 
@@ -84,8 +77,6 @@ python project.py run gui
 3. 选择“本地文件回放”，点击“开始回放”；首次整段滤波需要等待。
 4. 使用“字体＋／－”调整字号，F11全屏，Esc退出全屏。
 
-无需重新训练，也不需要先启动发送端。MAT内部的`train/test`阶段与受试者属于训练／测试名单是两个概念；展示未见受试者时，应使用固定划分中的test受试者。
-
 ### OpenBMI网络回放
 
 在另一终端运行发送端，再在GUI中选择网络回放和相同地址、端口：
@@ -94,8 +85,6 @@ python project.py run gui
 python src/online/sender.py --data /absolute/path/to/sess02_subj02_EEG_MI.mat --phase test --host 127.0.0.1 --port 65432
 ```
 
-此发送端传输录制MAT的预处理试次，不是实时采集设备驱动。更多设置见[GUI说明](docs/openbmi_gui.md)。
-
 ## 4. 数据准备与评估协议
 
 ### Gen1 / Gen2：固定留受试者实验
@@ -103,7 +92,7 @@ python src/online/sender.py --data /absolute/path/to/sess02_subj02_EEG_MI.mat --
 建议数据目录：
 
 ```text
-Data/OpenBMI/raw/                       # 原始MAT
+Data/OpenBMI/raw/                       # MAT
 Data/OpenBMI/splits/official_250hz_full/ # 导出后的官方train/test阶段
 Data/OpenBMI/groups/csp70_20/            # CSP分组导出与report.json
 ```
@@ -117,16 +106,13 @@ python src/tools/group_openbmi_csp.py --split-dir Data/OpenBMI/splits/official_2
 
 当前混合训练实验的分组依据是两个session的**训练阶段**各自进行CSP+LDA交叉验证，再对准确率取均值；评分使用20个运动区通道。导出数据供网络使用的通道与分组评分通道不同，保存模型输入为62通道。受试者划分为32训练、11验证、11测试，固定划分种子2026。
 
-复现实验需使用对应`report.json`及`outputs/splits/openbmi_subject_holdout.json`，不能任意重新生成名单后仍视为同一实验。详见[数据划分](docs/openbmi_split.md)和[CSP分组](docs/openbmi_csp_groups.md)。
-
+复现实验需使用对应`report.json`及`outputs/splits/openbmi_subject_holdout.json`，不能任意重新生成名单后仍视为同一实验。
 ### SDAD-Net：固定受试者跨会话实验
 
 - 54名受试者；依据session1训练数据固定25名低表现者。
 - session1的`EEG_MI_train`用于训练，`EEG_MI_test`用于验证。
 - session2的`EEG_MI_test`用于测试；达到70%的人数与均值共同报告。
 - 使用11通道、4秒／1000点输入及原因果预处理。
-
-两套实验分别衡量“未见受试者泛化”和“已见受试者跨会话表现”，不直接混合比较。完整接口差异见[协议对照](docs/integration/protocols.md)。
 
 ## 5. Gen1 / Gen2训练、测试与对照
 
@@ -147,8 +133,7 @@ python src/tools/group_openbmi_csp.py --split-dir Data/OpenBMI/splits/official_2
 python project.py run gen2 -- --stage train --groups-dir Data/OpenBMI/groups/csp70_20 --data-root Data --split-file outputs/splits/openbmi_subject_holdout.json --split-seed 2026 --seed 42 --batch-size 32 --epochs 120 --num-workers 0 --output-dir models/offline/reproduce/M1_seed42
 ```
 
-第一代将`gen2`改为`gen1`并使用独立的`N0_seed42`输出目录即可；统一入口已固定对应的采样、人群与蒸馏开关。N1、M0消融使用原`src/offline/run_openbmi_holdout.py`，参数见[混合训练说明](docs/openbmi_mixed_training.md)。训练种子为42、2024、3407，各自使用新输出目录。
-
+第一代将`gen2`改为`gen1`并使用独立的`N0_seed42`输出目录即可；统一入口已固定对应的采样、人群与蒸馏开关。N1、M0消融使用原`src/offline/run_openbmi_holdout.py`
 ### 测试同一输出目录
 
 ```bash
@@ -197,11 +182,7 @@ python project.py run sdad43 -- --preflight --recipes control group --reference 
 | M0：混合、无蒸馏 | 70.88% |
 | M1：混合、有蒸馏 | 70.52% |
 
-M1相对N0提高7.45个百分点，相对N1提高13.26个百分点；该记录中M0略高于M1，不将结果表述为蒸馏必然提高准确率。数据见[逐种子汇总](outputs/figures/normal_vs_mixed05625/summary.csv)，比例选择见[验证记录](outputs/figures/lambda_analysis/selected_lambda.json)。
-
 ### 7.2 SDAD跨会话实验记录
-
-以下为项目已记录的三次后期运行的算术平均，**不与上表作直接排名**：
 
 | 方法 | 全体均值 | 全体达标人数均值 | 固定25人低表现组均值 | 低表现组达标人数均值 |
 |---|---:|---:|---:|---:|
@@ -209,13 +190,9 @@ M1相对N0提高7.45个百分点，相对N1提高13.26个百分点；该记录�
 | 匹配的无对抗蒸馏对照 | 74.39% | 35.00/54 | 72.36% | 13.67/25 |
 | 后期DANN／SDAD-Net | **74.51%** | **36.00/54** | **72.77%** | **15.00/25** |
 
-完整方法对传统参考的提升与DANN自身的增益分别解释：后期DANN相对匹配对照，低表现组均值平均提高约0.41个百分点，达标人数平均净增约1.33人。不同运行并非均有提升；三次运行只有两个预训练起点，平均人数不是某次实际人数或集成结果。
-
-这些是已知、重复查看过的session2上的探索性结果，不代表独立确认或临床疗效。SDAD原始逐人结果与权重尚未全部收录到仓库，需配合外部归档核验；详见[实验索引](sdad_integration/docs/experiment_index.md)与[资源清单](sdad_integration/docs/artifacts.md)。
-
 ## 8. 小车在线模型与通信
 
-`hardware_legacy/`独立保留原在线链路，包含v50pro模型、CSP、标准化器、TCP分块收发、串口指令及刹车／转向控制。主GUI仍使用原版，不发送小车指令。
+`hardware_legacy/`独立保留原在线链路，包含v50pro模型、CSP、标准化器、TCP分块收发、串口指令及刹车／转向控制。
 
 先检查资源，不连接设备：
 
@@ -230,38 +207,9 @@ python project.py run hardware -- --help
 | `hardware -- receiver` | TCP接收、在线滤波、推理与波形显示 | 匹配的`--timeline`、服务端地址 |
 | `hardware -- car` | 接收推理后通过串口控制小车 | 上述参数及实际`--serial-port` |
 
-原硬件发送端与OpenBMI的MAT发送端使用不同协议，不交叉连接。原v50pro是25通道、四分类在线模型，用于保留工程演示；它不是SDAD左右手二分类权重。二分类意图到小车动作的映射、真实设备通道顺序及串口联调仍需单独确认。详细命令和参数见[硬件模块说明](hardware_legacy/README.md)。
-
 ## 9. 批量实验、结果与历史探索
 
-- 根目录5个`run_*.sh`完整保留：覆盖四组对照、正常组消融、比例0.5625无蒸馏消融及已完成模型测试。部分含原服务器路径和进程号，迁移前核对，见[脚本用途](docs/integration/shell_scripts.md)。
-- SDAD包保留原方案A/B、类条件对齐、受试者加权、对比学习及其诊断工具；历史探索与正式配对结果分开，见[逐文件索引](sdad_integration/docs/file_index.md)。
-- `src/tools/`提供混合收益、逐人表现和λ验证绘图。不同绘图脚本输入字段不同，先查看帮助；已归档图表位于`outputs/figures/`。
-- 小规模筛选、增强敏感性和梯度分析只提供排查线索，不单独作为算法有效性或失败原因的证明。
-
-## 10. 模型资源与当前验证范围
-
-| 资源／功能 | 当前状态 |
-|---|---|
-| λ=0.5625的混合蒸馏模型 | 已附42、2024、3407三个模型目录，默认GUI演示使用42 |
-| 原v50pro及通信源码 | 已恢复；真实权重CPU加载、合成推理及内存串口指令检查通过 |
-| Gen1正常组独立权重 | 仓库未附完整权重，需外部提供或按协议重新训练 |
-| SDAD模型权重与全部原始结果 | 后续补充；代码、入口及资源索引已保留 |
-| 原始EEG | 需自行准备 |
-| GUI | 原版文件校验、模块导入及已有模型合成推理通过；未做完整视觉交互验收 |
-| 实际采集与小车联调 | 尚未验收；记录回放不等于实时设备验证 |
-
-模型、CSP、标准化器、标签、通道顺序必须配套使用。当前检查记录包含22项测试：21项通过，1项因外部Data分组报告缺失跳过；没有重跑真实EEG训练。检查详情见[验证记录](docs/integration/validation.md)。
-
-## 11. 文档与协作
-
-| 内容 | 文档 |
-|---|---|
-| 数据导出、CSP分组 | [数据划分](docs/openbmi_split.md) · [分组定义](docs/openbmi_csp_groups.md) |
-| 混合训练与蒸馏 | [训练说明](docs/openbmi_mixed_training.md) |
-| 原版GUI | [使用说明](docs/openbmi_gui.md) · [原版恢复与校验](docs/integration/gui_original.md) |
-| SDAD实现与实验 | [代码索引](sdad_integration/docs/file_index.md) · [实验索引](sdad_integration/docs/experiment_index.md) |
-| 小车通信 | [硬件说明](hardware_legacy/README.md) |
-| 整合来源与接口 | [来源版本](docs/integration/sources.json) · [协议对照](docs/integration/protocols.md) |
-
-后续修改从最新main创建工作分支，保留每代方法的配置、划分和证据；不要用旧目录整体覆盖新增研究代码。原始数据、缓存和外部权重单独管理。基础仓库许可见[LICENSE](LICENSE)，双方来源和整理记录保留在整合文档中。
+- 根目录5个`run_*.sh`完整保留：覆盖四组对照、正常组消融、比例0.5625无蒸馏消融及已完成模型测试。
+- SDAD包保留原方案A/B、类条件对齐、受试者加权、对比学习及其诊断工具；历史探索与正式配对结果分开
+- `src/tools/`提供混合收益、逐人表现和λ验证绘图。
+- 小规模筛选、增强敏感性和梯度分析只提供排查线索
