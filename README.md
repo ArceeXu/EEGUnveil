@@ -14,7 +14,7 @@ EEGUnveil基于OpenBMI运动想象脑电数据，研究如何改善低表现者�
 | **Gen2：混合蒸馏** | 正常组与低表现组按固定比例混合，结合时空特征与同步教师—学生蒸馏 | `src/offline/`，对应M1 |
 | **Gen3：SDAD-Net** | 保留时空融合与蒸馏，在基础分类能力形成后加入高低组域对抗 | `sdad_integration/code/` |
 | **GUI展示与回放** | 中文界面、本地MAT回放、网络试次回放、脑电波形与分类结果展示 | `src/online/` |
-| **小车硬件链路** | 原v50在线模型、TCP分块收发、串口指令与控制逻辑 | `hardware_legacy/` |
+| **小车硬件链路** | v50在线模型、TCP分块收发、串口指令与控制逻辑 | `hardware_legacy/` |
 
 SDAD-Net全称为 **Stage-wise Domain-Adversarial Distillation Network（分阶段域对抗蒸馏网络）**。训练时保留教师与辅助判别器，学生模型承担推理。
 
@@ -25,7 +25,7 @@ SDAD-Net全称为 **Stage-wise Domain-Adversarial Distillation Network（分阶�
 ├── project.py                         # 统一命令入口，自动切换各模块工作目录
 ├── requirements.txt                   # 核心功能依赖
 ├── src/
-│   ├── offline/                       # 原版模型、混合蒸馏、留受试者训练与λ搜索
+│   ├── offline/                       # 模型、混合蒸馏、留受试者训练与λ搜索
 │   ├── online/                        # GUI、OpenBMI推理和MAT网络回放
 │   └── tools/                         # 数据划分、CSP分组和结果绘图
 ├── sdad_integration/
@@ -33,8 +33,6 @@ SDAD-Net全称为 **Stage-wise Domain-Adversarial Distillation Network（分阶�
 │   │   ├── src/plan_a/                # SDAD历史模型、蒸馏与预处理依赖
 │   │   ├── src/plan_b/                # 对比学习方案
 │   │   └── parallel_experiments_v1/   # 候选实验队列
-│   ├── docs/                          # 方法、实验
-│   └── reports/                       # 资源清单与整理检查记录
 ├── hardware_legacy/                   # 在线模型、小车通信与参数化启动入口
 ├── models/offline/lambda_analysis/     # λ=0.5625混合蒸馏模型
 ├── models/online/v50pro/               # 在线模型
