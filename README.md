@@ -165,7 +165,7 @@ python project.py run sdad43 -- --preflight --recipes control group --reference 
 
 确认预检查通过后，去掉`--preflight`并指定新的`--output-root`进行训练；测试用同次训练目录作为`--model-root`，另指定新的`--output-root`。`sdad43`默认还支持`subject`身份对抗分支，复现高低组配对时明确传入`--recipes control group`。
 
-初始化目录需要配套的`last.pt`、配置和预处理，准备数据目录需要`train.pt`、`validation.pt`及`preprocessing.joblib`。代码、数据指纹和原检查点必须匹配，不绕过校验。GUI保持原版，不直接加载这些SDAD目录。
+初始化目录需要配套的`last.pt`、配置和预处理，准备数据目录需要`train.pt`、`validation.pt`及`preprocessing.joblib`。
 
 ## 7. 已有实验结果
 
