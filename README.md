@@ -13,7 +13,7 @@ EEGUnveil基于OpenBMI运动想象脑电数据，研究如何改善低表现者�
 | **Gen1：基础模型** | 仅正常组参与参数训练，不使用蒸馏，建立基础对照 | `src/offline/`，对应N0 |
 | **Gen2：混合蒸馏** | 正常组与低表现组按固定比例混合，结合时空特征与同步教师—学生蒸馏 | `src/offline/`，对应M1 |
 | **Gen3：SDAD-Net** | 保留时空融合与蒸馏，在基础分类能力形成后加入高低组域对抗 | `sdad_integration/code/` |
-| **GUI展示与回放** | 中文界面、本地MAT回放、网络试次回放、脑电波形与分类结果展示 | `src/online/`，完整保留原版 |
+| **GUI展示与回放** | 中文界面、本地MAT回放、网络试次回放、脑电波形与分类结果展示 | `src/online/` |
 | **小车硬件链路** | 原v50在线模型、TCP分块收发、串口指令与控制逻辑 | `hardware_legacy/` |
 
 SDAD-Net全称为 **Stage-wise Domain-Adversarial Distillation Network（分阶段域对抗蒸馏网络）**。训练时保留教师与辅助判别器，学生模型承担推理。
