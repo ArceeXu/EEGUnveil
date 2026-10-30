@@ -27,33 +27,33 @@ SDAD-Net全称为 **Stage-wise Domain-Adversarial Distillation Network（分阶�
 ├── requirements.txt                                      # 核心功能依赖
 ├── src/                                                  # 基础模型、混合蒸馏与GUI
 │   ├── offline/                                          # 训练核心、留受试者评估与混合比例搜索
-│   ├── online/                                           # 原版GUI、OpenBMI推理及MAT网络回放
+│   ├── online/                                           # GUI、OpenBMI推理及MAT网络回放
 │   └── tools/                                            # 数据导出、CSP分组及结果绘图
 ├── sdad_integration/                                     # SDAD-Net与历史研究代码
 │   ├── code/                                             # 算法代码与实验工具
 │   │   ├── experiments/                                  # 后期DANN、配对评估、消融与诊断脚本
 │   │   ├── evaluate/                                     # OpenBMI低表现者分组分析
-│   │   ├── src/                                          # 原算法实现与预处理依赖
+│   │   ├── src/                                          # 算法实现与预处理依赖
 │   │   │   ├── plan_a/                                   # 蒸馏、DANN、预处理与推理
 │   │   │   ├── plan_b/                                   # 对比学习及数据增强方案
 │   │   │   └── tools/                                    # 方案A/B结果比较
 │   │   └── parallel_experiments_v1/                      # 候选实验队列与准备数据工具
-│   │       └── parallel_experiments_v1/                  # 保留的嵌套脚本副本
+│   │       └── parallel_experiments_v1/                  # 嵌套脚本
 │   ├── manifest.json                                     # 文件来源与校验清单
 │   └── verify_package.py                                 # 代码包完整性检查
 ├── hardware/                                             # 在线模型、小车通信与控制
 │   ├── launch.py                                         # 参数化启动入口与资源检查
 │   ├── manifest.json                                     # 硬件链路文件来源与校验
-│   ├── models/online/v50pro/                             # 原在线模型、CSP与标准化器
-│   ├── src/online/                                       # TCP收发、在线推理、串口控制及旧界面
+│   ├── models/online/v50pro/                             # 在线模型、CSP与标准化器
+│   ├── src/online/                                       # TCP收发、在线推理、串口控制
 │   ├── src/tools/                                        # 提示时间线生成工具
-│   └── outputs/timelines/                                # 原提示时间线示例
+│   └── outputs/timelines/                                # 提示时间线示例
 ├── models/                                               # 已提交模型与配套资源
 │   ├── offline/lambda_analysis/                          # λ=0.5625混合蒸馏模型
 │   │   ├── lambda0.5625_seed42/                          # 种子42模型及评估记录
 │   │   ├── lambda0.5625_seed2024/                        # 种子2024模型及评估记录
 │   │   └── lambda0.5625_seed3407/                        # 种子3407模型及评估记录
-│   └── online/v50pro/                                    # 保留的原在线模型
+│   └── online/v50pro/                                    # 在线模型
 ├── outputs/                                              # 实验划分、记录与成果图
 │   ├── splits/                                           # 固定受试者划分
 │   ├── export/                                           # 分组报告与服务器环境快照
