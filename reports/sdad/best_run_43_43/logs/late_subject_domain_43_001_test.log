@@ -1,0 +1,313 @@
+control 1/54 accuracy=0.7600
+control 2/54 accuracy=0.7300
+control 3/54 accuracy=0.9200
+control 4/54 accuracy=0.6700
+control 5/54 accuracy=0.7000
+control 6/54 accuracy=0.8900
+control 7/54 accuracy=0.7700
+control 8/54 accuracy=0.7900
+control 9/54 accuracy=0.6500
+control 10/54 accuracy=0.5900
+control 11/54 accuracy=0.7300
+control 12/54 accuracy=0.7000
+control 13/54 accuracy=0.6200
+control 14/54 accuracy=0.6700
+control 15/54 accuracy=0.8200
+control 16/54 accuracy=0.6700
+control 17/54 accuracy=0.6400
+control 18/54 accuracy=0.6400
+control 19/54 accuracy=0.8300
+control 20/54 accuracy=0.7300
+control 21/54 accuracy=0.9200
+control 22/54 accuracy=0.7400
+control 23/54 accuracy=0.4800
+control 24/54 accuracy=0.5000
+control 25/54 accuracy=0.9200
+control 26/54 accuracy=0.6400
+control 27/54 accuracy=0.8400
+control 28/54 accuracy=0.9100
+control 29/54 accuracy=0.7700
+control 30/54 accuracy=0.5500
+control 31/54 accuracy=0.7400
+control 32/54 accuracy=0.7700
+control 33/54 accuracy=0.8800
+control 34/54 accuracy=0.5400
+control 35/54 accuracy=0.9200
+control 36/54 accuracy=1.0000
+control 37/54 accuracy=0.8200
+control 38/54 accuracy=0.6800
+control 39/54 accuracy=0.7500
+control 40/54 accuracy=0.6400
+control 41/54 accuracy=0.7100
+control 42/54 accuracy=0.5900
+control 43/54 accuracy=0.8700
+control 44/54 accuracy=0.8800
+control 45/54 accuracy=0.8500
+control 46/54 accuracy=0.7600
+control 47/54 accuracy=0.8500
+control 48/54 accuracy=0.8200
+control 49/54 accuracy=0.8400
+control 50/54 accuracy=0.5000
+control 51/54 accuracy=0.7400
+control 52/54 accuracy=0.8300
+control 53/54 accuracy=0.6600
+control 54/54 accuracy=0.6200
+group 1/54 accuracy=0.7500
+group 2/54 accuracy=0.7500
+group 3/54 accuracy=0.9200
+group 4/54 accuracy=0.7900
+group 5/54 accuracy=0.6900
+group 6/54 accuracy=0.9100
+group 7/54 accuracy=0.7700
+group 8/54 accuracy=0.8000
+group 9/54 accuracy=0.6600
+group 10/54 accuracy=0.6600
+group 11/54 accuracy=0.8000
+group 12/54 accuracy=0.7300
+group 13/54 accuracy=0.6100
+group 14/54 accuracy=0.7100
+group 15/54 accuracy=0.8500
+group 16/54 accuracy=0.6700
+group 17/54 accuracy=0.6300
+group 18/54 accuracy=0.6700
+group 19/54 accuracy=0.8600
+group 20/54 accuracy=0.7600
+group 21/54 accuracy=0.8800
+group 22/54 accuracy=0.7300
+group 23/54 accuracy=0.4600
+group 24/54 accuracy=0.5200
+group 25/54 accuracy=0.9400
+group 26/54 accuracy=0.6400
+group 27/54 accuracy=0.8100
+group 28/54 accuracy=0.8900
+group 29/54 accuracy=0.7400
+group 30/54 accuracy=0.5800
+group 31/54 accuracy=0.7600
+group 32/54 accuracy=0.7700
+group 33/54 accuracy=0.8600
+group 34/54 accuracy=0.5300
+group 35/54 accuracy=0.9300
+group 36/54 accuracy=1.0000
+group 37/54 accuracy=0.8500
+group 38/54 accuracy=0.7000
+group 39/54 accuracy=0.7900
+group 40/54 accuracy=0.7200
+group 41/54 accuracy=0.7200
+group 42/54 accuracy=0.6000
+group 43/54 accuracy=0.8800
+group 44/54 accuracy=0.8700
+group 45/54 accuracy=0.8300
+group 46/54 accuracy=0.7700
+group 47/54 accuracy=0.8100
+group 48/54 accuracy=0.8600
+group 49/54 accuracy=0.8600
+group 50/54 accuracy=0.5000
+group 51/54 accuracy=0.7800
+group 52/54 accuracy=0.8400
+group 53/54 accuracy=0.6600
+group 54/54 accuracy=0.6200
+subject 1/54 accuracy=0.7700
+subject 2/54 accuracy=0.7200
+subject 3/54 accuracy=0.9100
+subject 4/54 accuracy=0.7900
+subject 5/54 accuracy=0.6900
+subject 6/54 accuracy=0.8800
+subject 7/54 accuracy=0.7900
+subject 8/54 accuracy=0.7800
+subject 9/54 accuracy=0.6400
+subject 10/54 accuracy=0.6400
+subject 11/54 accuracy=0.7800
+subject 12/54 accuracy=0.7100
+subject 13/54 accuracy=0.6200
+subject 14/54 accuracy=0.7100
+subject 15/54 accuracy=0.8400
+subject 16/54 accuracy=0.6700
+subject 17/54 accuracy=0.6100
+subject 18/54 accuracy=0.6400
+subject 19/54 accuracy=0.8400
+subject 20/54 accuracy=0.7500
+subject 21/54 accuracy=0.8800
+subject 22/54 accuracy=0.7600
+subject 23/54 accuracy=0.4700
+subject 24/54 accuracy=0.5200
+subject 25/54 accuracy=0.9400
+subject 26/54 accuracy=0.6500
+subject 27/54 accuracy=0.8300
+subject 28/54 accuracy=0.9100
+subject 29/54 accuracy=0.7500
+subject 30/54 accuracy=0.5600
+subject 31/54 accuracy=0.7700
+subject 32/54 accuracy=0.7700
+subject 33/54 accuracy=0.8500
+subject 34/54 accuracy=0.5400
+subject 35/54 accuracy=0.9300
+subject 36/54 accuracy=0.9900
+subject 37/54 accuracy=0.8300
+subject 38/54 accuracy=0.6900
+subject 39/54 accuracy=0.7700
+subject 40/54 accuracy=0.7000
+subject 41/54 accuracy=0.7100
+subject 42/54 accuracy=0.5900
+subject 43/54 accuracy=0.8800
+subject 44/54 accuracy=0.8800
+subject 45/54 accuracy=0.8400
+subject 46/54 accuracy=0.7700
+subject 47/54 accuracy=0.8400
+subject 48/54 accuracy=0.8500
+subject 49/54 accuracy=0.8400
+subject 50/54 accuracy=0.5000
+subject 51/54 accuracy=0.7800
+subject 52/54 accuracy=0.8500
+subject 53/54 accuracy=0.6600
+subject 54/54 accuracy=0.6100
+{
+  "runs": {
+    "control": {
+      "selected_epoch": 8,
+      "low": {
+        "subjects": 25,
+        "mean_accuracy": 0.7176,
+        "at70": 13
+      },
+      "all": {
+        "subjects": 54,
+        "mean_accuracy": 0.7416666666666666,
+        "at70": 35
+      }
+    },
+    "group": {
+      "selected_epoch": 5,
+      "low": {
+        "subjects": 25,
+        "mean_accuracy": 0.7348,
+        "at70": 17
+      },
+      "all": {
+        "subjects": 54,
+        "mean_accuracy": 0.7535185185185185,
+        "at70": 38
+      }
+    },
+    "subject": {
+      "selected_epoch": 5,
+      "low": {
+        "subjects": 25,
+        "mean_accuracy": 0.7323999999999999,
+        "at70": 16
+      },
+      "all": {
+        "subjects": 54,
+        "mean_accuracy": 0.7498148148148148,
+        "at70": 37
+      }
+    }
+  },
+  "comparisons": {
+    "group_vs_control": {
+      "low": {
+        "mean_accuracy_gain": 0.017200000000000003,
+        "accuracy_gain_subject_bootstrap_ci95": [
+          0.005200000000000005,
+          0.030799999999999998
+        ],
+        "crossed_up": [
+          4,
+          14,
+          38,
+          40
+        ],
+        "crossed_down": [],
+        "net_at70": 4,
+        "threshold_exact_mcnemar_p_two_sided": 0.125,
+        "note": "Primary planned contrast: subject vs control; subject vs group secondary, fixed training-low group, threshold endpoint. Other contrasts exploratory; no multiplicity-adjusted claims. One seed, known/reused test set."
+      },
+      "all": {
+        "mean_accuracy_gain": 0.011851851851851855,
+        "accuracy_gain_subject_bootstrap_ci95": [
+          0.004259259259259267,
+          0.020000000000000004
+        ],
+        "crossed_up": [
+          4,
+          14,
+          38,
+          40
+        ],
+        "crossed_down": [
+          5
+        ],
+        "net_at70": 3,
+        "threshold_exact_mcnemar_p_two_sided": 0.375,
+        "note": "Primary planned contrast: subject vs control; subject vs group secondary, fixed training-low group, threshold endpoint. Other contrasts exploratory; no multiplicity-adjusted claims. One seed, known/reused test set."
+      }
+    },
+    "subject_vs_control": {
+      "low": {
+        "mean_accuracy_gain": 0.01479999999999999,
+        "accuracy_gain_subject_bootstrap_ci95": [
+          0.005199999999999982,
+          0.027199999999999974
+        ],
+        "crossed_up": [
+          4,
+          14,
+          40
+        ],
+        "crossed_down": [],
+        "net_at70": 3,
+        "threshold_exact_mcnemar_p_two_sided": 0.25,
+        "note": "Primary planned contrast: subject vs control; subject vs group secondary, fixed training-low group, threshold endpoint. Other contrasts exploratory; no multiplicity-adjusted claims. One seed, known/reused test set."
+      },
+      "all": {
+        "mean_accuracy_gain": 0.008148148148148146,
+        "accuracy_gain_subject_bootstrap_ci95": [
+          0.0018518518518518452,
+          0.015189814814814748
+        ],
+        "crossed_up": [
+          4,
+          14,
+          40
+        ],
+        "crossed_down": [
+          5
+        ],
+        "net_at70": 2,
+        "threshold_exact_mcnemar_p_two_sided": 0.625,
+        "note": "Primary planned contrast: subject vs control; subject vs group secondary, fixed training-low group, threshold endpoint. Other contrasts exploratory; no multiplicity-adjusted claims. One seed, known/reused test set."
+      }
+    },
+    "subject_vs_group": {
+      "low": {
+        "mean_accuracy_gain": -0.002400000000000011,
+        "accuracy_gain_subject_bootstrap_ci95": [
+          -0.008000000000000007,
+          0.0031999999999999806
+        ],
+        "crossed_up": [],
+        "crossed_down": [
+          38
+        ],
+        "net_at70": -1,
+        "threshold_exact_mcnemar_p_two_sided": 1.0,
+        "note": "Primary planned contrast: subject vs control; subject vs group secondary, fixed training-low group, threshold endpoint. Other contrasts exploratory; no multiplicity-adjusted claims. One seed, known/reused test set."
+      },
+      "all": {
+        "mean_accuracy_gain": -0.00370370370370371,
+        "accuracy_gain_subject_bootstrap_ci95": [
+          -0.007592592592592605,
+          0.0001851851851851833
+        ],
+        "crossed_up": [],
+        "crossed_down": [
+          38
+        ],
+        "net_at70": -1,
+        "threshold_exact_mcnemar_p_two_sided": 1.0,
+        "note": "Primary planned contrast: subject vs control; subject vs group secondary, fixed training-low group, threshold endpoint. Other contrasts exploratory; no multiplicity-adjusted claims. One seed, known/reused test set."
+      }
+    }
+  },
+  "limits": "Fixed selected checkpoints, session2/test, training-defined25 group unchanged. Follow-up exploratory analysis after prior test exposure. No test-based model/threshold selection."
+}
+DONE /mne_data/mne_data/bci_runs/late_subject_domain_43_001_test

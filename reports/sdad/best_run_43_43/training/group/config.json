@@ -1,0 +1,32 @@
+{
+  "framework": "late_subject_domain_v1",
+  "recipe": "group",
+  "seed": 43,
+  "model": {
+    "n_channels": 11,
+    "n_times": 1000,
+    "n_classes": 2,
+    "csp_dim": 6,
+    "dropout": 0.1,
+    "enhance": false,
+    "dann": false,
+    "causal": true
+  },
+  "data_fingerprint": "cecb5a31fe01cee50e6dc6f71475681bfb09844a285218570634164c2907bbd0",
+  "reference": "/mne_data/mne_data/bci_runs/dann_pair_43_44_001/online/baseline/seed_43",
+  "initial_epoch": 107,
+  "source_fingerprint": "d2de3379013b120f445fe37231f433392d9b0faa2a2ed0a8d91edc01cfe4b9cc",
+  "entry_sha256": "4ef77ee60680595dcd82976ea76b32e25ad3ea02a2a5c7629b6c721c7b2e356e",
+  "settings": {
+    "epochs": 10,
+    "batch_size": 8,
+    "student_lr": 0.0001,
+    "teacher_lr": 0.001,
+    "domain_weight": 0.03,
+    "distill_alpha": 0.5,
+    "temperature": 3.0,
+    "variance_weight": 1e-05,
+    "amp": true
+  },
+  "protocol": "session1/train only; existing session1/test validation. Three arms compute same group2 and subject54 heads. Fixed8-trial batch: two subjects per performance group, left/right trial per subject. Control auxiliary0; group adversary2-way; subject adversary54-way. Same raw domain CE weight .03, not a matched-gradient-strength claim. No EA, new bands, class conditioning, extra loss or regrouping. Post-test-exposure follow-up research."
+}

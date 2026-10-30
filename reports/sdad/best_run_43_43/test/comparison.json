@@ -1,0 +1,71 @@
+{
+  "runs": {
+    "control": {
+      "selected_epoch": 8,
+      "low": {
+        "subjects": 25,
+        "mean_accuracy": 0.7176,
+        "at70": 13
+      },
+      "all": {
+        "subjects": 54,
+        "mean_accuracy": 0.7416666666666666,
+        "at70": 35
+      }
+    },
+    "group": {
+      "selected_epoch": 5,
+      "low": {
+        "subjects": 25,
+        "mean_accuracy": 0.7348,
+        "at70": 17
+      },
+      "all": {
+        "subjects": 54,
+        "mean_accuracy": 0.7535185185185185,
+        "at70": 38
+      }
+    }
+  },
+  "comparisons": {
+    "group_vs_control": {
+      "low": {
+        "mean_accuracy_gain": 0.017200000000000003,
+        "accuracy_gain_subject_bootstrap_ci95": [
+          0.005200000000000005,
+          0.030799999999999998
+        ],
+        "crossed_up": [
+          4,
+          14,
+          38,
+          40
+        ],
+        "crossed_down": [],
+        "net_at70": 4,
+        "threshold_exact_mcnemar_p_two_sided": 0.125,
+        "note": "Primary planned contrast: subject vs control; subject vs group secondary, fixed training-low group, threshold endpoint. Other contrasts exploratory; no multiplicity-adjusted claims. One seed, known/reused test set."
+      },
+      "all": {
+        "mean_accuracy_gain": 0.011851851851851855,
+        "accuracy_gain_subject_bootstrap_ci95": [
+          0.004259259259259267,
+          0.020000000000000004
+        ],
+        "crossed_up": [
+          4,
+          14,
+          38,
+          40
+        ],
+        "crossed_down": [
+          5
+        ],
+        "net_at70": 3,
+        "threshold_exact_mcnemar_p_two_sided": 0.375,
+        "note": "Primary planned contrast: subject vs control; subject vs group secondary, fixed training-low group, threshold endpoint. Other contrasts exploratory; no multiplicity-adjusted claims. One seed, known/reused test set."
+      }
+    }
+  },
+  "limits": "Fixed selected checkpoints, session2/test, training-defined25 group unchanged. Follow-up exploratory analysis after prior test exposure. No test-based model/threshold selection."
+}

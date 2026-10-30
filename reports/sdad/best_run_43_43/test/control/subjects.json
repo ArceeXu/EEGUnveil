@@ -1,0 +1,434 @@
+[
+  {
+    "subject": 1,
+    "domain": 0,
+    "accuracy": 0.76,
+    "balanced_accuracy": 0.76,
+    "kappa": 0.52,
+    "trials": 100
+  },
+  {
+    "subject": 2,
+    "domain": 0,
+    "accuracy": 0.73,
+    "balanced_accuracy": 0.73,
+    "kappa": 0.45999999999999996,
+    "trials": 100
+  },
+  {
+    "subject": 3,
+    "domain": 0,
+    "accuracy": 0.92,
+    "balanced_accuracy": 0.9199999999999999,
+    "kappa": 0.84,
+    "trials": 100
+  },
+  {
+    "subject": 4,
+    "domain": 1,
+    "accuracy": 0.67,
+    "balanced_accuracy": 0.67,
+    "kappa": 0.33999999999999997,
+    "trials": 100
+  },
+  {
+    "subject": 5,
+    "domain": 0,
+    "accuracy": 0.7,
+    "balanced_accuracy": 0.7,
+    "kappa": 0.4,
+    "trials": 100
+  },
+  {
+    "subject": 6,
+    "domain": 1,
+    "accuracy": 0.89,
+    "balanced_accuracy": 0.89,
+    "kappa": 0.78,
+    "trials": 100
+  },
+  {
+    "subject": 7,
+    "domain": 1,
+    "accuracy": 0.77,
+    "balanced_accuracy": 0.77,
+    "kappa": 0.54,
+    "trials": 100
+  },
+  {
+    "subject": 8,
+    "domain": 1,
+    "accuracy": 0.79,
+    "balanced_accuracy": 0.79,
+    "kappa": 0.5800000000000001,
+    "trials": 100
+  },
+  {
+    "subject": 9,
+    "domain": 0,
+    "accuracy": 0.65,
+    "balanced_accuracy": 0.65,
+    "kappa": 0.30000000000000004,
+    "trials": 100
+  },
+  {
+    "subject": 10,
+    "domain": 0,
+    "accuracy": 0.59,
+    "balanced_accuracy": 0.5900000000000001,
+    "kappa": 0.18000000000000005,
+    "trials": 100
+  },
+  {
+    "subject": 11,
+    "domain": 1,
+    "accuracy": 0.73,
+    "balanced_accuracy": 0.73,
+    "kappa": 0.45999999999999996,
+    "trials": 100
+  },
+  {
+    "subject": 12,
+    "domain": 1,
+    "accuracy": 0.7,
+    "balanced_accuracy": 0.7,
+    "kappa": 0.4,
+    "trials": 100
+  },
+  {
+    "subject": 13,
+    "domain": 1,
+    "accuracy": 0.62,
+    "balanced_accuracy": 0.62,
+    "kappa": 0.24,
+    "trials": 100
+  },
+  {
+    "subject": 14,
+    "domain": 1,
+    "accuracy": 0.67,
+    "balanced_accuracy": 0.6699999999999999,
+    "kappa": 0.33999999999999997,
+    "trials": 100
+  },
+  {
+    "subject": 15,
+    "domain": 1,
+    "accuracy": 0.82,
+    "balanced_accuracy": 0.8200000000000001,
+    "kappa": 0.64,
+    "trials": 100
+  },
+  {
+    "subject": 16,
+    "domain": 1,
+    "accuracy": 0.67,
+    "balanced_accuracy": 0.6699999999999999,
+    "kappa": 0.33999999999999997,
+    "trials": 100
+  },
+  {
+    "subject": 17,
+    "domain": 0,
+    "accuracy": 0.64,
+    "balanced_accuracy": 0.64,
+    "kappa": 0.28,
+    "trials": 100
+  },
+  {
+    "subject": 18,
+    "domain": 0,
+    "accuracy": 0.64,
+    "balanced_accuracy": 0.64,
+    "kappa": 0.28,
+    "trials": 100
+  },
+  {
+    "subject": 19,
+    "domain": 0,
+    "accuracy": 0.83,
+    "balanced_accuracy": 0.8300000000000001,
+    "kappa": 0.6599999999999999,
+    "trials": 100
+  },
+  {
+    "subject": 20,
+    "domain": 0,
+    "accuracy": 0.73,
+    "balanced_accuracy": 0.73,
+    "kappa": 0.45999999999999996,
+    "trials": 100
+  },
+  {
+    "subject": 21,
+    "domain": 0,
+    "accuracy": 0.92,
+    "balanced_accuracy": 0.9199999999999999,
+    "kappa": 0.84,
+    "trials": 100
+  },
+  {
+    "subject": 22,
+    "domain": 0,
+    "accuracy": 0.74,
+    "balanced_accuracy": 0.74,
+    "kappa": 0.48,
+    "trials": 100
+  },
+  {
+    "subject": 23,
+    "domain": 0,
+    "accuracy": 0.48,
+    "balanced_accuracy": 0.48,
+    "kappa": -0.040000000000000036,
+    "trials": 100
+  },
+  {
+    "subject": 24,
+    "domain": 0,
+    "accuracy": 0.5,
+    "balanced_accuracy": 0.5,
+    "kappa": 0.0,
+    "trials": 100
+  },
+  {
+    "subject": 25,
+    "domain": 1,
+    "accuracy": 0.92,
+    "balanced_accuracy": 0.9199999999999999,
+    "kappa": 0.84,
+    "trials": 100
+  },
+  {
+    "subject": 26,
+    "domain": 1,
+    "accuracy": 0.64,
+    "balanced_accuracy": 0.64,
+    "kappa": 0.28,
+    "trials": 100
+  },
+  {
+    "subject": 27,
+    "domain": 1,
+    "accuracy": 0.84,
+    "balanced_accuracy": 0.84,
+    "kappa": 0.6799999999999999,
+    "trials": 100
+  },
+  {
+    "subject": 28,
+    "domain": 0,
+    "accuracy": 0.91,
+    "balanced_accuracy": 0.91,
+    "kappa": 0.8200000000000001,
+    "trials": 100
+  },
+  {
+    "subject": 29,
+    "domain": 0,
+    "accuracy": 0.77,
+    "balanced_accuracy": 0.77,
+    "kappa": 0.54,
+    "trials": 100
+  },
+  {
+    "subject": 30,
+    "domain": 0,
+    "accuracy": 0.55,
+    "balanced_accuracy": 0.55,
+    "kappa": 0.09999999999999998,
+    "trials": 100
+  },
+  {
+    "subject": 31,
+    "domain": 0,
+    "accuracy": 0.74,
+    "balanced_accuracy": 0.74,
+    "kappa": 0.48,
+    "trials": 100
+  },
+  {
+    "subject": 32,
+    "domain": 0,
+    "accuracy": 0.77,
+    "balanced_accuracy": 0.77,
+    "kappa": 0.54,
+    "trials": 100
+  },
+  {
+    "subject": 33,
+    "domain": 0,
+    "accuracy": 0.88,
+    "balanced_accuracy": 0.88,
+    "kappa": 0.76,
+    "trials": 100
+  },
+  {
+    "subject": 34,
+    "domain": 1,
+    "accuracy": 0.54,
+    "balanced_accuracy": 0.54,
+    "kappa": 0.07999999999999996,
+    "trials": 100
+  },
+  {
+    "subject": 35,
+    "domain": 1,
+    "accuracy": 0.92,
+    "balanced_accuracy": 0.92,
+    "kappa": 0.84,
+    "trials": 100
+  },
+  {
+    "subject": 36,
+    "domain": 0,
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "kappa": 1.0,
+    "trials": 100
+  },
+  {
+    "subject": 37,
+    "domain": 0,
+    "accuracy": 0.82,
+    "balanced_accuracy": 0.8200000000000001,
+    "kappa": 0.64,
+    "trials": 100
+  },
+  {
+    "subject": 38,
+    "domain": 1,
+    "accuracy": 0.68,
+    "balanced_accuracy": 0.68,
+    "kappa": 0.36,
+    "trials": 100
+  },
+  {
+    "subject": 39,
+    "domain": 0,
+    "accuracy": 0.75,
+    "balanced_accuracy": 0.75,
+    "kappa": 0.5,
+    "trials": 100
+  },
+  {
+    "subject": 40,
+    "domain": 1,
+    "accuracy": 0.64,
+    "balanced_accuracy": 0.64,
+    "kappa": 0.28,
+    "trials": 100
+  },
+  {
+    "subject": 41,
+    "domain": 1,
+    "accuracy": 0.71,
+    "balanced_accuracy": 0.71,
+    "kappa": 0.42000000000000004,
+    "trials": 100
+  },
+  {
+    "subject": 42,
+    "domain": 1,
+    "accuracy": 0.59,
+    "balanced_accuracy": 0.5900000000000001,
+    "kappa": 0.18000000000000005,
+    "trials": 100
+  },
+  {
+    "subject": 43,
+    "domain": 0,
+    "accuracy": 0.87,
+    "balanced_accuracy": 0.87,
+    "kappa": 0.74,
+    "trials": 100
+  },
+  {
+    "subject": 44,
+    "domain": 0,
+    "accuracy": 0.88,
+    "balanced_accuracy": 0.88,
+    "kappa": 0.76,
+    "trials": 100
+  },
+  {
+    "subject": 45,
+    "domain": 0,
+    "accuracy": 0.85,
+    "balanced_accuracy": 0.85,
+    "kappa": 0.7,
+    "trials": 100
+  },
+  {
+    "subject": 46,
+    "domain": 1,
+    "accuracy": 0.76,
+    "balanced_accuracy": 0.76,
+    "kappa": 0.52,
+    "trials": 100
+  },
+  {
+    "subject": 47,
+    "domain": 1,
+    "accuracy": 0.85,
+    "balanced_accuracy": 0.8500000000000001,
+    "kappa": 0.7,
+    "trials": 100
+  },
+  {
+    "subject": 48,
+    "domain": 0,
+    "accuracy": 0.82,
+    "balanced_accuracy": 0.8200000000000001,
+    "kappa": 0.64,
+    "trials": 100
+  },
+  {
+    "subject": 49,
+    "domain": 0,
+    "accuracy": 0.84,
+    "balanced_accuracy": 0.84,
+    "kappa": 0.6799999999999999,
+    "trials": 100
+  },
+  {
+    "subject": 50,
+    "domain": 1,
+    "accuracy": 0.5,
+    "balanced_accuracy": 0.5,
+    "kappa": 0.0,
+    "trials": 100
+  },
+  {
+    "subject": 51,
+    "domain": 1,
+    "accuracy": 0.74,
+    "balanced_accuracy": 0.74,
+    "kappa": 0.48,
+    "trials": 100
+  },
+  {
+    "subject": 52,
+    "domain": 0,
+    "accuracy": 0.83,
+    "balanced_accuracy": 0.8300000000000001,
+    "kappa": 0.6599999999999999,
+    "trials": 100
+  },
+  {
+    "subject": 53,
+    "domain": 1,
+    "accuracy": 0.66,
+    "balanced_accuracy": 0.6599999999999999,
+    "kappa": 0.31999999999999995,
+    "trials": 100
+  },
+  {
+    "subject": 54,
+    "domain": 1,
+    "accuracy": 0.62,
+    "balanced_accuracy": 0.62,
+    "kappa": 0.24,
+    "trials": 100
+  }
+]

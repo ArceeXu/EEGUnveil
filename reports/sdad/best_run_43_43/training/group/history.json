@@ -1,0 +1,202 @@
+[
+  {
+    "epoch": 1,
+    "ce": 0.3120128122965495,
+    "kd": 0.39473663317936436,
+    "domain": 0.6885762532552083,
+    "loss": 0.3740327122807503,
+    "val_low_bacc": 0.674,
+    "low_at70": 8,
+    "all_at70": 28,
+    "adversary_metrics": {
+      "group_head_bacc": 0.5504827586206896,
+      "subject_head_macro_accuracy": 0.012222222222222221,
+      "chance_group": 0.5,
+      "chance_subject": 0.018518518518518517,
+      "note": "Training adversaries, not independent frozen-feature probes; inactive head accuracy is not evidence of invariance."
+    },
+    "valid_domain_classes_per_batch": 2.0,
+    "domain_ce_over_log_classes": 0.993405545845192,
+    "gamma_last": 0.5040587225716293
+  },
+  {
+    "epoch": 2,
+    "ce": 0.32317962646484377,
+    "kd": 0.4031830495927069,
+    "domain": 0.6742776150173612,
+    "loss": 0.3834103292889065,
+    "val_low_bacc": 0.6923999999999999,
+    "low_at70": 9,
+    "all_at70": 33,
+    "adversary_metrics": {
+      "group_head_bacc": 0.5644482758620689,
+      "subject_head_macro_accuracy": 0.011296296296296296,
+      "chance_group": 0.5,
+      "chance_subject": 0.018518518518518517,
+      "note": "Training adversaries, not independent frozen-feature probes; inactive head accuracy is not evidence of invariance."
+    },
+    "valid_domain_classes_per_batch": 2.0,
+    "domain_ce_over_log_classes": 0.9727769713679846,
+    "gamma_last": 0.8041641943939863
+  },
+  {
+    "epoch": 3,
+    "ce": 0.3146485341699035,
+    "kd": 0.37764644516287027,
+    "domain": 0.6593735758463541,
+    "loss": 0.3659293628401227,
+    "val_low_bacc": 0.6712,
+    "low_at70": 8,
+    "all_at70": 27,
+    "adversary_metrics": {
+      "group_head_bacc": 0.5799793103448276,
+      "subject_head_macro_accuracy": 0.012962962962962963,
+      "chance_group": 0.5,
+      "chance_subject": 0.018518518518518517,
+      "note": "Training adversaries, not independent frozen-feature probes; inactive head accuracy is not evidence of invariance."
+    },
+    "valid_domain_classes_per_batch": 2.0,
+    "domain_ce_over_log_classes": 0.9512749879667579,
+    "gamma_last": 0.9310000309758688
+  },
+  {
+    "epoch": 4,
+    "ce": 0.3116773349488223,
+    "kd": 0.3731181985305415,
+    "domain": 0.6596284767433449,
+    "loss": 0.36218731159413303,
+    "val_low_bacc": 0.6632000000000001,
+    "low_at70": 8,
+    "all_at70": 27,
+    "adversary_metrics": {
+      "group_head_bacc": 0.6100413793103449,
+      "subject_head_macro_accuracy": 0.013703703703703704,
+      "chance_group": 0.5,
+      "chance_subject": 0.018518518518518517,
+      "note": "Training adversaries, not independent frozen-feature probes; inactive head accuracy is not evidence of invariance."
+    },
+    "valid_domain_classes_per_batch": 2.0,
+    "domain_ce_over_log_classes": 0.9516427322267647,
+    "gamma_last": 0.9767475668962831
+  },
+  {
+    "epoch": 5,
+    "ce": 0.3093938559735263,
+    "kd": 0.3873059718752349,
+    "domain": 0.6503840806749132,
+    "loss": 0.36786212316265815,
+    "val_low_bacc": 0.6927999999999999,
+    "low_at70": 11,
+    "all_at70": 32,
+    "adversary_metrics": {
+      "group_head_bacc": 0.6117241379310345,
+      "subject_head_macro_accuracy": 0.01240740740740741,
+      "chance_group": 0.5,
+      "chance_subject": 0.018518518518518517,
+      "note": "Training adversaries, not independent frozen-feature probes; inactive head accuracy is not evidence of invariance."
+    },
+    "valid_domain_classes_per_batch": 2.0,
+    "domain_ce_over_log_classes": 0.9383058878628248,
+    "gamma_last": 0.9922852954967039
+  },
+  {
+    "epoch": 6,
+    "ce": 0.30914491607083217,
+    "kd": 0.38807853477834553,
+    "domain": 0.6472494506835937,
+    "loss": 0.36802989270952013,
+    "val_low_bacc": 0.6832,
+    "low_at70": 9,
+    "all_at70": 28,
+    "adversary_metrics": {
+      "group_head_bacc": 0.6114068965517241,
+      "subject_head_macro_accuracy": 0.011851851851851851,
+      "chance_group": 0.5,
+      "chance_subject": 0.018518518518518517,
+      "note": "Training adversaries, not independent frozen-feature probes; inactive head accuracy is not evidence of invariance."
+    },
+    "valid_domain_classes_per_batch": 2.0,
+    "domain_ce_over_log_classes": 0.9337835727193264,
+    "gamma_last": 0.9974537849439005
+  },
+  {
+    "epoch": 7,
+    "ce": 0.31788655912434616,
+    "kd": 0.3917466320676936,
+    "domain": 0.6475679694281684,
+    "loss": 0.3742443061095697,
+    "val_low_bacc": 0.6627999999999998,
+    "low_at70": 8,
+    "all_at70": 25,
+    "adversary_metrics": {
+      "group_head_bacc": 0.616503448275862,
+      "subject_head_macro_accuracy": 0.013703703703703704,
+      "chance_group": 0.5,
+      "chance_subject": 0.018518518518518517,
+      "note": "Training adversaries, not independent frozen-feature probes; inactive head accuracy is not evidence of invariance."
+    },
+    "valid_domain_classes_per_batch": 2.0,
+    "domain_ce_over_log_classes": 0.9342430981325545,
+    "gamma_last": 0.9991610874188028
+  },
+  {
+    "epoch": 8,
+    "ce": 0.3133034899058165,
+    "kd": 0.405996102017385,
+    "domain": 0.6379691399468316,
+    "loss": 0.3787895538078414,
+    "val_low_bacc": 0.6899999999999998,
+    "low_at70": 12,
+    "all_at70": 34,
+    "adversary_metrics": {
+      "group_head_bacc": 0.6268482758620689,
+      "subject_head_macro_accuracy": 0.011851851851851851,
+      "chance_group": 0.5,
+      "chance_subject": 0.018518518518518517,
+      "note": "Training adversaries, not independent frozen-feature probes; inactive head accuracy is not evidence of invariance."
+    },
+    "valid_domain_classes_per_batch": 2.0,
+    "domain_ce_over_log_classes": 0.920394914441491,
+    "gamma_last": 0.9997237581335461
+  },
+  {
+    "epoch": 9,
+    "ce": 0.3003519201720202,
+    "kd": 0.39806705849590124,
+    "domain": 0.6399423104745371,
+    "loss": 0.36840845495462415,
+    "val_low_bacc": 0.6756,
+    "low_at70": 9,
+    "all_at70": 27,
+    "adversary_metrics": {
+      "group_head_bacc": 0.6214758620689655,
+      "subject_head_macro_accuracy": 0.010555555555555556,
+      "chance_group": 0.5,
+      "chance_subject": 0.018518518518518517,
+      "note": "Training adversaries, not independent frozen-feature probes; inactive head accuracy is not evidence of invariance."
+    },
+    "valid_domain_classes_per_batch": 2.0,
+    "domain_ce_over_log_classes": 0.92324159777664,
+    "gamma_last": 0.9999090546883147
+  },
+  {
+    "epoch": 10,
+    "ce": 0.3085827136922766,
+    "kd": 0.37844633830918206,
+    "domain": 0.6340676625569661,
+    "loss": 0.36253725089408734,
+    "val_low_bacc": 0.688,
+    "low_at70": 9,
+    "all_at70": 30,
+    "adversary_metrics": {
+      "group_head_bacc": 0.6250068965517241,
+      "subject_head_macro_accuracy": 0.012407407407407409,
+      "chance_group": 0.5,
+      "chance_subject": 0.018518518518518517,
+      "note": "Training adversaries, not independent frozen-feature probes; inactive head accuracy is not evidence of invariance."
+    },
+    "valid_domain_classes_per_batch": 2.0,
+    "domain_ce_over_log_classes": 0.9147662723589917,
+    "gamma_last": 0.9999700605278645
+  }
+]
