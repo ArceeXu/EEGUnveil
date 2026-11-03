@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EEGUnveil | 面向BCI盲的脑控康复训练辅助系统</title><meta name="description" content="面向BCI盲的脑控康复训练辅助系统。探索SDAD-Net的时空融合、同步蒸馏与后期域对抗，了解实验结果与脑控验证。"><meta property="og:title" content="EEGUnveil | 面向BCI盲的脑控康复训练辅助系统"><meta property="og:description" content="运动想象识别 · 分阶段域对抗蒸馏 · 脑控验证"><meta property="og:image" content="https://bci-car-research.cx20060410.chatgpt.site/assets/waveform.png"><meta name="theme-color" content="#090d0c"><link rel="icon" href="favicon.svg"><link rel="stylesheet" href="style.css"><script src="app.js" defer></script>
+<style>
+/* CSS Scroll-Driven / Intersection Motion & Smooth Transitions */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-init.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.stagger-delay-1 { transition-delay: 0.1s; }
+.stagger-delay-2 { transition-delay: 0.2s; }
+.stagger-delay-3 { transition-delay: 0.3s; }
+
+/* Plain dark button without underline or bottom highlight */
+.dark-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0; /* Zero border-radius */
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.dark-btn:hover, .dark-btn:focus, .dark-btn.active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+  text-decoration: none !important;
+}
+
+/* Redesigned Clean Topbar */
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+header nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #adbbb5;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: none !important;
+  text-decoration: none !important;
+  transition: background .3s var(--curve), color .3s var(--curve);
+}
+header nav a:hover,
+header nav a:focus-visible,
+header nav a.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Accordion / Drawer Cards Section for Three Models */
+.drawer-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 2rem 0;
+}
+.drawer-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  overflow: hidden;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+.drawer-card[open] {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(120, 200, 179, 0.4);
+}
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+.drawer-header::-webkit-details-marker {
+  display: none;
+}
+.drawer-title-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.drawer-num {
+  font-family: monospace;
+  font-size: 1.125rem;
+  color: #78c8b3;
+}
+.drawer-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+.drawer-icon {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.drawer-icon::before, .drawer-icon::after {
+  content: '';
+  position: absolute;
+  background: #ffffff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.drawer-icon::before { width: 14px; height: 2px; }
+.drawer-icon::after { width: 2px; height: 14px; transition: opacity 0.3s ease; }
+.drawer-card[open] .drawer-icon::after {
+  opacity: 0;
+}
+.drawer-card[open] .drawer-icon {
+  transform: rotate(180deg);
+}
+.drawer-body {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Add reveal-init class to animated blocks and handle scroll reveal with text lag
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(".reveal, .drawer-card, .chart-card, .clinical-card, article, aside").forEach(el => {
+    if (el.closest(".chapter-content")) return;
+    el.classList.add("reveal-init");
+    observer.observe(el);
+  });
+});
+</script>
+</head>
+<body><canvas id="ambient-shapes" aria-hidden="true"></canvas><a class="skip" href="#main">跳至正文</a>
+<header><a class="brand" href="#problem" aria-label="回到首页"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M2 16h6l4-10 7 20 4-10h7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>EEG<span class="light">Unveil</span></span></a><button class="menu" aria-expanded="false" aria-controls="navigation" aria-label="展开导航"><span></span><span></span></button><nav id="navigation" aria-label="主导航"><a class="dark-btn active" href="#problem">问题概述</a><a class="dark-btn" href="#architecture">算法架构</a><a class="dark-btn" href="#results">实验结果</a><a class="dark-btn" href="#demo">脑控验证</a><a class="dark-btn" href="#applications">应用前景</a></nav></header>
+<main id="main">
+<section id="problem" class="hero"><div class="hero-cover" id="hero-cover"><div class="hero-copy"><h1>让更多脑电意图，<br><span>被准确解码。</span></h1><div class="hero-subtitle"><div class="hero-wave" aria-hidden="true"><svg viewBox="0 0 1440 320" preserveAspectRatio="none"><path class="wave-base" d="M0 160 L90 160 L110 155 L122 165 L136 144 L148 174 L160 155 L174 160 L210 160 L224 153 L236 167 L248 136 L260 185 L272 150 L284 162 L310 160 L326 158 L340 148 L352 176 L364 120 L375 204 L388 145 L400 162 L450 160 L464 155 L478 169 L492 143 L506 175 L520 160 L560 160 L576 157 L590 166 L604 135 L618 186 L632 147 L646 162 L680 160 L694 156 L706 170 L718 128 L730 197 L742 143 L754 164 L790 160 L804 154 L818 168 L832 140 L846 180 L860 153 L874 160 L912 160 L926 157 L940 166 L954 130 L968 192 L996 162 L1032 160 L1046 153 L1060 170 L1074 140 L1088 181 L1102 151 L1116 160 L1150 160 L1164 156 L1178 169 L1192 133 L1206 189 L1220 148 L1234 162 L1272 160 L1286 155 L1300 167 L1314 142 L1328 177 L1342 154 L1356 160 L1440 160"/><path class="wave-pulse" pathLength="1" d="M0 160 L90 160 L110 155 L122 165 L136 144 L148 174 L160 155 L174 160 L210 160 L224 153 L236 167 L248 136 L260 185 L272 150 L284 162 L310 160 L326 158 L340 148 L352 176 L364 120 L375 204 L388 145 L400 162 L450 160 L464 155 L478 169 L492 143 L506 175 L520 160 L560 160 L576 157 L590 166 L604 135 L618 186 L632 147 L646 162 L680 160 L694 156 L706 170 L718 128 L730 197 L742 143 L754 164 L790 160 L804 154 L818 168 L832 140 L846 180 L860 153 L874 160 L912 160 L926 157 L940 166 L954 130 L968 192 L996 162 L1032 160 L1046 153 L1060 170 L1074 140 L1088 181 L1102 151 L1116 160 L1150 160 L1164 156 L1178 169 L1192 133 L1206 189 L1220 148 L1234 162 L1272 160 L1286 155 L1300 167 L1314 142 L1328 177 L1342 154 L1356 160 L1440 160"/></svg></div><p class="lead">面向BCI盲的脑控康复训练辅助系统</p></div></div></div>
+<details id="problem-content" class="chapter-accordion" open><summary class="chapter-toggle"><span class="chapter-number">01</span><span class="chapter-title">问题与研究目标</span><span class="chapter-icon" aria-hidden="true"></span></summary><div class="chapter-content"><div class="problem-row reveal"><div><h2>关注低表现群体，<br>突破解码瓶颈。</h2></div><div><p>运动想象能够在不执行实际肢体动作的情况下表达意图，但脑电噪声、个体差异与跨会话变化，使部分使用者难以获得稳定的识别反馈。总体准确率的提高，也可能掩盖低表现者的体验。</p><p>SDAD-Net 将时序与空间表征、教师软标签监督、后期组域适配整合到同一解码框架中，同时关注低表现组的平均准确率与达标覆盖。脑控小车作为实体任务反馈载体，用于呈现算法从信号到动作的验证过程。项目采用离线解码评估与在线闭环联调两层体系，分别观察识别表现与实体反馈。</p><span class="definition">SDAD 研究中，BCI 盲群体指训练数据内五折 CSP + LDA 准确率低于 70% 的低表现组；该阈值是研究分组标准，不是医学诊断或永久能力标签。</span></div></div>
+<div class="concept-band reveal"><div class="concept-video"><video id="concept-video" muted loop playsinline preload="metadata" poster="assets/imagine-poster.jpg" aria-label="运动想象与脑机交互场景示意"><source src="assets/imagine.mp4" type="video/mp4"></video></div><div class="concept-copy"><h3>运动想象信号与特征表达</h3><p>运动想象脑机接口从脑电中识别左右手运动意图，将信号中的变化转化为可观察的反馈，为运动功能受限人群提供不依赖实际肢体运动的交互途径。</p><span>脑电信号 → 意图解码 → 任务反馈</span></div></div><div class="research-focus reveal"><article><h3>补足有效特征</h3><p>融合局部时序模式、长程依赖和通道空间信息，形成互补的脑电表示。</p></article><article><h3>兼顾分类与对齐</h3><p>先建立运动意图判别能力，再引入组间约束，减轻过早对齐对分类的干扰。</p></article><article><h3>收益提升至70%可用阈值</h3><p>BCI 盲群体指训练数据内五折 CSP + LDA 准确率低于 70% 的低表现组。联合考察低组均值、达标人数和逐人变化，以实体任务展示识别结果。</p></article></div></div></details>
+</section>
+<section id="architecture" class="section"><details class="chapter-accordion"><summary class="chapter-toggle"><span class="chapter-number">02</span><span class="chapter-title">算法架构</span><span class="chapter-icon" aria-hidden="true"></span></summary><div class="chapter-content"><div class="section-heading reveal"><div><h2>时空特征融合与分阶段适配</h2></div><p>三种方案呈现算法演进：基础解码、混合蒸馏、SDAD-Net。<br>共享时空融合思路，以不同训练策略应对低表现者解码。模型递进体现方法设计演进，各阶段采用各自的实验口径。</p></div>
+<div class="model-tabs" role="tablist" aria-label="算法模型"><button role="tab" id="tab-base" aria-controls="model-panel" aria-selected="false" data-model="base"><small>01</small><strong>基础模型</strong><span>无蒸馏 · 无混合</span></button><button role="tab" id="tab-mixed" aria-controls="model-panel" aria-selected="false" data-model="mixed"><small>02</small><strong>混合训练 + 知识蒸馏</strong><span>有蒸馏 · 有混合</span></button><button role="tab" id="tab-sdad" aria-controls="model-panel" aria-selected="true" data-model="sdad"><small>03</small><strong>SDAD-Net</strong><span>同步蒸馏 · 后期域对抗</span></button></div>
+<div id="model-panel" role="tabpanel" aria-labelledby="tab-sdad" tabindex="0"><div id="model-content"><div class="architecture-caption"><span class="pill" id="model-badge">SDAD-Net / 分阶段域对抗蒸馏</span><p id="model-description">先形成分类能力，再以高低组均衡批次进行后期域适配。</p></div><figure class="model-diagram" id="flow-base" hidden><div class="diagram-viewport" tabindex="0" aria-label="基础模型：仅正常组训练的双分支学生网络，可横向滚动查看"><svg viewBox="0 0 1100 360" role="img" aria-labelledby="base-title base-desc"><title id="base-title">基础模型：仅正常组训练的双分支学生网络</title><desc id="base-desc">62通道脑电输入，分别经过时序与CSP空间分支，融合后由学生分类头输出左右手概率。</desc><defs><marker id="base-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#78c8b3"/></marker></defs><g class="diagram-wires" marker-end="url(#base-arrow)"><path d="M 150 180 H 200 V 126 H 245"/><path d="M 150 180 H 200 V 234 H 245"/><path d="M 465 126 H 520 V 180 H 570"/><path d="M 465 234 H 520 V 180 H 570"/><path d="M 735 180 H 815"/></g><g class="diagram-labels"><text x="50" y="166" class="node-title">脑电输入</text><text x="50" y="193" class="node-detail">62 通道 × 1000 点</text><text x="255" y="113" class="node-title">CNN → Transformer</text><text x="255" y="140" class="node-detail">时序特征 · 128 维</text><text x="255" y="220" class="node-title">CSP → 空间编码</text><text x="255" y="247" class="node-detail">空间特征 · 64 维</text><text x="580" y="166" class="node-title">时空特征融合</text><text x="580" y="193" class="node-detail">拼接 · 192 维</text><text x="825" y="166" class="node-title">学生分类头</text><text x="825" y="193" class="node-detail">左右手概率</text></g></svg></div><figcaption>实线为学生推理路径；仅正常组参与训练，不使用教师蒸馏或域对抗。<span class="diagram-mobile-hint">可左右滑动查看完整架构</span></figcaption></figure><figure class="model-diagram" id="flow-mixed" hidden><div class="diagram-viewport" tabindex="0" aria-label="混合蒸馏模型：双分支学生与教师监督，可横向滚动查看"><svg viewBox="0 0 1100 360" role="img" aria-labelledby="mixed-title mixed-desc"><title id="mixed-title">混合蒸馏模型：双分支学生与教师监督</title><desc id="mixed-desc">62通道脑电输入，分别经过时序与CSP空间分支，融合后由学生分类头输出左右手概率。教师网络在训练期间通过软标签监督学生。</desc><defs><marker id="mixed-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#78c8b3"/></marker></defs><g class="diagram-wires" marker-end="url(#mixed-arrow)"><path d="M 150 180 H 200 V 126 H 245"/><path d="M 150 180 H 200 V 234 H 245"/><path d="M 465 126 H 520 V 180 H 570"/><path d="M 465 234 H 520 V 180 H 570"/><path d="M 735 180 H 815"/></g><g class="diagram-labels"><text x="50" y="166" class="node-title">脑电输入</text><text x="50" y="193" class="node-detail">62 通道 × 1000 点</text><text x="255" y="113" class="node-title">CNN → Transformer</text><text x="255" y="140" class="node-detail">时序特征 · 128 维</text><text x="255" y="220" class="node-title">CSP → 空间编码</text><text x="255" y="247" class="node-detail">空间特征 · 64 维</text><text x="580" y="166" class="node-title">时空特征融合</text><text x="580" y="193" class="node-detail">拼接 · 192 维</text><text x="825" y="166" class="node-title">学生分类头</text><text x="825" y="193" class="node-detail">左右手概率</text></g><g class="diagram-aux" marker-end="url(#mixed-arrow)"><path d="M 835 64 V 135"/></g><g class="diagram-labels"><text x="730" y="44" class="node-aux">ShallowConvNet 教师网络</text><text x="850" y="89" class="node-detail">软标签蒸馏</text></g></svg></div><figcaption>实线为学生推理路径，虚线为训练辅助路径。<span class="diagram-mobile-hint">可左右滑动查看完整架构</span></figcaption></figure><figure class="model-diagram" id="flow-sdad" ><div class="diagram-viewport" tabindex="0" aria-label="SDAD-Net：双分支学生、教师监督和后期域对抗，可横向滚动查看"><svg viewBox="0 0 1100 360" role="img" aria-labelledby="sdad-title sdad-desc"><title id="sdad-title">SDAD-Net：双分支学生、教师监督和后期域对抗</title><desc id="sdad-desc">11通道脑电输入，分别经过时序与CSP空间分支，融合后由学生分类头输出左右手概率。教师网络在训练期间通过软标签监督学生。融合特征在训练后期经过梯度反转层与域判别器。</desc><defs><marker id="sdad-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#78c8b3"/></marker></defs><g class="diagram-wires" marker-end="url(#sdad-arrow)"><path d="M 150 180 H 200 V 126 H 245"/><path d="M 150 180 H 200 V 234 H 245"/><path d="M 465 126 H 520 V 180 H 570"/><path d="M 465 234 H 520 V 180 H 570"/><path d="M 735 180 H 815"/></g><g class="diagram-labels"><text x="50" y="166" class="node-title">脑电输入</text><text x="50" y="193" class="node-detail">11 通道 × 1000 点</text><text x="255" y="113" class="node-title">CNN → Transformer</text><text x="255" y="140" class="node-detail">时序特征 · 128 维</text><text x="255" y="220" class="node-title">CSP → 空间编码</text><text x="255" y="247" class="node-detail">空间特征 · 64 维</text><text x="580" y="166" class="node-title">时空特征融合</text><text x="580" y="193" class="node-detail">拼接 · 192 维</text><text x="825" y="166" class="node-title">学生分类头</text><text x="825" y="193" class="node-detail">左右手概率</text></g><g class="diagram-aux" marker-end="url(#sdad-arrow)"><path d="M 835 64 V 135"/></g><g class="diagram-labels"><text x="730" y="44" class="node-aux">ShallowConvNet 教师网络</text><text x="850" y="89" class="node-detail">软标签蒸馏</text></g><g class="diagram-aux" marker-end="url(#sdad-arrow)"><path d="M 660 207 V 274"/></g><g class="diagram-labels"><text x="580" y="307" class="node-aux">GRL → 域判别器</text><text x="580" y="331" class="node-detail">高低组适配 · 仅后期训练</text></g></svg></div><figcaption>实线为学生推理路径，虚线为训练辅助路径。<span class="diagram-mobile-hint">可左右滑动查看完整架构</span></figcaption></figure><div id="base-details" class="training-details" hidden><div><small>基础训练</small><strong>11 名正常组受试者</strong><p>类别均衡后随机遍历试次；无教师监督，也不纳入低表现组训练样本。</p></div><div><small>学生目标</small><strong>交叉熵 + 方差正则</strong><p>仍保留 CSP、时序与空间双分支、数据增强及 ε = 10<sup>−5</sup> 方差项。</p></div></div><div id="training-details" class="training-details" hidden><div><small>混合采样</small><strong>18 <span>正常组</span> + 14 <span>BCI 盲组</span></strong><p>每批 32 个样本，正常组采样占比 λ = 0.5625。</p></div><div><small>知识蒸馏</small><strong>ShallowConvNet → 学生网络</strong><p>温度 T = 3，蒸馏权重 α = 0.5；部署仅使用学生模型。</p></div></div><div id="shared-details" hidden><div class="model-insight"><div><small>离线处理</small><p>连续信号 0.5–100 Hz FIR 带通与 50 Hz 陷波，截取 4 秒并重采样至 250 Hz。仅在实际训练数据上拟合通道标准化器与 CSP。</p></div><div><small>特征融合</small><p>时序分支经 Conv1D、128 维投影、位置编码与两层 Transformer；CSP 从预处理信号提取 6 维特征，两路融合为 192 维，再经 MLP 分类。</p></div><div><small>参数设置</small><p>学生与教师分别使用 AdamW；批次大小 32，最多 120 轮，以验证准确率选择学生检查点，连续 50 轮未改善则早停。</p></div></div></div><div id="sdad-details">
+<div class="sdad-aux"><div><small>教师路径</small><strong>ShallowConvNet → 软标签 → 学生分类头</strong><p>教师以真实标签独立更新；软目标停止梯度后监督学生，T = 3，α = 0.5。</p></div><div><small>域适配路径</small><strong>192 维融合 → GRL → 高低组域判别</strong><p>后期引入梯度反转，λ<sub>d</sub> = 0.03；对抗强度随训练进度逐步增加。</p></div></div>
+<ol class="stage-path"><li><small>01</small><h3>先学习分类</h3><p>双分支提取特征，真实标签与教师概率共同指导学生，建立运动意图判别能力。</p></li><li><small>02</small><h3>再适配组间差异</h3><p>加载配对末轮权重，重置优化器，执行 10 轮后期训练。每批 8 例：高低组各 2 人，每人左右手各 1 例。</p></li><li><small>03</small><h3>仅保留学生推理</h3><p>按低组验证平均平衡准确率选模，含第 0 轮候选。部署学生与固定预处理，无需教师、域头或用户组标签。</p></li></ol>
+<details class="loss-details"><summary>查看训练目标与关键参数 <span>＋</span></summary><div><p class="formula">L<sub>SDAD</sub> = (1 − α)(L<sub>CE</sub> + εL<sub>var</sub>) + αT²KL(p<sub>T</sub> ∥ p<sub>S</sub>) + λ<sub>d</sub>L<sub>dom</sub></p><p>α = 0.5 · T = 3 · ε = 10<sup>−5</sup> · λ<sub>d</sub> = 0.03。GRL 前向恒等，反向乘 −γ；γ(p) = 2 / (1 + exp(−10p)) − 1。</p><p>后期学生学习率 10<sup>−4</sup>，教师学习率 10<sup>−3</sup>；匹配无对抗对照采用相同采样与 10 轮预算，λ<sub>d</sub> = 0。</p></div></details>
+</div><p class="model-note" id="model-note">实线为学生推理路径，虚线为训练辅助路径。标准化、CSP 与特征缩放仅在训练数据上拟合。</p></div></div>
+
+<!-- Three models drawers in accordion style -->
+<div class="drawer-deck reveal">
+  <details class="drawer-card">
+    <summary class="drawer-header">
+      <div class="drawer-title-group">
+        <span class="drawer-num">01</span>
+        <h3 class="drawer-title">模型一：建立参照</h3>
+      </div>
+      <div class="drawer-icon" aria-hidden="true"></div>
+    </summary>
+    <div class="drawer-body">
+      <p>模型一只使用正常组训练数据，观察基础学生网络的解码表现。</p>
+    </div>
+  </details>
+  <details class="drawer-card">
+    <summary class="drawer-header">
+      <div class="drawer-title-group">
+        <span class="drawer-num">02</span>
+        <h3 class="drawer-title">模型二：扩大输入并增强监督</h3>
+      </div>
+      <div class="drawer-icon" aria-hidden="true"></div>
+    </summary>
+    <div class="drawer-body">
+      <p>模型二以固定比例混合两组数据，用同步教师提供软标签。</p>
+    </div>
+  </details>
+  <details class="drawer-card">
+    <summary class="drawer-header">
+      <div class="drawer-title-group">
+        <span class="drawer-num">03</span>
+        <h3 class="drawer-title">模型三：在后期适配表征</h3>
+      </div>
+      <div class="drawer-icon" aria-hidden="true"></div>
+    </summary>
+    <div class="drawer-body">
+      <p>SDAD-Net 在分类能力形成后引入域判别器，探索高低组特征对齐。</p>
+    </div>
+  </details>
+</div>
+
+<p class="evidence-note">这里的“混合”指训练批次中的人群组成，不是对两段脑电做线性叠加。模型二与模型三通道、划分、选模规则不同，方法演进不等于准确率必然逐级上升。</p>
+<div class="tagline reveal"><span>从复杂的脑电信号，</span><br><span>到清晰的运动意图。</span></div>
+</div></details></section>
+<section id="results" class="section"><details class="chapter-accordion" open><summary class="chapter-toggle"><span class="chapter-number">03</span><span class="chapter-title">实验结果</span><span class="chapter-icon" aria-hidden="true"></span></summary><div class="chapter-content"><div class="section-heading reveal"><div><h2>解码提升与低表现者覆盖</h2></div><p>SDAD-Net · OpenBMI 相同受试者跨会话评估。<br>固定 25 名低表现者，汇总三次配对探索运行。</p></div>
+<div class="metrics reveal"><div><small>SDAD-Net · 固定低表现组</small><strong>72.77<span>%</span></strong><p>三次运行平均准确率</p></div><div><small>相对联合 CSP + LDA 参考</small><strong>+18.85<span>pp</span></strong><p>固定低组均值由 53.92% 提升</p></div><div><small>70% 研究阈值 · 达标覆盖</small><strong>15<span>/ 25 人</span></strong><p>三次运行平均达标人数，对应 60%</p></div></div>
+<div class="results-grid"><article class="chart-card"><div class="card-heading"><h3>跨会话解码表现</h3><span>三次平均 / %</span></div><div class="sdad-comparison"><div class="comparison-title"><span>固定低组 · 25 人</span><b>+18.85 pp</b></div><div class="bar-row"><span>CSP + LDA</span><div class="track"><div style="--value:53.92%"></div></div><b>53.92</b></div><div class="bar-row featured"><span>SDAD-Net</span><div class="track"><div style="--value:72.77%"></div></div><b>72.77</b></div><div class="comparison-title"><span>全体受试者 · 54 人</span><b>+17.40 pp</b></div><div class="bar-row"><span>CSP + LDA</span><div class="track"><div style="--value:57.11%"></div></div><b>57.11</b></div><div class="bar-row featured"><span>SDAD-Net</span><div class="track"><div style="--value:74.51%"></div></div><b>74.51</b></div></div><p class="chart-note">全体达标人数由 7/54 提升至平均 36/54。联合 CSP + LDA 是合并训练数据拟合的比较模型；分组使用逐人训练内交叉验证。</p></article><aside class="protocol"><h3>跨会话实验设计与数据集</h3><dl><div><dt>人群与输入</dt><dd>54 名健康受试者 · 11 × 1000</dd></div><div><dt>训练</dt><dd>Session 1 / train · 5400 试次</dd></div><div><dt>验证选模</dt><dd>Session 1 / test · 5400 试次</dd></div><div><dt>跨会话测试</dt><dd>Session 2 / test · 5400 试次</dd></div><div><dt>固定分组</dt><dd>25 名低表现者 / 29 名高表现者</dd></div><div><dt>后期选模</dt><dd>低组验证平均平衡准确率</dd></div></dl><p class="protocol-note">70% 为操作性研究阈值；以均值与达标覆盖共同衡量解码表现。</p></aside></div>
+<article class="paired-results"><div class="card-heading"><div><h3>后期域对抗效果分析</h3></div><span>同采样 · 同预算</span></div><div class="table-scroll" tabindex="0" aria-label="三次配对实验结果"><table><caption>后期域对抗与匹配无对抗深度对照</caption><thead><tr><th scope="col">起点 / 后期种子</th><th scope="col">无对抗 · 低组准确率</th><th scope="col">SDAD · 低组准确率</th><th scope="col">无对抗 · 达标人数</th><th scope="col">SDAD · 达标人数</th></tr></thead><tbody><tr><th scope="row">42 / 42</th><td>71.60%</td><td>71.20%</td><td>13</td><td>14</td></tr><tr><th scope="row">43 / 43</th><td>71.76%</td><td>73.48%</td><td>13</td><td>17</td></tr><tr><th scope="row">43 / 44</th><td>73.72%</td><td>73.64%</td><td>15</td><td>14</td></tr><tr class="mean-row"><th scope="row">三次平均</th><td>72.36%</td><td>72.77%</td><td>13.67</td><td>15.00</td></tr></tbody></table></div><p class="chart-note">后期域对抗相对匹配深度对照：低组准确率平均 +0.41 个百分点，达标人数平均 +1.33 人。增量随运行变化；完整方案相对传统参考的收益由整体方案共同构成。</p><p class="evidence-note">统计口径：三次探索运行涉及两个预训练起点，后两次共享起点 43；测试会话参与了探索观察。人数为运行均值，非集成预测人数。</p></article>
+<details class="more-results"><summary>查看展示运行与逐受试者结果 <span>＋</span></summary><div class="figure-grid"><figure><a href="assets/sdad-performance.png" target="_blank" rel="noopener"><img src="assets/sdad-performance.png" loading="lazy" alt="SDAD展示运行43/43的低组与全体准确率和达标人数"></a><figcaption>展示运行 43 / 43：低组 73.48%，17/25 达标；全体 75.35%，38/54 达标。</figcaption></figure><figure><a href="assets/sdad-paired.png" target="_blank" rel="noopener"><img src="assets/sdad-paired.png" loading="lazy" alt="SDAD展示运行与联合CSP加LDA的逐受试者配对比较"></a><figcaption>同一展示运行：低组 24 人改善、1 人不变，16 人跨阈值上升。</figcaption></figure></div></details>
+<details class="more-results previous-study"><summary>模型一与模型二：留出受试者实验 <span>＋</span></summary><div class="previous-body"><p class="protocol-note">模型一、二采用 62 通道及 32 / 11 / 11 人的训练、验证、测试受试者隔离划分；低组结果来自留出的 7 名受试者。此实验与 SDAD 的 11 通道跨会话评估分别记录。</p><div class="results-grid"><article class="chart-card"><div class="card-heading"><h3>报告表格中的四组结果</h3><span>低组准确率 / %</span></div><div class="bar-chart" aria-label="N0 63.07%，N1 57.26%，M0 70.88%，M1 71.48%"><div class="bar-row"><span>N0 <small>正常组，无蒸馏</small></span><div class="track"><div style="--value:63.07%"></div></div><b>63.07</b></div><div class="bar-row"><span>N1 <small>正常组，有蒸馏</small></span><div class="track"><div style="--value:57.26%"></div></div><b>57.26</b></div><div class="bar-row"><span>M0 <small>混合，无蒸馏</small></span><div class="track"><div style="--value:70.88%"></div></div><b>70.88</b></div><div class="bar-row featured"><span>M1 <small>混合，有蒸馏</small></span><div class="track"><div style="--value:71.48%"></div></div><b>71.48</b></div></div><p class="chart-note">此处逐项呈现综合报告的结果表记录，不将模型二与 SDAD 的不同实验结果直接相减。</p></article><aside class="protocol"><h3>留出受试者实验协议</h3><dl><div><dt>划分</dt><dd>32 人训练 · 11 人验证 · 11 人测试</dd></div><div><dt>训练人群</dt><dd>11 名正常组 · 21 名低表现组</dd></div><div><dt>低组测试</dt><dd>7 名留出受试者</dd></div><div><dt>训练种子</dt><dd>42 / 2024 / 3407</dd></div><div><dt>模型输入</dt><dd>62 × 1000</dd></div></dl></aside></div><p class="evidence-note">报告的结果表将 M1 记为 71.48%，并在表内标注混合比例 0.3433；同一报告的训练参数与实现说明记载 λ = 0.5625、18 + 14 样本，而其他结果说明又出现 70.52%。这些记录尚不一致，因此这里保留表格原值，不据此计算确定的增益或单独归因。</p></div></details>
+</div></details></section>
+<section id="demo" class="section demo"><details class="chapter-accordion"><summary class="chapter-toggle"><span class="chapter-number">04</span><span class="chapter-title">脑控验证</span><span class="chapter-icon" aria-hidden="true"></span></summary><div class="chapter-content"><div class="section-heading reveal"><div><h2>脑控小车闭环验证系统</h2></div><p>脑控小车承担算法的实体任务验证。<br>左侧识别界面，右侧实物动作，呈现信号到反馈的三种流程。</p></div><div class="research-note"><strong>验证思路</strong><p>离线实验关注固定低表现组的平均准确率、达标覆盖与逐人差异；在线流程关注脑电采集、滑动窗口推理、指令传输与小车动作反馈。两者共同展示算法表现和系统交互过程。</p></div><div class="system-map reveal"><div class="system-intro"><h3>硬件分层与信号传输架构</h3><p>系统分为信号采集、边缘计算和底盘控制三层。轻量化解码结果经串口指令进入执行端，形成在线闭环验证。</p></div><div class="system-path"><div><strong>TMSi</strong><span>脑电采集</span></div><b>→</b><div><strong>LSL</strong><span>信号流传输</span></div><b>→</b><div><strong>Orange Pi</strong><span>预处理与学生推理</span></div><b>→</b><div><strong>STM32</strong><span>指令解析与底盘控制</span></div></div><div class="system-spec"><span><b>4 秒</b>滑动时间窗</span><span><b>0.5 秒</b>滑动步长</span><span><b>左右手</b>意图概率</span><span><b>异常停止</b>控制保护</span></div><p class="system-note">评估端侧响应时，分别记录数据缓冲与降采样、因果滤波与特征提取、推理、指令传输和硬件响应；输入窗后的推理耗时不等同于完整意图响应时间。</p></div><div class="validation-route"><span>脑电输入</span><b>→</b><span>算法解码</span><b>→</b><span>指令映射</span><b>→</b><span>小车任务反馈</span></div><div class="demo-tabs" role="tablist" aria-label="演示流程"><button role="tab" id="demo-tab-offline" aria-selected="true" aria-controls="demo-panel" data-demo="offline"><b>01</b><span>离线模型回放</span></button><button role="tab" id="demo-tab-network" aria-selected="false" aria-controls="demo-panel" data-demo="network"><b>02</b><span>在线接收与预测</span></button><button role="tab" id="demo-tab-control" aria-selected="false" aria-controls="demo-panel" data-demo="control"><b>03</b><span>实时脑电控制</span></button></div><div id="demo-panel" role="tabpanel" aria-labelledby="demo-tab-offline"><div class="demo-description"><h3 id="demo-title">回放离线模型，预测小车动作</h3><p id="demo-copy">加载训练完成的模型与脑电记录，逐试次显示波形、运动意图与预测置信度。</p></div><div class="demo-media"><figure class="gui-panel"><figcaption><span><i class="dot"></i> 识别界面</span><button id="enlarge" class="dark-btn">放大查看</button></figcaption><img id="gui-image" src="assets/trial-00.png" alt="离线模型回放的真实GUI界面，包含脑电波形、预测结果和历史记录"></figure><figure class="video-panel"><figcaption><span>小车实物演示</span><span class="micro" id="video-label">OFFLINE / 01</span></figcaption><video id="car-video" controls playsinline preload="metadata" poster="assets/car.jpg"><source src="assets/offline.mp4" type="video/mp4">浏览器不支持视频，请<a href="assets/offline.mp4">打开演示视频</a>。</video></figure></div><div class="playback-tools"><span id="playback-label">GUI 记录 / 01</span><button id="previous" class="dark-btn" aria-label="上一个GUI记录">← 上一帧</button><button id="next" class="dark-btn" aria-label="下一个GUI记录">下一帧 →</button></div><ol id="demo-steps" class="demo-steps"></ol><div id="terminal-panel" class="terminal-panel" hidden><div class="terminal-title"><span>终端操作 / 启动识别界面</span><button id="copy-command" class="dark-btn">复制命令</button></div><pre><code id="terminal-command">python src/online/main_app.py</code></pre><div class="terminal-settings"><span>运行方式 <b>网络接收</b></span><span>地址 <b>127.0.0.1</b></span><span>端口 <b>65432</b></span><span>操作 <b>开始接收</b></span></div><p>在终端输入启动命令，进入 GUI 选择网络接收，设置数据源地址与端口，持续观察脑电波形和动作预测。</p><span id="copy-status" role="status"></span></div></div></div></details></section>
+<section id="applications" class="section applications"><details class="chapter-accordion"><summary class="chapter-toggle"><span class="chapter-number">05</span><span class="chapter-title">应用前景</span><span class="chapter-icon" aria-hidden="true"></span></summary><div class="chapter-content"><div class="section-heading reveal"><div><h2>临床应用与神经康复前景</h2></div><p>脑电已用于神经诊疗、睡眠检查和围术期监测。<br>本项目最直接的延伸，是面向低表现者的运动想象训练反馈。</p></div>
+<div class="application-feature reveal"><div><h3>神经康复训练反馈机制</h3><p>对于运动功能受限人群，运动想象提供了一条表达训练意图的通道。SDAD-Net 聚焦其中较难解码的使用者，以时空融合和后期适配提高意图识别与达标覆盖，具有作为康复训练解码模块的研究价值。</p><p>以小车验证“脑电 → 意图 → 动作反馈”的通路，再探索面向运动功能受限人群的辅助交互和运动想象训练反馈，是项目面向神经康复的应用方向。</p></div><aside><small>相关产品案例</small><strong>Neurolutions IpsiHand</strong><p>通过非侵入式 EEG 捕捉运动意图，驱动手部装置，服务于符合适应证的慢性卒中上肢康复训练。</p><a class="dark-btn" href="https://www.neurolutions.com/" target="_blank" rel="noopener">官方产品介绍</a><a class="dark-btn" href="https://www.accessdata.fda.gov/cdrh_docs/reviews/DEN200046.pdf" target="_blank" rel="noopener" style="margin-top: 0.5rem;">FDA 适应证资料</a></aside></div>
+<div class="medical-heading"><h3>脑电在医疗场景中的代表性应用</h3><span>领域与产品案例 · 非市场份额排序</span></div>
+<div class="medical-grid"><article class="clinical-card clinical-eeg"><div class="clinical-photo"><span>场景示意</span></div><h3>癫痫与神经监测</h3><p>记录脑电活动，支持异常放电评估、发作观察及长时程神经监测。</p><div class="product-name">Nihon Kohden<br><strong>Neurofax EEG-1200A</strong></div><p class="product-copy">整合 EEG 记录、分析与报告的神经诊断系统。</p><a class="dark-btn" href="https://us.nihonkohden.com/nkweb/en/USD/clinical-solutions/neurological-monitoring/" target="_blank" rel="noopener">厂商神经监测资料</a></article><article class="clinical-card clinical-sleep"><div class="clinical-photo"><span>场景示意</span></div><h3>睡眠医学</h3><p>脑电与眼电、肌电等信号共同用于多导睡眠检查，辅助描述睡眠结构与相关事件。</p><div class="product-name">Natus<br><strong>Embla NDx + SleepWorks</strong></div><p class="product-copy">用于睡眠信号采集、回顾、分析和报告的 PSG 系统。</p><a class="dark-btn" href="https://natus.com/neuro/natus-embla-ndx-psg-amplifier/" target="_blank" rel="noopener">官方产品资料</a></article><article class="clinical-card clinical-monitor"><div class="clinical-photo"><span>场景示意</span></div><h3>麻醉与镇静监测</h3><p>将额部 EEG 转换为处理后的指标与波形，辅助观察麻醉相关脑状态。</p><div class="product-name">Medtronic<br><strong>BIS 脑功能监测系统</strong></div><p class="product-copy">提供处理后的 EEG 信息，结合临床观察支持麻醉监测。</p><a class="dark-btn" href="https://www.medtronic.com/content/dam/medtronic-wide/public/united-states/products/patient-monitoring/bis-monitor-perioperative-brain-monitoring-part1-white-paper.pdf" target="_blank" rel="noopener">厂商 EEG 监测资料</a></article></div>
+<div class="prospect-roadmap"><div><h3 style="margin-bottom: 1.5rem;">以低表现者为中心，连接算法与训练体验。</h3><p style="color: rgba(255, 255, 255, 0.85); line-height: 1.7; margin-bottom: 1.5rem;">应用定位：项目实验使用公开健康受试者运动想象数据，评价的是解码表现；面向患者的应用价值需结合目标人群适用性和临床任务评价。癫痫、睡眠和麻醉产品展示脑电应用生态，其任务与本项目运动意图解码不同。</p></div><ol><li><strong>更广的意图识别覆盖</strong><p>将低表现组的准确率与达标人数共同作为目标，探索更多使用者参与运动想象交互的可能。</p></li><li><strong>可迁移的训练反馈接口</strong><p>以类别概率与动作映射连接虚拟任务和辅助装置，提供清晰、可追溯的任务反馈。</p></li><li><strong>轻量部署与个体追踪</strong><p>推理仅运行学生与固定预处理，结合逐人结果记录，为机构训练和居家辅助场景提供工程基础。</p></li></ol></div>
+</div></details></section>
+</main><footer><a class="brand" href="#problem">EEG<span class="light">Unveil</span></a><span>面向BCI盲的脑控康复训练辅助系统</span><div style="margin-top: 0.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.6);">代码仓库：<a href="https://github.com/ArceeXu/EEGUnveil.git" target="_blank" rel="noopener" style="color: #78c8b3; text-decoration: none;">https://github.com/ArceeXu/EEGUnveil.git</a></div><a href="#problem" style="margin-top: 0.5rem; display: inline-block;">返回顶部 ↑</a></footer>
+<dialog id="image-dialog"><button id="close-dialog" aria-label="关闭大图">关闭 ×</button><img alt="脑电识别GUI放大图"></dialog>
+</body></html>
